@@ -27,20 +27,23 @@ class MontageView: UIView {
     
     private func setConstraints() {
         addSubview(topStackView)
+        
+        //the video stays same height always. Thumbnails shrink in size.
+        videoView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.height.equalTo(250)
+        }
+        
         topStackView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(12)
             make.top.equalTo(self.snp.topMargin)
-            make.height.equalTo(144)
+            make.bottom.equalTo(videoView.snp.top).offset(-10)
         }
         
-        videoView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalTo(topStackView.snp.bottom).offset(5)
-            make.height.equalTo(200)
-        }
-        
-        setLine(startingView: thumbnailViews[0], endingView: thumbnailViews[1])
-        setLine(startingView: thumbnailViews[1], endingView: thumbnailViews[2])
+        setLine(startingView: thumbnailViews[0], endingView: thumbnailViews[1], isHorizontal: true)
+        setLine(startingView: thumbnailViews[1], endingView: thumbnailViews[2], isHorizontal: true)
+        setLine(startingView: thumbnailViews[2], endingView: videoView, isHorizontal: false)
     }
     
     private func setStackViews() {
@@ -62,15 +65,23 @@ class MontageView: UIView {
         return stackView
     }
     
-    private func setLine(startingView: UIView, endingView: UIView) {
+    private func setLine(startingView: UIView, endingView: UIView, isHorizontal: Bool) {
         let line = UIView()
         line.backgroundColor = .white
         addSubview(line)
         line.snp.makeConstraints { make in
-            make.height.equalTo(startingView.layer.borderWidth)
-            make.leading.equalTo(startingView.snp.trailing)
-            make.trailing.equalTo(endingView.snp.leading)
-            make.centerY.equalTo(startingView)
+            if isHorizontal {
+                make.height.equalTo(startingView.layer.borderWidth)
+                make.leading.equalTo(startingView.snp.trailing)
+                make.trailing.equalTo(endingView.snp.leading)
+                make.centerY.equalTo(startingView)
+            } else {
+                //vertical line
+                make.width.equalTo(startingView.layer.borderWidth)
+                make.centerX.equalTo(startingView)
+                make.top.equalTo(startingView.snp.bottom)
+                make.bottom.equalTo(endingView.snp.top)
+            }
         }
     }
     

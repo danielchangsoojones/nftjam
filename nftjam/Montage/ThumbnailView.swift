@@ -46,5 +46,4 @@ class ThumbnailView: UIView {
             make.width.equalTo(nftTag.frame.width)
         }
     }
-    
 }

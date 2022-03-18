@@ -25,7 +25,7 @@ class MontageView: UIView {
     private func setConstraints() {
         addSubview(topStackView)
         topStackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(24)
             make.top.equalTo(self.snp.topMargin)
             make.height.equalTo(144)
         }
@@ -43,8 +43,6 @@ class MontageView: UIView {
         topStackView.addArrangedSubview(thumbnail2)
         topStackView.addArrangedSubview(thumbnail3)
     }
-    
-    
     
     private func createStackView() -> UIStackView {
         let stackView = UIStackView()

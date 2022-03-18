@@ -12,12 +12,15 @@ class MontageView: UIView {
     private var bottomStackView: UIStackView!
     var thumbnailViews: [ThumbnailView] = []
     var videoView = UIView()
+    private var bottomView = UIView()
+    let addButton = CustomButton(title: "Add to Montage")
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStackViews()
         setVideoView()
+        setBottomView()
         setConstraints()
     }
     
@@ -44,6 +47,11 @@ class MontageView: UIView {
             make.leading.trailing.equalTo(topStackView)
             make.height.equalTo(topStackView)
             make.top.equalTo(videoView.snp.bottom).offset(videoVerticalOffset)
+        }
+        
+        bottomView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(bottomStackView.snp.bottom).offset(5)
         }
         
         setLine(startingView: thumbnailViews[0], endingView: thumbnailViews[1], isHorizontal: true)
@@ -136,6 +144,21 @@ class MontageView: UIView {
                 make.leading.equalTo(attachedView.snp.trailing).offset(horizontalOffset)
             }
             make.centerY.equalTo(attachedView)
+        }
+    }
+    
+    private func setBottomView() {
+        bottomView.backgroundColor = UIColor.backgroundGrey
+        bottomView.layer.cornerRadius = 8
+        bottomView.layer.masksToBounds = true
+        bottomView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        addSubview(bottomView)
+        
+        bottomView.addSubview(addButton)
+        addButton.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview().inset(10)
+            make.height.equalTo(40)
         }
     }
 }

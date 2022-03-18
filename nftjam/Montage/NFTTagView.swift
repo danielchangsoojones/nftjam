@@ -53,5 +53,4 @@ class NFTTagView: UIView {
             make.trailing.equalToSuperview().inset(leadingOffset)
         }
     }
-    
 }

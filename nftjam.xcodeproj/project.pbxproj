@@ -15,6 +15,8 @@
 		929D275127E40D3A00455373 /* MontageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D275027E40D3A00455373 /* MontageView.swift */; };
 		929D275327E40E8D00455373 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D275227E40E8D00455373 /* ThumbnailView.swift */; };
 		929D275527E40EC200455373 /* NFTTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D275427E40EC200455373 /* NFTTagView.swift */; };
+		929D275827E44F3A00455373 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D275727E44F3A00455373 /* ColorExtension.swift */; };
+		929D275A27E45ED000455373 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D275927E45ED000455373 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		929D275027E40D3A00455373 /* MontageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontageView.swift; sourceTree = "<group>"; };
 		929D275227E40E8D00455373 /* ThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailView.swift; sourceTree = "<group>"; };
 		929D275427E40EC200455373 /* NFTTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTTagView.swift; sourceTree = "<group>"; };
+		929D275727E44F3A00455373 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		929D275927E45ED000455373 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		E1FDE74F2C073C141CBABB67 /* Pods_nftjam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nftjam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -82,6 +86,7 @@
 		929D273A27E3FCD700455373 /* nftjam */ = {
 			isa = PBXGroup;
 			children = (
+				929D275627E44F0000455373 /* Helpers */,
 				929D274F27E40A5D00455373 /* Montage */,
 				929D273B27E3FCD700455373 /* AppDelegate.swift */,
 				929D274427E3FCD800455373 /* Assets.xcassets */,
@@ -100,6 +105,15 @@
 				929D275427E40EC200455373 /* NFTTagView.swift */,
 			);
 			path = Montage;
+			sourceTree = "<group>";
+		};
+		929D275627E44F0000455373 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				929D275727E44F3A00455373 /* ColorExtension.swift */,
+				929D275927E45ED000455373 /* CustomButton.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +233,8 @@
 				929D275527E40EC200455373 /* NFTTagView.swift in Sources */,
 				929D275127E40D3A00455373 /* MontageView.swift in Sources */,
 				929D275327E40E8D00455373 /* ThumbnailView.swift in Sources */,
+				929D275827E44F3A00455373 /* ColorExtension.swift in Sources */,
+				929D275A27E45ED000455373 /* CustomButton.swift in Sources */,
 				929D274027E3FCD700455373 /* MontageViewController.swift in Sources */,
 				929D273C27E3FCD700455373 /* AppDelegate.swift in Sources */,
 			);

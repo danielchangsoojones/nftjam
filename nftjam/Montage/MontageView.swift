@@ -11,11 +11,13 @@ class MontageView: UIView {
     private var topStackView: UIStackView!
     private var bottomStackView: UIStackView!
     var thumbnailViews: [ThumbnailView] = []
+    var videoView = UIView()
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStackViews()
+        setVideoView()
         setConstraints()
     }
     
@@ -29,6 +31,12 @@ class MontageView: UIView {
             make.leading.trailing.equalToSuperview().inset(12)
             make.top.equalTo(self.snp.topMargin)
             make.height.equalTo(144)
+        }
+        
+        videoView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(topStackView.snp.bottom).offset(5)
+            make.height.equalTo(200)
         }
         
         setLine(startingView: thumbnailViews[0], endingView: thumbnailViews[1])
@@ -63,6 +71,20 @@ class MontageView: UIView {
             make.leading.equalTo(startingView.snp.trailing)
             make.trailing.equalTo(endingView.snp.leading)
             make.centerY.equalTo(startingView)
+        }
+    }
+    
+    private func setVideoView() {
+        videoView.layer.borderWidth = thumbnailViews.first?.layer.borderWidth ?? 4
+        videoView.layer.borderColor = thumbnailViews.first?.layer.borderColor ?? UIColor.white.cgColor
+        videoView.backgroundColor = .red
+        addSubview(videoView)
+        
+        let nftTag = NFTTagView(frame: CGRect(x: 0, y: 0, width: 74, height: 35))
+        videoView.addSubview(nftTag)
+        nftTag.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(4)
+            make.top.equalToSuperview().offset(4)
         }
     }
 }

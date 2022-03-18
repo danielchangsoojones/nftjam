@@ -52,6 +52,9 @@ class MontageView: UIView {
         setLine(startingView: videoView, endingView: thumbnailViews[3], isHorizontal: false)
         setLine(startingView: thumbnailViews[3], endingView: thumbnailViews[4], isHorizontal: true)
         setLine(startingView: thumbnailViews[4], endingView: thumbnailViews[5], isHorizontal: true)
+        
+        setArrow(attachedView: thumbnailViews[0], isLeading: true)
+        setArrow(attachedView: thumbnailViews[5], isLeading: false)
     }
     
     private func setStackViews() {
@@ -115,6 +118,24 @@ class MontageView: UIView {
         nftTag.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(10)
             make.top.equalToSuperview().offset(10)
+        }
+    }
+    
+    private func setArrow(attachedView: UIView, isLeading: Bool) {
+        let img = UIImage(named: "arrow")
+        let arrow = UIImageView(image: img)
+        arrow.contentMode = .scaleAspectFit
+        addSubview(arrow)
+        arrow.snp.makeConstraints { make in
+            let horizontalOffset: CGFloat = 0
+            if isLeading {
+                make.leading.equalToSuperview().offset(horizontalOffset)
+                make.trailing.equalTo(attachedView.snp.leading).offset(horizontalOffset)
+            } else {
+                make.trailing.equalToSuperview().offset(-horizontalOffset)
+                make.leading.equalTo(attachedView.snp.trailing).offset(horizontalOffset)
+            }
+            make.centerY.equalTo(attachedView)
         }
     }
 }

@@ -113,7 +113,7 @@ class MontageView: UIView {
         videoView.backgroundColor = .red
         addSubview(videoView)
         
-        let nftTag = NFTTagView(frame: CGRect(x: 0, y: 0, width: 74, height: 35))
+        let nftTag = NFTTagView(logoDimension: 23, fontSize: 16)
         videoView.addSubview(nftTag)
         nftTag.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(10)

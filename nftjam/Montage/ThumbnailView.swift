@@ -16,7 +16,7 @@ class ThumbnailView: UIView {
         return imgView
     }()
     
-    let nftTag = NFTTagView(frame: CGRect(x: 0, y: 0, width: 40, height: 18))
+    let nftTag = NFTTagView(logoDimension: 14, fontSize: 12)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,8 +42,6 @@ class ThumbnailView: UIView {
         nftTag.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(8)
             make.top.equalToSuperview().offset(8)
-            make.height.equalTo(nftTag.frame.height)
-            make.width.equalTo(nftTag.frame.width)
         }
     }
 }

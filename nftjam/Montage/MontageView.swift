@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
 
 class MontageView: UIView {
     private var topStackView: UIStackView!
@@ -14,7 +15,7 @@ class MontageView: UIView {
     var videoView = UIView()
     private var bottomView = UIView()
     let addButton = CustomButton(title: "Add to Montage")
-    
+    let youtubePlayerView = YTPlayerView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,7 +34,7 @@ class MontageView: UIView {
         videoView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.height.equalTo(250)
+            make.height.equalTo(300)
         }
         
         let videoVerticalOffset: CGFloat = 10
@@ -118,8 +119,12 @@ class MontageView: UIView {
     private func setVideoView() {
         videoView.layer.borderWidth = thumbnailViews.first?.layer.borderWidth ?? 4
         videoView.layer.borderColor = thumbnailViews.first?.layer.borderColor ?? UIColor.white.cgColor
-        videoView.backgroundColor = .red
         addSubview(videoView)
+        
+        videoView.addSubview(youtubePlayerView)
+        youtubePlayerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         let nftTag = NFTTagView(logoDimension: 23, fontSize: 16)
         videoView.addSubview(nftTag)

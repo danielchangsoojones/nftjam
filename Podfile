@@ -7,4 +7,5 @@ target 'nftjam' do
   pod 'TextFieldEffects'
   pod 'BRYXBanner'
   pod 'SCLAlertView'
+  pod 'youtube-ios-player-helper'
 end

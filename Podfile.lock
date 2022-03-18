@@ -1,0 +1,49 @@
+PODS:
+  - Bolts/Tasks (1.9.1)
+  - BRYXBanner (0.8.4)
+  - Parse (1.19.3):
+    - Parse/Core (= 1.19.3)
+  - Parse/Core (1.19.3):
+    - Bolts/Tasks (= 1.9.1)
+  - Parse/UI (1.19.3):
+    - Parse/Core
+  - Reusable (4.1.2):
+    - Reusable/Storyboard (= 4.1.2)
+    - Reusable/View (= 4.1.2)
+  - Reusable/Storyboard (4.1.2)
+  - Reusable/View (4.1.2)
+  - SCLAlertView (0.8)
+  - SnapKit (5.0.1)
+  - TextFieldEffects (1.6.0)
+
+DEPENDENCIES:
+  - BRYXBanner
+  - Parse
+  - Parse/UI
+  - Reusable
+  - SCLAlertView
+  - SnapKit (~> 5.0.0)
+  - TextFieldEffects
+
+SPEC REPOS:
+  trunk:
+    - Bolts
+    - BRYXBanner
+    - Parse
+    - Reusable
+    - SCLAlertView
+    - SnapKit
+    - TextFieldEffects
+
+SPEC CHECKSUMS:
+  Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
+  BRYXBanner: 4fbd266f96ce000e4c6cc9a0558c446bd88d9801
+  Parse: 0abb63a0ff6fa34a3f64b81d595a294e2ece143a
+  Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
+
+PODFILE CHECKSUM: fc5243b814ff3ca7bd7b7676bbffb7446f61ef10
+
+COCOAPODS: 1.11.2

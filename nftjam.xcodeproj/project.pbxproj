@@ -12,6 +12,9 @@
 		929D274027E3FCD700455373 /* MontageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D273F27E3FCD700455373 /* MontageViewController.swift */; };
 		929D274527E3FCD800455373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 929D274427E3FCD800455373 /* Assets.xcassets */; };
 		929D274827E3FCD800455373 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929D274627E3FCD800455373 /* LaunchScreen.storyboard */; };
+		929D275127E40D3A00455373 /* MontageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D275027E40D3A00455373 /* MontageView.swift */; };
+		929D275327E40E8D00455373 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D275227E40E8D00455373 /* ThumbnailView.swift */; };
+		929D275527E40EC200455373 /* NFTTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D275427E40EC200455373 /* NFTTagView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		929D274427E3FCD800455373 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		929D274727E3FCD800455373 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		929D274927E3FCD800455373 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		929D275027E40D3A00455373 /* MontageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontageView.swift; sourceTree = "<group>"; };
+		929D275227E40E8D00455373 /* ThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailView.swift; sourceTree = "<group>"; };
+		929D275427E40EC200455373 /* NFTTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTTagView.swift; sourceTree = "<group>"; };
 		E1FDE74F2C073C141CBABB67 /* Pods_nftjam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nftjam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,6 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				929D273F27E3FCD700455373 /* MontageViewController.swift */,
+				929D275027E40D3A00455373 /* MontageView.swift */,
+				929D275227E40E8D00455373 /* ThumbnailView.swift */,
+				929D275427E40EC200455373 /* NFTTagView.swift */,
 			);
 			path = Montage;
 			sourceTree = "<group>";
@@ -207,6 +216,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929D275527E40EC200455373 /* NFTTagView.swift in Sources */,
+				929D275127E40D3A00455373 /* MontageView.swift in Sources */,
+				929D275327E40E8D00455373 /* ThumbnailView.swift in Sources */,
 				929D274027E3FCD700455373 /* MontageViewController.swift in Sources */,
 				929D273C27E3FCD700455373 /* AppDelegate.swift in Sources */,
 			);

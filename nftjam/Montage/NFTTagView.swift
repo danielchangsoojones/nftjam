@@ -14,6 +14,7 @@ class NFTTagView: UIView {
         label.text = "NFT"
         label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         label.textColor = .white
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -29,6 +30,7 @@ class NFTTagView: UIView {
         backgroundColor = UIColor(red: 187.0 / 255, green: 144.0 / 255, blue: 144.0 / 255, alpha: 1)
         layer.cornerRadius = frame.height / 2
         clipsToBounds = true
+        
         setConstraints()
     }
     
@@ -40,14 +42,14 @@ class NFTTagView: UIView {
         addSubview(logoImgView)
         addSubview(titleLabel)
         logoImgView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(2)
-            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().offset(-2)
+            make.top.bottom.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalTo(logoImgView.snp.trailing)
-            make.trailing.equalToSuperview().inset(5)
+            make.trailing.equalToSuperview().inset(2)
+            make.leading.equalTo(logoImgView.snp.trailing).inset(3)
         }
     }
     

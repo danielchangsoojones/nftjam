@@ -10,6 +10,7 @@ import UIKit
 class MontageView: UIView {
     private var topStackView: UIStackView!
     private var bottomStackView: UIStackView!
+    var thumbnailViews: [ThumbnailView] = []
     
     
     override init(frame: CGRect) {
@@ -25,30 +26,43 @@ class MontageView: UIView {
     private func setConstraints() {
         addSubview(topStackView)
         topStackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(24)
+            make.leading.trailing.equalToSuperview().inset(12)
             make.top.equalTo(self.snp.topMargin)
             make.height.equalTo(144)
         }
+        
+        setLine(startingView: thumbnailViews[0], endingView: thumbnailViews[1])
+        setLine(startingView: thumbnailViews[1], endingView: thumbnailViews[2])
     }
     
     private func setStackViews() {
-        let thumbnail1 = ThumbnailView(frame: CGRect(x: 0, y: 0, width: 94, height: 0))
-        let thumbnail2 = ThumbnailView(frame: CGRect(x: 0, y: 0, width: 94, height: 0))
-        let thumbnail3 = ThumbnailView(frame: CGRect(x: 0, y: 0, width: 94, height: 0))
-        
         topStackView = createStackView()
         bottomStackView = createStackView()
         
-        topStackView.addArrangedSubview(thumbnail1)
-        topStackView.addArrangedSubview(thumbnail2)
-        topStackView.addArrangedSubview(thumbnail3)
+        for _ in 1...3 {
+            let thumbnail = ThumbnailView(frame: CGRect(x: 0, y: 0, width: 94, height: 0))
+            topStackView.addArrangedSubview(thumbnail)
+            thumbnailViews.append(thumbnail)
+        }
     }
     
     private func createStackView() -> UIStackView {
         let stackView = UIStackView()
         stackView.alignment = .fill
-        stackView.distribution = .equalCentering
+        stackView.distribution = .fillEqually
         stackView.spacing = 20
         return stackView
+    }
+    
+    private func setLine(startingView: UIView, endingView: UIView) {
+        let line = UIView()
+        line.backgroundColor = .white
+        addSubview(line)
+        line.snp.makeConstraints { make in
+            make.height.equalTo(startingView.layer.borderWidth)
+            make.leading.equalTo(startingView.snp.trailing)
+            make.trailing.equalTo(endingView.snp.leading)
+            make.centerY.equalTo(startingView)
+        }
     }
 }

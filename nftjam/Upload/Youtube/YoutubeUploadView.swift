@@ -14,7 +14,7 @@ class YoutubeUploadView: UIView {
     let clipTimeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.text = "Choose 20 second of a youtube clip"
+        label.text = "Choose 20 seconds of a youtube clip"
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return label
     }()

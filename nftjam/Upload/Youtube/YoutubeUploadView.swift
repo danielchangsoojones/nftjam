@@ -116,6 +116,7 @@ class YoutubeUploadView: UIView {
         }
         
         let textField = UITextField()
+        textField.keyboardType = .numberPad
         textField.tintColor = .white
         textField.textColor = .white
         textField.font = UIFont.systemFont(ofSize: 20, weight: .light)

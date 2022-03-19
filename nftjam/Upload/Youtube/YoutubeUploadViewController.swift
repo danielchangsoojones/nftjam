@@ -12,6 +12,7 @@ class YoutubeUploadViewController: UIViewController {
     private var youtubePlayerView = YTPlayerView()
     private var linkTextField: UITextField!
     private var startTextField: UITextField!
+    private var endTextField: UITextField!
     
     override func loadView() {
         super.loadView()
@@ -25,13 +26,14 @@ class YoutubeUploadViewController: UIViewController {
                                             action: #selector(submitPressed(_:)),
                                             for: .touchUpInside)
         self.startTextField = ytUploadView.startTextField
+        self.endTextField = ytUploadView.endTextField
         startTextField.delegate = self
-        ytUploadView.endTextField.delegate = self
+        endTextField.delegate = self
         
         //have to add tags
         linkTextField.tag = 0
         startTextField.tag = 1
-        ytUploadView.endTextField.tag = 2
+        endTextField.tag = 2
     }
     
     override func viewDidLoad() {
@@ -97,6 +99,7 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
                 let finalText = text + string
                 if let totalSeconds = convertTimeStrToSeconds(timeStr: finalText) {
                     youtubePlayerView.seek(toSeconds: totalSeconds, allowSeekAhead: true)
+                    updateEndTimeStamp(totalSecondsFloat: totalSeconds)
                 }
             } else if text.count == 4 {
                 var newText = text
@@ -109,6 +112,7 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
                 let finalText = newText + string
                 if let totalSeconds = convertTimeStrToSeconds(timeStr: finalText) {
                     youtubePlayerView.seek(toSeconds: totalSeconds, allowSeekAhead: true)
+                    updateEndTimeStamp(totalSecondsFloat: totalSeconds)
                 }
             }
         }
@@ -128,5 +132,14 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
         }
         
         return nil
+    }
+    
+    private func updateEndTimeStamp(totalSecondsFloat: Float) {
+        let additionalClipTime: Double = 20
+        let totalSeconds = Double(totalSecondsFloat) + additionalClipTime
+        let minutes = Int(floor(totalSeconds / 60))
+        let seconds = Int(totalSeconds.truncatingRemainder(dividingBy: 60))
+        let str = "\(minutes):\(seconds)"
+        endTextField.text = str
     }
 }

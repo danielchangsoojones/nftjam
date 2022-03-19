@@ -23,6 +23,7 @@ class YoutubeUploadView: UIView {
     let startTextField = UITextField()
     let endTextField = UITextField()
     let youtubePlayerView = YTPlayerView()
+    let submitButton = CustomButton(title: "Add NFT Clip to Montage")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,6 +43,7 @@ class YoutubeUploadView: UIView {
         addSubview(startStampContainer)
         addSubview(endStampContainer)
         addSubview(youtubePlayerView)
+        addSubview(submitButton)
         
         clipTimeLabel.snp.makeConstraints { make in
             make.top.equalTo(self.snp.topMargin)
@@ -68,6 +70,12 @@ class YoutubeUploadView: UIView {
             make.leading.trailing.equalTo(clipTimeLabel)
             make.top.equalTo(startStampContainer.snp.bottom).offset(10)
             make.height.equalTo(300)
+        }
+        
+        submitButton.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(clipTimeLabel)
+            make.bottom.equalTo(self.snp.bottomMargin)
+            make.height.equalTo(53)
         }
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 import youtube_ios_player_helper
 
-class MontageViewController: UIViewController, YTPlayerViewDelegate {
+class MontageViewController: UIViewController {
     private var ytPlayerView: YTPlayerView!
     private let videoIDs = ["yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY"]
     
@@ -25,15 +25,10 @@ class MontageViewController: UIViewController, YTPlayerViewDelegate {
         super.viewDidLoad()
         let blue = UIColor(red: 68.0 / 255, green: 64.0 / 255, blue: 175.0 / 255, alpha: 1)
         self.view.backgroundColor = blue
-        
         ytPlayerView.delegate = self
         
         ytPlayerView.load(withVideoId: videoIDs[0], playerVars: ["playsinline": "1"])
         startTimer()
-    }
-    
-    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
-        ytPlayerView.playVideo()
     }
     
     var timer: Timer?
@@ -51,11 +46,27 @@ class MontageViewController: UIViewController, YTPlayerViewDelegate {
     @objc func eventWith(timer: Timer!) {
         let videoID = videoIDs[num]
         num += 1
-        ytPlayerView.load(withVideoId: videoID, playerVars: ["playsinline": "1"])
+        //cueing is better because it doesn't need to reload the iframe
+        ytPlayerView.cueVideo(byId: videoID, startSeconds: 0)
+        ytPlayerView.playVideo()
     }
     
+    
+}
+
+extension MontageViewController: YTPlayerViewDelegate {
     func playerViewPreferredWebViewBackgroundColor(_ playerView: YTPlayerView) -> UIColor {
         return .clear
+    }
+    
+    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
+        ytPlayerView.playVideo()
+    }
+    
+    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
+        if state == .cued {
+            ytPlayerView.playVideo()
+        }
     }
 }
 

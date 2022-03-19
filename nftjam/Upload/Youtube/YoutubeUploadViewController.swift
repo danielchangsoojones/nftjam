@@ -19,10 +19,17 @@ class YoutubeUploadViewController: UIViewController {
         self.youtubePlayerView = ytUploadView.youtubePlayerView
         linkTextField = ytUploadView.linkTextField
         linkTextField.delegate = self
+        ytUploadView.submitButton.addTarget(self,
+                                            action: #selector(submitPressed(_:)),
+                                            for: .touchUpInside)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    @objc private func submitPressed(_ sender: UIButton) {
         
     }
     

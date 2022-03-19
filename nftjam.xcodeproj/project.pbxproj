@@ -72,10 +72,18 @@
 		920614A827E5991800249682 /* Upload */ = {
 			isa = PBXGroup;
 			children = (
+				920614AD27E5B54100249682 /* Youtube */,
+			);
+			path = Upload;
+			sourceTree = "<group>";
+		};
+		920614AD27E5B54100249682 /* Youtube */ = {
+			isa = PBXGroup;
+			children = (
 				920614A927E5993200249682 /* UploadViewController.swift */,
 				920614AB27E5995500249682 /* UploadView.swift */,
 			);
-			path = Upload;
+			path = Youtube;
 			sourceTree = "<group>";
 		};
 		929D272F27E3FCD700455373 = {

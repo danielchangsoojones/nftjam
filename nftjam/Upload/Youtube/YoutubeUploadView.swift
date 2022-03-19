@@ -7,6 +7,7 @@
 
 import UIKit
 import TextFieldEffects
+import youtube_ios_player_helper
 
 class YoutubeUploadView: UIView {
     let linkTextField = HoshiTextField()
@@ -21,12 +22,14 @@ class YoutubeUploadView: UIView {
     private let endStampContainer = UIView()
     let startTextField = UITextField()
     let endTextField = UITextField()
+    let youtubePlayerView = YTPlayerView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.spaceGray
         setLinkTextField()
         setTimeStamps()
+//        youtubePlayerView.isHidden = true
         setConstraints()
     }
     
@@ -38,6 +41,7 @@ class YoutubeUploadView: UIView {
         addSubview(clipTimeLabel)
         addSubview(startStampContainer)
         addSubview(endStampContainer)
+        addSubview(youtubePlayerView)
         
         clipTimeLabel.snp.makeConstraints { make in
             make.top.equalTo(self.snp.topMargin)
@@ -58,6 +62,12 @@ class YoutubeUploadView: UIView {
         endStampContainer.snp.makeConstraints { make in
             make.trailing.equalTo(linkTextField)
             make.bottom.equalTo(startStampContainer)
+        }
+        
+        youtubePlayerView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(clipTimeLabel)
+            make.top.equalTo(startStampContainer.snp.bottom).offset(10)
+            make.height.equalTo(300)
         }
     }
     

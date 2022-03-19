@@ -6,17 +6,21 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
 
 class YoutubeUploadViewController: UIViewController {
+    private var youtubePlayerView = YTPlayerView()
+    
     override func loadView() {
         super.loadView()
-        let youtubeUploadView = YoutubeUploadView(frame: self.view.frame)
-        self.view = youtubeUploadView
+        let ytUploadView = YoutubeUploadView(frame: self.view.frame)
+        self.view = ytUploadView
+        self.youtubePlayerView = ytUploadView.youtubePlayerView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        youtubePlayerView.load(withVideoId: "axn4vu2tT0Y", playerVars: ["playsinline": "1"])
     }
     
     

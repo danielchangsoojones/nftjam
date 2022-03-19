@@ -30,9 +30,15 @@ class MontageViewController: UIViewController {
         self.view.backgroundColor = blue
         ytPlayerView.delegate = self
         
+        //This parameter causes the player to begin playing the video at the given number of seconds from the start of the video. The parameter value is a positive integer
+        //parameter documentation https://developers.google.com/youtube/player_parameters
+        let startTimeSec = 100
         ytPlayerView.load(withVideoId: videoIDs[0], playerVars: ["playsinline": "1",
-                                                                 "rel" : 0,
-                                                                 "controls" : 0
+                                                                 "controls" : 0, //hides controls (play button, etc.)
+                                                                 "cc_load_policy": 0,
+                                                                 "disablekb": 1,
+                                                                 "iv_load_policy": 3,
+                                                                 "start": startTimeSec
                                                                 ])
         startTimer()
     }

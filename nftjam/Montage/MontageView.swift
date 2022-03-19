@@ -153,7 +153,7 @@ class MontageView: UIView {
     }
     
     private func setBottomView() {
-        bottomView.backgroundColor = UIColor.backgroundGrey
+        bottomView.backgroundColor = UIColor.spaceGray
         bottomView.layer.cornerRadius = 8
         bottomView.layer.masksToBounds = true
         bottomView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]

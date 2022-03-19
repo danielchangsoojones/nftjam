@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		37EAF4BEBE29C02380999210 /* Pods_nftjam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FDE74F2C073C141CBABB67 /* Pods_nftjam.framework */; };
-		920614AA27E5993200249682 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920614A927E5993200249682 /* UploadViewController.swift */; };
-		920614AC27E5995500249682 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920614AB27E5995500249682 /* UploadView.swift */; };
+		920614AA27E5993200249682 /* YoutubeUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920614A927E5993200249682 /* YoutubeUploadViewController.swift */; };
+		920614AC27E5995500249682 /* YoutubeUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920614AB27E5995500249682 /* YoutubeUploadView.swift */; };
 		929D273C27E3FCD700455373 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D273B27E3FCD700455373 /* AppDelegate.swift */; };
 		929D274027E3FCD700455373 /* MontageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D273F27E3FCD700455373 /* MontageViewController.swift */; };
 		929D274527E3FCD800455373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 929D274427E3FCD800455373 /* Assets.xcassets */; };
@@ -24,8 +24,8 @@
 /* Begin PBXFileReference section */
 		2B0A364314E3A281984A3AA7 /* Pods-nftjam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nftjam.debug.xcconfig"; path = "Target Support Files/Pods-nftjam/Pods-nftjam.debug.xcconfig"; sourceTree = "<group>"; };
 		3AB9FED266ACD2F5F52957C3 /* Pods-nftjam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nftjam.release.xcconfig"; path = "Target Support Files/Pods-nftjam/Pods-nftjam.release.xcconfig"; sourceTree = "<group>"; };
-		920614A927E5993200249682 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
-		920614AB27E5995500249682 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
+		920614A927E5993200249682 /* YoutubeUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeUploadViewController.swift; sourceTree = "<group>"; };
+		920614AB27E5995500249682 /* YoutubeUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeUploadView.swift; sourceTree = "<group>"; };
 		929D273827E3FCD700455373 /* nftjam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nftjam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		929D273B27E3FCD700455373 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		929D273F27E3FCD700455373 /* MontageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontageViewController.swift; sourceTree = "<group>"; };
@@ -80,8 +80,8 @@
 		920614AD27E5B54100249682 /* Youtube */ = {
 			isa = PBXGroup;
 			children = (
-				920614A927E5993200249682 /* UploadViewController.swift */,
-				920614AB27E5995500249682 /* UploadView.swift */,
+				920614A927E5993200249682 /* YoutubeUploadViewController.swift */,
+				920614AB27E5995500249682 /* YoutubeUploadView.swift */,
 			);
 			path = Youtube;
 			sourceTree = "<group>";
@@ -252,9 +252,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				920614AC27E5995500249682 /* UploadView.swift in Sources */,
+				920614AC27E5995500249682 /* YoutubeUploadView.swift in Sources */,
 				929D275527E40EC200455373 /* NFTTagView.swift in Sources */,
-				920614AA27E5993200249682 /* UploadViewController.swift in Sources */,
+				920614AA27E5993200249682 /* YoutubeUploadViewController.swift in Sources */,
 				929D275127E40D3A00455373 /* MontageView.swift in Sources */,
 				929D275327E40E8D00455373 /* ThumbnailView.swift in Sources */,
 				929D275827E44F3A00455373 /* ColorExtension.swift in Sources */,

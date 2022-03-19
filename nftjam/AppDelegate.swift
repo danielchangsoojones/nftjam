@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setStartingVC() {
-        let vc = MontageViewController()
+        let vc = YoutubeUploadViewController()
         let navController = UINavigationController(rootViewController: vc)
         set(startingVC: navController)
     }

@@ -19,6 +19,9 @@ class MontageViewController: UIViewController {
         let montageView = MontageView(frame: self.view.frame)
         self.view = montageView
         ytPlayerView = montageView.youtubePlayerView
+        montageView.addButton.addTarget(self,
+                                        action: #selector(addButtonPressed),
+                                        for: .touchUpInside)
     }
     
     override func viewDidLoad() {
@@ -54,7 +57,11 @@ class MontageViewController: UIViewController {
         ytPlayerView.playVideo()
     }
     
-    
+    @objc private func addButtonPressed() {
+        let uploadVC = YoutubeUploadViewController()
+        let navController = UINavigationController(rootViewController: uploadVC)
+        present(navController, animated: true)
+    }
 }
 
 extension MontageViewController: YTPlayerViewDelegate {

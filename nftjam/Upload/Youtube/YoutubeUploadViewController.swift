@@ -12,7 +12,6 @@ class YoutubeUploadViewController: UIViewController {
     private var youtubePlayerView = YTPlayerView()
     private var linkTextField: UITextField!
     private var startTextField: UITextField!
-    private var hasLoadedYoutubeOnce = false
     
     override func loadView() {
         super.loadView()
@@ -37,7 +36,7 @@ class YoutubeUploadViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        youtubePlayerView.load(withPlayerParams: ["playsinline": "1"])
     }
     
     @objc private func submitPressed(_ sender: UIButton) {
@@ -64,12 +63,7 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
     
     private func handleMediaLinkTextField(replacementString string: String) {
         if !string.isEmpty {
-            if hasLoadedYoutubeOnce {
-                youtubePlayerView.cueVideo(byId: "axn4vu2tT0Y", startSeconds: 100, endSeconds: 140)
-            } else {
-                hasLoadedYoutubeOnce = true
-                youtubePlayerView.load(withVideoId: "axn4vu2tT0Y", playerVars: ["playsinline": "1"])
-            }
+            youtubePlayerView.cueVideo(byId: "axn4vu2tT0Y", startSeconds: 100, endSeconds: 140)
             youtubePlayerView.isHidden = false
         }
     }

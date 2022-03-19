@@ -63,9 +63,24 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
     
     private func handleMediaLinkTextField(replacementString string: String) {
         if !string.isEmpty {
-            youtubePlayerView.cueVideo(byId: "axn4vu2tT0Y", startSeconds: 100, endSeconds: 140)
+            if let videoID = getIDFromYoutube(url: string) {
+                youtubePlayerView.cueVideo(byId: videoID, startSeconds: 100, endSeconds: 140)
+            }
+            
             youtubePlayerView.isHidden = false
         }
+    }
+    
+    private func getIDFromYoutube(url: String) -> String? {
+        let isYoutubeLink = url.lowercased().contains("youtube")
+        if let url = URLComponents(string: url), let queryItems = url.queryItems, isYoutubeLink {
+            let videoIDItem = queryItems.first { item in
+                return item.name == "v"
+            }
+            return videoIDItem?.value
+        }
+        
+        return nil
     }
 
     private func handleTimeStamp(textField: UITextField, replacementString string: String) {

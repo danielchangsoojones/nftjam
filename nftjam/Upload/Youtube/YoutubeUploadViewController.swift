@@ -84,8 +84,18 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
     }
 
     private func handleTimeStamp(textField: UITextField, replacementString string: String) {
-        if let text = textField.text, text.count == 2, !string.isEmpty {
-            textField.text = text + ":"
+        if let text = textField.text, !string.isEmpty {
+            if text.count == 1 {
+                //when it just has one number
+                textField.text = text + ":"
+            } else if text.count == 4 {
+                var textCopy = text
+                textCopy.removeAll { char in
+                    return char == ":"
+                }
+                textCopy.insert(":", at: text.index(text.startIndex, offsetBy: 2))
+                textField.text = textCopy
+            }
         }
     }
 }

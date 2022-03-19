@@ -10,7 +10,6 @@ import youtube_ios_player_helper
 
 class MontageViewController: UIViewController, YTPlayerViewDelegate {
     private var ytPlayerView: YTPlayerView!
-//    private var ytPlayerView2 = YTPlayerView()
     private let videoIDs = ["yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY"]
     
 //    private let videoIDs = ["XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k"]
@@ -41,7 +40,7 @@ class MontageViewController: UIViewController, YTPlayerViewDelegate {
     var num = 1
     
     func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 20.0,
+        timer = Timer.scheduledTimer(timeInterval: 15.0,
                                      target: self,
                                      selector: #selector(eventWith(timer:)),
                                      userInfo: [ "foo" : "bar" ],
@@ -52,7 +51,6 @@ class MontageViewController: UIViewController, YTPlayerViewDelegate {
     @objc func eventWith(timer: Timer!) {
         let videoID = videoIDs[num]
         num += 1
-        
         ytPlayerView.load(withVideoId: videoID, playerVars: ["playsinline": "1"])
     }
     

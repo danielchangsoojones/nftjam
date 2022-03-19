@@ -14,7 +14,7 @@ class MontageView: UIView {
     var thumbnailViews: [ThumbnailView] = []
     var videoView = UIView()
     private var bottomView = UIView()
-    let addButton = CustomButton(title: "Add to Montage")
+    let addButton = CustomButton(title: "Add NFT to Montage")
     let youtubePlayerView = YTPlayerView()
     
     override init(frame: CGRect) {

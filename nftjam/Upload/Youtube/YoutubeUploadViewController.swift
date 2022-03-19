@@ -36,7 +36,11 @@ class YoutubeUploadViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        youtubePlayerView.load(withPlayerParams: ["playsinline": "1"])
+        //parameter documentation https://developers.google.com/youtube/player_parameters
+        youtubePlayerView.load(withPlayerParams: ["playsinline": "1",
+                                                  "cc_load_policy": 0,
+                                                  "disablekb": 1,
+                                                  "iv_load_policy": 3])
     }
     
     @objc private func submitPressed(_ sender: UIButton) {
@@ -64,7 +68,7 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
     private func handleMediaLinkTextField(replacementString string: String) {
         if !string.isEmpty {
             if let videoID = getIDFromYoutube(url: string) {
-                youtubePlayerView.cueVideo(byId: videoID, startSeconds: 100, endSeconds: 140)
+                youtubePlayerView.cueVideo(byId: videoID, startSeconds: 0)
             }
             
             youtubePlayerView.isHidden = false
@@ -87,15 +91,42 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
         if let text = textField.text, !string.isEmpty {
             if text.count == 1 {
                 //when it just has one number
-                textField.text = text + ":"
+                let newText = text + ":"
+                textField.text = newText
+            } else if text.count == 3 {
+                let finalText = text + string
+                if let totalSeconds = convertTimeStrToSeconds(timeStr: finalText) {
+                    youtubePlayerView.seek(toSeconds: totalSeconds, allowSeekAhead: true)
+                }
             } else if text.count == 4 {
-                var textCopy = text
-                textCopy.removeAll { char in
+                var newText = text
+                newText.removeAll { char in
                     return char == ":"
                 }
-                textCopy.insert(":", at: text.index(text.startIndex, offsetBy: 2))
-                textField.text = textCopy
+                newText.insert(":", at: text.index(text.startIndex, offsetBy: 2))
+                textField.text = newText
+
+                let finalText = newText + string
+                if let totalSeconds = convertTimeStrToSeconds(timeStr: finalText) {
+                    youtubePlayerView.seek(toSeconds: totalSeconds, allowSeekAhead: true)
+                }
             }
         }
+    }
+    
+    private func convertTimeStrToSeconds(timeStr: String) -> Float? {
+        let components = timeStr.components(separatedBy: ":")
+        if components.count == 2, let minutes = Float(components[0]), let seconds = Float(components[1]) {
+            if seconds > 60 {
+                //sometimes they might type 84, so they can get to 58:40
+                //so that means the seconds are not ready to calculate yet
+                return nil
+            } else {
+                let totalSeconds = minutes * 60 + seconds
+                return totalSeconds
+            }
+        }
+        
+        return nil
     }
 }

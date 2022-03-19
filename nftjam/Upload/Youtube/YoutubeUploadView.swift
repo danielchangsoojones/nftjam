@@ -96,15 +96,17 @@ class YoutubeUploadView: UIView {
         setTimeStampContainer(title: "Start:",
                               containerView: startStampContainer,
                               placeholder: "00:00",
-                              textField: startTextField)
+                              textField: startTextField,
+                              shouldEnable: true)
         
         setTimeStampContainer(title: "End:",
                               containerView: endStampContainer,
                               placeholder: "00:20",
-                              textField: endTextField)
+                              textField: endTextField,
+                              shouldEnable: false)
     }
     
-    private func setTimeStampContainer(title: String, containerView: UIView, placeholder: String, textField: UITextField) {
+    private func setTimeStampContainer(title: String, containerView: UIView, placeholder: String, textField: UITextField, shouldEnable: Bool) {
         let label = UILabel()
         label.font = .systemFont(ofSize: 19, weight: .light)
         label.textColor = .white
@@ -125,6 +127,7 @@ class YoutubeUploadView: UIView {
             string: placeholder,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
+        textField.isEnabled = shouldEnable
         containerView.addSubview(textField)
         textField.snp.makeConstraints { make in
             make.leading.equalTo(label.snp.trailing).offset(5)

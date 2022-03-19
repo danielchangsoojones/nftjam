@@ -27,7 +27,10 @@ class MontageViewController: UIViewController {
         self.view.backgroundColor = blue
         ytPlayerView.delegate = self
         
-        ytPlayerView.load(withVideoId: videoIDs[0], playerVars: ["playsinline": "1"])
+        ytPlayerView.load(withVideoId: videoIDs[0], playerVars: ["playsinline": "1",
+                                                                 "rel" : 0,
+                                                                 "controls" : 0
+                                                                ])
         startTimer()
     }
     

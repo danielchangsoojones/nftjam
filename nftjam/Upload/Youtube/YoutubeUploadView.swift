@@ -115,7 +115,6 @@ class YoutubeUploadView: UIView {
             make.top.bottom.equalToSuperview()
         }
         
-        let textField = UITextField()
         textField.keyboardType = .numberPad
         textField.tintColor = .white
         textField.textColor = .white

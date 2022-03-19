@@ -30,7 +30,7 @@ class YoutubeUploadView: UIView {
         backgroundColor = UIColor.spaceGray
         setLinkTextField()
         setTimeStamps()
-//        youtubePlayerView.isHidden = true
+        youtubePlayerView.isHidden = true
         setConstraints()
     }
     
@@ -88,7 +88,7 @@ class YoutubeUploadView: UIView {
         linkTextField.autocorrectionType = .no
         linkTextField.autocapitalizationType = .none
         linkTextField.spellCheckingType = .no
-        linkTextField.placeholder = "Enter youtube link"
+        linkTextField.placeholder = "Paste a youtube link"
         addSubview(linkTextField)
     }
     

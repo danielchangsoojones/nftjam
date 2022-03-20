@@ -69,7 +69,7 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
     
     private func handleMediaLinkTextField(replacementString string: String) {
         if !string.isEmpty {
-            if let videoID = getIDFromYoutube(url: string) {
+            if let videoID = getIDFromYoutube(link: string) {
                 youtubePlayerView.cueVideo(byId: videoID, startSeconds: 0)
             }
             
@@ -77,13 +77,24 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
         }
     }
     
-    private func getIDFromYoutube(url: String) -> String? {
-        let isYoutubeLink = url.lowercased().contains("youtube")
-        if let url = URLComponents(string: url), let queryItems = url.queryItems, isYoutubeLink {
-            let videoIDItem = queryItems.first { item in
-                return item.name == "v"
+    private func getIDFromYoutube(link: String) -> String? {
+        if let url = URLComponents(string: link) {
+            //when you copy on iOS youtube app on a phone, it gives this weird youtube url
+            let isYoutubeAppShareLink = link.lowercased().contains("youtu.be")
+            let isWebYoutubeLink = link.lowercased().contains("youtube.com/watch?v=")
+            if isYoutubeAppShareLink {
+                //the path starts with a backslash
+                var pathCopy = url.path
+                pathCopy.removeAll { char in
+                    return char == "/"
+                }
+                return pathCopy
+            } else if let queryItems = url.queryItems, isWebYoutubeLink {
+                let videoIDItem = queryItems.first { item in
+                    return item.name == "v"
+                }
+                return videoIDItem?.value
             }
-            return videoIDItem?.value
         }
         
         return nil

@@ -88,6 +88,7 @@ class YoutubeUploadView: UIView {
         linkTextField.autocorrectionType = .no
         linkTextField.autocapitalizationType = .none
         linkTextField.spellCheckingType = .no
+        linkTextField.clearButtonMode = .whileEditing
         linkTextField.placeholder = "Paste a youtube link"
         addSubview(linkTextField)
     }

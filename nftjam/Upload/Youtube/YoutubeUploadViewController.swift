@@ -47,7 +47,12 @@ class YoutubeUploadViewController: UIViewController {
     }
     
     @objc private func submitPressed(_ sender: UIButton) {
-        
+        if let youtubeLink = linkTextField.text, let startTime = startTextField.text {
+            let startTimeSeconds = convertTimeStrToSeconds(timeStr: startTime)
+            let endTimeSeconds = (startTimeSeconds ?? 0) + 20
+            let youtubeID = getIDFromYoutube(link: youtubeLink)
+            
+        }
     }
 }
 
@@ -123,44 +128,6 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
             youtubePlayerView.seek(toSeconds: totalSeconds, allowSeekAhead: true)
             updateEndTimeStamp(totalSecondsFloat: totalSeconds)
         }
-        
-        
-        
-        
-//        if (textField.text?.isEmpty ?? true) {
-//            //the first typed number. Format for 1 seconds = 00:01
-//            textField.text = "00:0"
-//        } else if var text = textField.text, !string.isEmpty {
-//            if text.count == 1 {
-//                //when it just has one number
-//                text.removeAll { char in
-//                    return char == "0" || char == ":"
-//                }
-//                let newText = "00:\(text)"
-////                let newText = "00:\(text) + ":"
-//                textField.text = newText
-//
-//            } else if text.count == 3 {
-//                let finalText = text + string
-//                if let totalSeconds = convertTimeStrToSeconds(timeStr: finalText) {
-//                    youtubePlayerView.seek(toSeconds: totalSeconds, allowSeekAhead: true)
-//                    updateEndTimeStamp(totalSecondsFloat: totalSeconds)
-//                }
-//            } else if text.count == 4 {
-//                var newText = text
-//                newText.removeAll { char in
-//                    return char == ":"
-//                }
-//                newText.insert(":", at: text.index(text.startIndex, offsetBy: 2))
-//                textField.text = newText
-//
-//                let finalText = newText + string
-//                if let totalSeconds = convertTimeStrToSeconds(timeStr: finalText) {
-//                    youtubePlayerView.seek(toSeconds: totalSeconds, allowSeekAhead: true)
-//                    updateEndTimeStamp(totalSecondsFloat: totalSeconds)
-//                }
-//            }
-//        }
     }
     
     private func convertTimeStrToSeconds(timeStr: String) -> Float? {

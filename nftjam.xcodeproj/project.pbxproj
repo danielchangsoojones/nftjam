@@ -19,6 +19,8 @@
 		929D275527E40EC200455373 /* NFTTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D275427E40EC200455373 /* NFTTagView.swift */; };
 		929D275827E44F3A00455373 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D275727E44F3A00455373 /* ColorExtension.swift */; };
 		929D275A27E45ED000455373 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D275927E45ED000455373 /* CustomButton.swift */; };
+		92C64F4C27E850150007BA24 /* EthAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F4B27E850150007BA24 /* EthAddressViewController.swift */; };
+		92C64F4E27E850250007BA24 /* EthAdressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F4D27E850250007BA24 /* EthAdressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		929D275427E40EC200455373 /* NFTTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTTagView.swift; sourceTree = "<group>"; };
 		929D275727E44F3A00455373 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		929D275927E45ED000455373 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		92C64F4B27E850150007BA24 /* EthAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAddressViewController.swift; sourceTree = "<group>"; };
+		92C64F4D27E850250007BA24 /* EthAdressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAdressView.swift; sourceTree = "<group>"; };
 		E1FDE74F2C073C141CBABB67 /* Pods_nftjam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nftjam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -72,6 +76,7 @@
 		920614A827E5991800249682 /* Upload */ = {
 			isa = PBXGroup;
 			children = (
+				92C64F4A27E845790007BA24 /* Eth Address */,
 				920614AD27E5B54100249682 /* Youtube */,
 			);
 			path = Upload;
@@ -136,6 +141,15 @@
 				929D275927E45ED000455373 /* CustomButton.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		92C64F4A27E845790007BA24 /* Eth Address */ = {
+			isa = PBXGroup;
+			children = (
+				92C64F4B27E850150007BA24 /* EthAddressViewController.swift */,
+				92C64F4D27E850250007BA24 /* EthAdressView.swift */,
+			);
+			path = "Eth Address";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +273,10 @@
 				929D275327E40E8D00455373 /* ThumbnailView.swift in Sources */,
 				929D275827E44F3A00455373 /* ColorExtension.swift in Sources */,
 				929D275A27E45ED000455373 /* CustomButton.swift in Sources */,
+				92C64F4E27E850250007BA24 /* EthAdressView.swift in Sources */,
 				929D274027E3FCD700455373 /* MontageViewController.swift in Sources */,
 				929D273C27E3FCD700455373 /* AppDelegate.swift in Sources */,
+				92C64F4C27E850150007BA24 /* EthAddressViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

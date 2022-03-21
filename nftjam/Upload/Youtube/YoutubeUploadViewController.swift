@@ -13,6 +13,7 @@ class YoutubeUploadViewController: UIViewController {
     private var linkTextField: UITextField!
     private var startTextField: UITextField!
     private var endTextField: UITextField!
+    private var typedNums: [String] = []
     
     override func loadView() {
         super.loadView()
@@ -55,8 +56,14 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
         if textField.tag == 0 {
             handleMediaLinkTextField(replacementString: string)
         } else {
-            let textCount = textField.text?.count ?? 0
-            if textCount == 5  && !string.isEmpty {
+            if !string.isEmpty {
+                typedNums.append(string)
+            }
+            
+            if string.isEmpty && !typedNums.isEmpty {
+                //user just backspaced when replacement string is empty
+                typedNums.removeLast()
+            } else if typedNums.count > 4 {
                 return false
             } else {
                 handleTimeStamp(textField: textField,
@@ -101,32 +108,59 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
     }
 
     private func handleTimeStamp(textField: UITextField, replacementString string: String) {
-        if let text = textField.text, !string.isEmpty {
-            if text.count == 1 {
-                //when it just has one number
-                let newText = text + ":"
-                textField.text = newText
-            } else if text.count == 3 {
-                let finalText = text + string
-                if let totalSeconds = convertTimeStrToSeconds(timeStr: finalText) {
-                    youtubePlayerView.seek(toSeconds: totalSeconds, allowSeekAhead: true)
-                    updateEndTimeStamp(totalSecondsFloat: totalSeconds)
-                }
-            } else if text.count == 4 {
-                var newText = text
-                newText.removeAll { char in
-                    return char == ":"
-                }
-                newText.insert(":", at: text.index(text.startIndex, offsetBy: 2))
-                textField.text = newText
-
-                let finalText = newText + string
-                if let totalSeconds = convertTimeStrToSeconds(timeStr: finalText) {
-                    youtubePlayerView.seek(toSeconds: totalSeconds, allowSeekAhead: true)
-                    updateEndTimeStamp(totalSecondsFloat: totalSeconds)
-                }
-            }
+        if typedNums.count == 1 {
+            textField.text = "00:0"
+        } else if typedNums.count == 2 {
+            textField.text = "00:\(typedNums[0])"
+        } else if typedNums.count == 3 {
+            textField.text = "0\(typedNums[0]):\(typedNums[1])"
+        } else if typedNums.count == 4 {
+            textField.text = "\(typedNums[0])\(typedNums[1]):\(typedNums[2])"
         }
+        
+        let finalText = (textField.text ?? "") + string
+        if let totalSeconds = convertTimeStrToSeconds(timeStr: finalText) {
+            youtubePlayerView.seek(toSeconds: totalSeconds, allowSeekAhead: true)
+            updateEndTimeStamp(totalSecondsFloat: totalSeconds)
+        }
+        
+        
+        
+        
+//        if (textField.text?.isEmpty ?? true) {
+//            //the first typed number. Format for 1 seconds = 00:01
+//            textField.text = "00:0"
+//        } else if var text = textField.text, !string.isEmpty {
+//            if text.count == 1 {
+//                //when it just has one number
+//                text.removeAll { char in
+//                    return char == "0" || char == ":"
+//                }
+//                let newText = "00:\(text)"
+////                let newText = "00:\(text) + ":"
+//                textField.text = newText
+//
+//            } else if text.count == 3 {
+//                let finalText = text + string
+//                if let totalSeconds = convertTimeStrToSeconds(timeStr: finalText) {
+//                    youtubePlayerView.seek(toSeconds: totalSeconds, allowSeekAhead: true)
+//                    updateEndTimeStamp(totalSecondsFloat: totalSeconds)
+//                }
+//            } else if text.count == 4 {
+//                var newText = text
+//                newText.removeAll { char in
+//                    return char == ":"
+//                }
+//                newText.insert(":", at: text.index(text.startIndex, offsetBy: 2))
+//                textField.text = newText
+//
+//                let finalText = newText + string
+//                if let totalSeconds = convertTimeStrToSeconds(timeStr: finalText) {
+//                    youtubePlayerView.seek(toSeconds: totalSeconds, allowSeekAhead: true)
+//                    updateEndTimeStamp(totalSecondsFloat: totalSeconds)
+//                }
+//            }
+//        }
     }
     
     private func convertTimeStrToSeconds(timeStr: String) -> Float? {

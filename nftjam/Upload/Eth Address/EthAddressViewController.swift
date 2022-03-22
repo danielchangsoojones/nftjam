@@ -8,8 +8,12 @@ import UIKit
 import TTTAttributedLabel
 import SCLAlertView
 
-class EthAddressViewController: UIViewController {
+class EthAddressViewController: UploadViewController {
     private let youtubeUpload: YoutubeUpload
+    
+    override var uploadView: UploadView {
+        return EthAdressView(frame: self.view.frame)
+    }
     
     init(youtubeUpload: YoutubeUpload) {
         self.youtubeUpload = youtubeUpload

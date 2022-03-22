@@ -9,16 +9,7 @@ import UIKit
 import TextFieldEffects
 import TTTAttributedLabel
 
-class EthAdressView: UIView {
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Enter Your Ethereum Address"
-        label.font = .systemFont(ofSize: 22, weight: .bold)
-        label.textColor = .white
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-    
+class EthAdressView: UploadView {
     private let addressTextField: UITextField = {
         let textField = UITextField()
         textField.font = UIFont.systemFont(ofSize: 16, weight: .light)
@@ -57,14 +48,11 @@ class EthAdressView: UIView {
         return tLabel
     }()
     
-    let submitButton: CustomButton = {
-        let button = CustomButton(title: "Next")
-        return button
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .spaceGray
+        titleLabel.text = "Enter your Ethereum Address"
+        submitButton.setTitle("Next", for: .normal)
         setConstraints()
     }
     
@@ -72,17 +60,11 @@ class EthAdressView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setConstraints() {
-        addSubview(titleLabel)
+    internal override func setConstraints() {
+        super.setConstraints()
         addSubview(addressTextField)
         addSubview(line)
         addSubview(descriptionLabel)
-        addSubview(submitButton)
-        
-        titleLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(10)
-            make.top.equalTo(self.snp.topMargin)
-        }
         
         addressTextField.snp.makeConstraints { make in
             make.leading.trailing.equalTo(titleLabel)
@@ -99,12 +81,6 @@ class EthAdressView: UIView {
         descriptionLabel.snp.makeConstraints { make in
             make.leading.trailing.equalTo(addressTextField)
             make.top.equalTo(addressTextField.snp.bottom).offset(10)
-        }
-        
-        submitButton.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(titleLabel)
-            make.bottom.equalTo(self.snp.bottomMargin).inset(20)
-            make.height.equalTo(53)
         }
     }
 }

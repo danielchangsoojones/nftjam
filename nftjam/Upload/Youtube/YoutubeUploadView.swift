@@ -9,25 +9,18 @@ import UIKit
 import TextFieldEffects
 import youtube_ios_player_helper
 
-class YoutubeUploadView: UIView {
+class YoutubeUploadView: UploadView {
     let linkTextField = HoshiTextField()
-    let clipTimeLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.text = "Choose 20 seconds of a youtube clip"
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        return label
-    }()
     private let startStampContainer = UIView()
     private let endStampContainer = UIView()
     let startTextField = UITextField()
     let endTextField = UITextField()
     let youtubePlayerView = YTPlayerView()
-    let submitButton = CustomButton(title: "Add NFT Clip to Montage")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.spaceGray
+        titleLabel.text = "Choose 20 seconds of a youtube clip"
         setLinkTextField()
         setTimeStamps()
         youtubePlayerView.isHidden = true
@@ -38,22 +31,18 @@ class YoutubeUploadView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setConstraints() {
-        addSubview(clipTimeLabel)
+    override func setConstraints() {
+        super.setConstraints()
+        addSubview(linkTextField)
         addSubview(startStampContainer)
         addSubview(endStampContainer)
         addSubview(youtubePlayerView)
         addSubview(submitButton)
         
-        clipTimeLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.snp.topMargin)
-            make.leading.trailing.equalToSuperview().inset(15)
-        }
-        
         linkTextField.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(clipTimeLabel)
+            make.leading.trailing.equalTo(titleLabel)
             make.height.equalTo(60)
-            make.top.equalTo(clipTimeLabel.snp.bottom).offset(10)
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
         }
         
         startStampContainer.snp.makeConstraints { make in
@@ -67,15 +56,9 @@ class YoutubeUploadView: UIView {
         }
         
         youtubePlayerView.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(clipTimeLabel)
+            make.leading.trailing.equalTo(titleLabel)
             make.top.equalTo(startStampContainer.snp.bottom).offset(10)
             make.height.equalTo(300)
-        }
-        
-        submitButton.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(clipTimeLabel)
-            make.bottom.equalTo(self.snp.bottomMargin)
-            make.height.equalTo(53)
         }
     }
     
@@ -90,7 +73,6 @@ class YoutubeUploadView: UIView {
         linkTextField.spellCheckingType = .no
         linkTextField.clearButtonMode = .whileEditing
         linkTextField.placeholder = "Paste a youtube link"
-        addSubview(linkTextField)
     }
     
     private func setTimeStamps() {

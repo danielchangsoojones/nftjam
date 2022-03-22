@@ -22,33 +22,34 @@ class YoutubeUpload {
     }
 }
 
-class YoutubeUploadViewController: UIViewController {
+class YoutubeUploadViewController: UploadViewController {
     private var youtubePlayerView = YTPlayerView()
     private var linkTextField: UITextField!
     private var startTextField: UITextField!
     private var endTextField: UITextField!
     private var typedNums: [String] = []
     
+    override var uploadView: UploadView {
+        return YoutubeUploadView(frame: self.view.frame)
+    }
+    
     override func loadView() {
         super.loadView()
-        let ytUploadView = YoutubeUploadView(frame: self.view.frame)
-        self.view = ytUploadView
-        self.youtubePlayerView = ytUploadView.youtubePlayerView
-        youtubePlayerView.delegate = self
-        linkTextField = ytUploadView.linkTextField
-        linkTextField.delegate = self
-        ytUploadView.submitButton.addTarget(self,
-                                            action: #selector(submitPressed(_:)),
-                                            for: .touchUpInside)
-        self.startTextField = ytUploadView.startTextField
-        self.endTextField = ytUploadView.endTextField
-        startTextField.delegate = self
-        endTextField.delegate = self
-        
-        //have to add tags
-        linkTextField.tag = 0
-        startTextField.tag = 1
-        endTextField.tag = 2
+        if let ytUploadView = self.view as? YoutubeUploadView {
+            self.youtubePlayerView = ytUploadView.youtubePlayerView
+            youtubePlayerView.delegate = self
+            linkTextField = ytUploadView.linkTextField
+            linkTextField.delegate = self
+            self.startTextField = ytUploadView.startTextField
+            self.endTextField = ytUploadView.endTextField
+            startTextField.delegate = self
+            endTextField.delegate = self
+            
+            //have to add tags
+            linkTextField.tag = 0
+            startTextField.tag = 1
+            endTextField.tag = 2
+        }        
     }
     
     override func viewDidLoad() {
@@ -60,7 +61,7 @@ class YoutubeUploadViewController: UIViewController {
                                                   "iv_load_policy": 3])
     }
     
-    @objc private func submitPressed(_ sender: UIButton) {
+    override func submit() {
         if let youtubeLink = linkTextField.text, let startTime = startTextField.text {
             let startTimeSeconds = convertTimeStrToSeconds(timeStr: startTime)
             let endTimeSeconds = (startTimeSeconds ?? 0) + 20

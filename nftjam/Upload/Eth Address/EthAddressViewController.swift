@@ -39,7 +39,7 @@ class EthAddressViewController: UploadViewController {
 extension EthAddressViewController: TTTAttributedLabelDelegate {
     func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
         let alertView = SCLAlertView()
-        let subtitle = "When you add your public ETH address. We have a manual process to send your earnings to your Ethereum address. Everytime someone adds an NFT to your montage, you will receive a portion of that NFT's price. In the beta, we will send you ETH manually for every added NFT to your montage.\n\nHowever, we are currently working on an automated smart contract (which we will get audited by a top smart contract auditor). You will eventually be able to log in with Metamask, and access the smart contract instantly.\n\nIf you have questions, please email us at danieljones@mintnfttube.com"
+        let subtitle = "In the beta, your ETH address will be used to receive earnings made by your NFT.The amount paid to mint a new token is divided equally amongst all previous token holders. Everytime an artist joins your montage, we will manually direct ETH to your wallet.\n\nSoon, we will develop an automated smart contract (it will be audited by a top smart contract auditor). When complete, you will be able to log in with Metamask, and access the smart contract instantly.\nFor questions, email danieljones@mintnfttube.com"
         alertView.showInfo("Why input your ETH Address?", subTitle: subtitle)
     }
 }

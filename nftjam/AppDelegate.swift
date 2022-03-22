@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setStartingVC() {
-        let vc = MontageViewController()
+        let vc = SendEthViewController(youtubeUpload: YoutubeUpload(startTimeSeconds: 0, endTimeSeconds: 0, youtubeID: "hiii", mediaLink: "hi"))
         let navController = UINavigationController(rootViewController: vc)
         set(startingVC: navController)
     }

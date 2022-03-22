@@ -59,6 +59,7 @@ class EthAdressView: UIView {
         addSubview(titleLabel)
         addSubview(addressTextField)
         addSubview(line)
+//        addSubview(descriptionLabel)
         
         titleLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(10)
@@ -76,5 +77,10 @@ class EthAdressView: UIView {
             make.bottom.equalTo(addressTextField)
             make.height.equalTo(1)
         }
+        
+//        descriptionLabel.snp.makeConstraints { make in
+//            make.leading.trailing.equalTo(addressTextField)
+//            make.top.equalTo(addressTextField.snp.bottom)
+//        }
     }
 }

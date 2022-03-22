@@ -12,6 +12,11 @@ class SendEthView: UploadView {
     let qrCodeImageView: UIImageView = {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
+        
+        //TODO: remove
+        let img = UIImage(named: "dua")
+        imgView.image = img
+        
         return imgView
     }()
     
@@ -86,7 +91,7 @@ class SendEthView: UploadView {
         addSubview(checkBoxLabel)
         
         qrCodeImageView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
+            make.centerX.equalToSuperview()
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.height.width.equalTo(108)
         }

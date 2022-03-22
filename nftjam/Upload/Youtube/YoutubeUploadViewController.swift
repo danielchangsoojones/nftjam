@@ -13,14 +13,16 @@ class YoutubeUpload {
     let endTimeSeconds: Float
     let youtubeID: String
     let mediaLink: String
+    let montageID: String
     var ethAddress: String = ""
     var priceToMint: Double = 0.0
     
-    init(startTimeSeconds: Float, endTimeSeconds: Float, youtubeID: String, mediaLink: String) {
+    init(startTimeSeconds: Float, endTimeSeconds: Float, youtubeID: String, mediaLink: String, montageID: String) {
         self.startTimeSeconds = startTimeSeconds
         self.endTimeSeconds = endTimeSeconds
         self.youtubeID = youtubeID
         self.mediaLink = mediaLink
+        self.montageID = montageID
     }
 }
 
@@ -71,7 +73,8 @@ class YoutubeUploadViewController: UploadViewController {
             let youtubeUpload = YoutubeUpload(startTimeSeconds: startTimeSeconds ?? 0,
                                               endTimeSeconds: endTimeSeconds ,
                                               youtubeID: youtubeID ?? "",
-                                              mediaLink: youtubeLink)
+                                              mediaLink: youtubeLink,
+                                              montageID: "")
             let ethAddressVC = EthAddressViewController(youtubeUpload: youtubeUpload)
             self.navigationController?.pushViewController(ethAddressVC, animated: true)
         }

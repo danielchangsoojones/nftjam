@@ -27,11 +27,13 @@
 		92C64F5727E974AB0007BA24 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5627E974AB0007BA24 /* UploadView.swift */; };
 		92C64F5927E99ED00007BA24 /* BannerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5827E99ED00007BA24 /* BannerAlert.swift */; };
 		92C64F5C27E9ABE80007BA24 /* UploadDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5B27E9ABE80007BA24 /* UploadDataStore.swift */; };
+		92C64F6027EA70C10007BA24 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5F27EA70C10007BA24 /* Enviroment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B0A364314E3A281984A3AA7 /* Pods-nftjam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nftjam.debug.xcconfig"; path = "Target Support Files/Pods-nftjam/Pods-nftjam.debug.xcconfig"; sourceTree = "<group>"; };
 		3AB9FED266ACD2F5F52957C3 /* Pods-nftjam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nftjam.release.xcconfig"; path = "Target Support Files/Pods-nftjam/Pods-nftjam.release.xcconfig"; sourceTree = "<group>"; };
+		7CC5596B3E555158E852559F /* Pods-nftjam.debug(production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nftjam.debug(production).xcconfig"; path = "Target Support Files/Pods-nftjam/Pods-nftjam.debug(production).xcconfig"; sourceTree = "<group>"; };
 		920614A927E5993200249682 /* YoutubeUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeUploadViewController.swift; sourceTree = "<group>"; };
 		920614AB27E5995500249682 /* YoutubeUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeUploadView.swift; sourceTree = "<group>"; };
 		929D273827E3FCD700455373 /* nftjam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nftjam.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +55,8 @@
 		92C64F5627E974AB0007BA24 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		92C64F5827E99ED00007BA24 /* BannerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAlert.swift; sourceTree = "<group>"; };
 		92C64F5B27E9ABE80007BA24 /* UploadDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataStore.swift; sourceTree = "<group>"; };
+		92C64F5F27EA70C10007BA24 /* Enviroment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
+		CDCF9A762EBEFE73D2E0468A /* Pods-nftjam.debug(development).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nftjam.debug(development).xcconfig"; path = "Target Support Files/Pods-nftjam/Pods-nftjam.debug(development).xcconfig"; sourceTree = "<group>"; };
 		E1FDE74F2C073C141CBABB67 /* Pods_nftjam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nftjam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,6 +85,8 @@
 			children = (
 				2B0A364314E3A281984A3AA7 /* Pods-nftjam.debug.xcconfig */,
 				3AB9FED266ACD2F5F52957C3 /* Pods-nftjam.release.xcconfig */,
+				CDCF9A762EBEFE73D2E0468A /* Pods-nftjam.debug(development).xcconfig */,
+				7CC5596B3E555158E852559F /* Pods-nftjam.debug(production).xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -127,6 +133,7 @@
 		929D273A27E3FCD700455373 /* nftjam */ = {
 			isa = PBXGroup;
 			children = (
+				92C64F5D27EA70460007BA24 /* Models */,
 				920614A827E5991800249682 /* Upload */,
 				929D275627E44F0000455373 /* Helpers */,
 				929D274F27E40A5D00455373 /* Montage */,
@@ -186,6 +193,22 @@
 			path = "Data Store";
 			sourceTree = "<group>";
 		};
+		92C64F5D27EA70460007BA24 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				92C64F5E27EA704A0007BA24 /* Database Setup */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		92C64F5E27EA704A0007BA24 /* Database Setup */ = {
+			isa = PBXGroup;
+			children = (
+				92C64F5F27EA70C10007BA24 /* Enviroment.swift */,
+			);
+			path = "Database Setup";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -197,7 +220,7 @@
 				929D273427E3FCD700455373 /* Sources */,
 				929D273527E3FCD700455373 /* Frameworks */,
 				929D273627E3FCD700455373 /* Resources */,
-				30DBED1C1911774A9ED2361F /* [CP] Embed Pods Frameworks */,
+				618906F210BEA45E45095D6C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -254,7 +277,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		30DBED1C1911774A9ED2361F /* [CP] Embed Pods Frameworks */ = {
+		618906F210BEA45E45095D6C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -314,6 +337,7 @@
 				92C64F5327E973CD0007BA24 /* SendEthView.swift in Sources */,
 				92C64F5127E973BD0007BA24 /* SendEthViewController.swift in Sources */,
 				92C64F5C27E9ABE80007BA24 /* UploadDataStore.swift in Sources */,
+				92C64F6027EA70C10007BA24 /* Enviroment.swift in Sources */,
 				929D274027E3FCD700455373 /* MontageViewController.swift in Sources */,
 				929D273C27E3FCD700455373 /* AppDelegate.swift in Sources */,
 				92C64F4C27E850150007BA24 /* EthAddressViewController.swift in Sources */,
@@ -334,7 +358,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		929D274A27E3FCD800455373 /* Debug */ = {
+		929D274A27E3FCD800455373 /* Debug(Development) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -392,7 +416,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = "Debug(Development)";
 		};
 		929D274B27E3FCD800455373 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -448,9 +472,9 @@
 			};
 			name = Release;
 		};
-		929D274D27E3FCD800455373 /* Debug */ = {
+		929D274D27E3FCD800455373 /* Debug(Development) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B0A364314E3A281984A3AA7 /* Pods-nftjam.debug.xcconfig */;
+			baseConfigurationReference = CDCF9A762EBEFE73D2E0468A /* Pods-nftjam.debug(development).xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -475,7 +499,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = "Debug(Development)";
 		};
 		929D274E27E3FCD800455373 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -506,14 +530,98 @@
 			};
 			name = Release;
 		};
+		92C64F6127EA71FF0007BA24 /* Debug(Production) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Debug(Production)";
+		};
+		92C64F6227EA71FF0007BA24 /* Debug(Production) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CC5596B3E555158E852559F /* Pods-nftjam.debug(production).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WGU25444T9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = nftjam/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = danielchangsoojones.nftjam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Debug(Production)";
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		929D273327E3FCD700455373 /* Build configuration list for PBXProject "nftjam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				929D274A27E3FCD800455373 /* Debug */,
+				929D274A27E3FCD800455373 /* Debug(Development) */,
 				929D274B27E3FCD800455373 /* Release */,
+				92C64F6127EA71FF0007BA24 /* Debug(Production) */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -521,8 +629,9 @@
 		929D274C27E3FCD800455373 /* Build configuration list for PBXNativeTarget "nftjam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				929D274D27E3FCD800455373 /* Debug */,
+				929D274D27E3FCD800455373 /* Debug(Development) */,
 				929D274E27E3FCD800455373 /* Release */,
+				92C64F6227EA71FF0007BA24 /* Debug(Production) */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

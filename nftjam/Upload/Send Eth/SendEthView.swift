@@ -32,8 +32,13 @@ class SendEthView: UploadView {
     
     let sendLabel: UILabel = {
         let label = UILabel()
+        
+        //TODO: remove
+        label.text = "Send 0.2 ETH to the montage’s ETH address to add a NFT to the montage"
+        
         label.font = UIFont.systemFont(ofSize: 16, weight: .light)
         label.numberOfLines = 2
+        label.textColor = .white
         return label
     }()
     
@@ -71,6 +76,30 @@ class SendEthView: UploadView {
         return label
     }()
     
+    let nftImgView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        
+        //TODO: remove
+        imageView.image = UIImage(named: "dua")
+        
+        
+        return imageView
+    }()
+    
+    private let arrow: UIImageView = {
+        let img = UIImage(named: "arrow")
+        let imageView = UIImageView(image: img)
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    let montageView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         titleLabel.text = "Montage Ethereum Address"
@@ -89,6 +118,9 @@ class SendEthView: UploadView {
         addSubview(infoButton)
         addSubview(checkBox)
         addSubview(checkBoxLabel)
+        addSubview(nftImgView)
+        addSubview(arrow)
+        addSubview(montageView)
         
         qrCodeImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -121,6 +153,28 @@ class SendEthView: UploadView {
             make.leading.equalTo(checkBox.snp.trailing).offset(5)
             make.trailing.equalTo(titleLabel)
             make.centerY.equalTo(checkBox)
+        }
+        
+        let width: CGFloat = 70
+        nftImgView.snp.makeConstraints { make in
+            make.top.equalTo(infoButton.snp.bottom).offset(5)
+            make.leading.equalTo(titleLabel)
+            make.width.equalTo(width)
+        }
+        
+        let horizontalDistance: CGFloat = 10
+        arrow.snp.makeConstraints { make in
+            make.centerY.equalTo(nftImgView)
+            make.leading.equalTo(nftImgView.snp.trailing).offset(horizontalDistance)
+            make.width.equalTo(75)
+            make.height.equalTo(25)
+        }
+        
+        montageView.snp.makeConstraints { make in
+            make.centerY.equalTo(nftImgView)
+            make.leading.equalTo(arrow.snp.trailing).offset(horizontalDistance)
+            make.width.equalTo(width)
+            make.height.equalTo(width)
         }
     }
 }

@@ -10,7 +10,7 @@ import TextFieldEffects
 import TTTAttributedLabel
 
 class EthAdressView: UploadView {
-    private let addressTextField: UITextField = {
+    let addressTextField: UITextField = {
         let textField = UITextField()
         textField.font = UIFont.systemFont(ofSize: 16, weight: .light)
         textField.textColor = .white

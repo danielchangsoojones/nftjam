@@ -13,6 +13,7 @@ class YoutubeUpload {
     let endTimeSeconds: Float
     let youtubeID: String
     let mediaLink: String
+    var ethAddress: String = ""
     
     init(startTimeSeconds: Float, endTimeSeconds: Float, youtubeID: String, mediaLink: String) {
         self.startTimeSeconds = startTimeSeconds

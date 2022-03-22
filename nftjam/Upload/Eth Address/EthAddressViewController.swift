@@ -10,6 +10,7 @@ import SCLAlertView
 
 class EthAddressViewController: UploadViewController {
     private let youtubeUpload: YoutubeUpload
+    private var addressTextField: UITextField!
     
     override var uploadView: UploadView {
         return EthAdressView(frame: self.view.frame)
@@ -28,10 +29,18 @@ class EthAddressViewController: UploadViewController {
         super.loadView()
         if let ethAddressView = self.view as? EthAdressView {
             ethAddressView.descriptionLabel.delegate = self
+            self.addressTextField = ethAddressView.addressTextField
         }
     }
     
     override func submit() {
+        if let text = addressTextField.text, !text.isEmpty {
+            youtubeUpload.ethAddress = text
+            let sendEthVC = SendEthViewController(youtubeUpload: youtubeUpload)
+            navigationController?.pushViewController(sendEthVC, animated: true)
+        } else {
+            //TODO: put in a banner loader alert
+        }
         
     }
 }

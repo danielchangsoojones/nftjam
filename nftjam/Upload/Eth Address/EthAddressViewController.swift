@@ -9,11 +9,25 @@ import TTTAttributedLabel
 import SCLAlertView
 
 class EthAddressViewController: UIViewController {
+    private let youtubeUpload: YoutubeUpload
+    
+    init(youtubeUpload: YoutubeUpload) {
+        self.youtubeUpload = youtubeUpload
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         super.loadView()
         let ethUploadView = EthAdressView(frame: self.view.frame)
         self.view = ethUploadView
         ethUploadView.descriptionLabel.delegate = self
+        ethUploadView.submitButton.addTarget(self,
+                                             action: #selector(submitPressed),
+                                             for: .touchUpInside)
     }
 
     override func viewDidLoad() {
@@ -22,8 +36,9 @@ class EthAddressViewController: UIViewController {
         
     }
     
-
-
+    @objc private func submitPressed() {
+        //segue to new VC
+    }
 }
 
 extension EthAddressViewController: TTTAttributedLabelDelegate {

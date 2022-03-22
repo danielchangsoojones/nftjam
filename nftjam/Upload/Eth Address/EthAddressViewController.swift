@@ -39,7 +39,9 @@ class EthAddressViewController: UploadViewController {
             let sendEthVC = SendEthViewController(youtubeUpload: youtubeUpload)
             navigationController?.pushViewController(sendEthVC, animated: true)
         } else {
-            //TODO: put in a banner loader alert
+            BannerAlert.show(title: "Empty Address",
+                             subtitle: "please input your ethereum address to continue",
+                             type: .error)
         }
     }
 }

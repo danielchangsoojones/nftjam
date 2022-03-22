@@ -88,7 +88,7 @@ class SendEthView: UploadView {
     }()
     
     private let arrow: UIImageView = {
-        let img = UIImage(named: "arrow")
+        let img = UIImage(named: "big_arrow")
         let imageView = UIImageView(image: img)
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -103,7 +103,6 @@ class SendEthView: UploadView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         titleLabel.text = "Montage Ethereum Address"
-        
     }
     
     required init?(coder: NSCoder) {

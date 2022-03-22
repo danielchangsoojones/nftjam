@@ -26,6 +26,7 @@
 		92C64F5527E974950007BA24 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5427E974950007BA24 /* UploadViewController.swift */; };
 		92C64F5727E974AB0007BA24 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5627E974AB0007BA24 /* UploadView.swift */; };
 		92C64F5927E99ED00007BA24 /* BannerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5827E99ED00007BA24 /* BannerAlert.swift */; };
+		92C64F5C27E9ABE80007BA24 /* UploadDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5B27E9ABE80007BA24 /* UploadDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		92C64F5427E974950007BA24 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		92C64F5627E974AB0007BA24 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		92C64F5827E99ED00007BA24 /* BannerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAlert.swift; sourceTree = "<group>"; };
+		92C64F5B27E9ABE80007BA24 /* UploadDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataStore.swift; sourceTree = "<group>"; };
 		E1FDE74F2C073C141CBABB67 /* Pods_nftjam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nftjam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -169,10 +171,19 @@
 		92C64F4F27E973A50007BA24 /* Send Eth */ = {
 			isa = PBXGroup;
 			children = (
+				92C64F5A27E9ABC00007BA24 /* Data Store */,
 				92C64F5027E973BD0007BA24 /* SendEthViewController.swift */,
 				92C64F5227E973CD0007BA24 /* SendEthView.swift */,
 			);
 			path = "Send Eth";
+			sourceTree = "<group>";
+		};
+		92C64F5A27E9ABC00007BA24 /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				92C64F5B27E9ABE80007BA24 /* UploadDataStore.swift */,
+			);
+			path = "Data Store";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +313,7 @@
 				92C64F5927E99ED00007BA24 /* BannerAlert.swift in Sources */,
 				92C64F5327E973CD0007BA24 /* SendEthView.swift in Sources */,
 				92C64F5127E973BD0007BA24 /* SendEthViewController.swift in Sources */,
+				92C64F5C27E9ABE80007BA24 /* UploadDataStore.swift in Sources */,
 				929D274027E3FCD700455373 /* MontageViewController.swift in Sources */,
 				929D273C27E3FCD700455373 /* AppDelegate.swift in Sources */,
 				92C64F4C27E850150007BA24 /* EthAddressViewController.swift in Sources */,

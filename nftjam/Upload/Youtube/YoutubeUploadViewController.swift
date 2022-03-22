@@ -14,6 +14,7 @@ class YoutubeUpload {
     let youtubeID: String
     let mediaLink: String
     var ethAddress: String = ""
+    var priceToMint: Double = 0.0
     
     init(startTimeSeconds: Float, endTimeSeconds: Float, youtubeID: String, mediaLink: String) {
         self.startTimeSeconds = startTimeSeconds

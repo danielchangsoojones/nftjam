@@ -9,6 +9,7 @@ import UIKit
 
 class SendEthViewController: UploadViewController {
     private let youtubeUpload: YoutubeUpload
+    private let dataStore = UploadDataStore()
     
     override var uploadView: UploadView {
         return SendEthView(frame: self.view.frame)
@@ -27,9 +28,16 @@ class SendEthViewController: UploadViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func submit() {
+        youtubeUpload.priceToMint = 0.2
+        dataStore.uploadNFTLink(youtubeUpload: youtubeUpload) { isSuccess, error in
+            if isSuccess {
+                self.dismiss(animated: true)
+            } else if let error = error {
+                BannerAlert.show(with: error)
+            } else {
+                BannerAlert.showUnknownError(functionName: "uploadNFT")
+            }
+        }
     }
 }

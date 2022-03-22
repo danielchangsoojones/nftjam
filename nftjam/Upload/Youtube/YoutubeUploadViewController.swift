@@ -8,6 +8,20 @@
 import UIKit
 import youtube_ios_player_helper
 
+class YoutubeUpload {
+    let startTimeSeconds: Float
+    let endTimeSeconds: Float
+    let youtubeID: String
+    let mediaLink: String
+    
+    init(startTimeSeconds: Float, endTimeSeconds: Float, youtubeID: String, mediaLink: String) {
+        self.startTimeSeconds = startTimeSeconds
+        self.endTimeSeconds = endTimeSeconds
+        self.youtubeID = youtubeID
+        self.mediaLink = mediaLink
+    }
+}
+
 class YoutubeUploadViewController: UIViewController {
     private var youtubePlayerView = YTPlayerView()
     private var linkTextField: UITextField!
@@ -51,7 +65,12 @@ class YoutubeUploadViewController: UIViewController {
             let startTimeSeconds = convertTimeStrToSeconds(timeStr: startTime)
             let endTimeSeconds = (startTimeSeconds ?? 0) + 20
             let youtubeID = getIDFromYoutube(link: youtubeLink)
-            
+            let youtubeUpload = YoutubeUpload(startTimeSeconds: startTimeSeconds ?? 0,
+                                              endTimeSeconds: endTimeSeconds ,
+                                              youtubeID: youtubeID ?? "",
+                                              mediaLink: youtubeLink)
+            let ethAddressVC = EthAddressViewController(youtubeUpload: youtubeUpload)
+            self.navigationController?.pushViewController(ethAddressVC, animated: true)
         }
     }
 }

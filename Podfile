@@ -8,4 +8,5 @@ target 'nftjam' do
   pod 'BRYXBanner'
   pod 'SCLAlertView'
   pod 'youtube-ios-player-helper'
+  pod 'TTTAttributedLabel'
 end

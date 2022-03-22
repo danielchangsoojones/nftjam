@@ -15,6 +15,7 @@ PODS:
   - SCLAlertView (0.8)
   - SnapKit (5.0.1)
   - TextFieldEffects (1.6.0)
+  - TTTAttributedLabel (2.0.0)
   - youtube-ios-player-helper (1.0.4)
 
 DEPENDENCIES:
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - SCLAlertView
   - SnapKit (~> 5.0.0)
   - TextFieldEffects
+  - TTTAttributedLabel
   - youtube-ios-player-helper
 
 SPEC REPOS:
@@ -36,6 +38,7 @@ SPEC REPOS:
     - SCLAlertView
     - SnapKit
     - TextFieldEffects
+    - TTTAttributedLabel
     - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
@@ -46,8 +49,9 @@ SPEC CHECKSUMS:
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: 83b7ccc229a577ca39568eb60dad17bfbfa38e91
+PODFILE CHECKSUM: e0dbf669e5585c9f99afcde703234b31ac4d3682
 
 COCOAPODS: 1.11.2

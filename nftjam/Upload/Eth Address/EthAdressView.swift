@@ -7,6 +7,7 @@
 
 import UIKit
 import TextFieldEffects
+import TTTAttributedLabel
 
 class EthAdressView: UIView {
     private let titleLabel: UILabel = {
@@ -39,11 +40,27 @@ class EthAdressView: UIView {
         return view
     }()
     
-//    private let descriptionLabel: UILabel = {
-//       let label = UILabel()
-//        label.text = "Your Ethereum address is where we will send your earnings. Everytime a new NFT is added onto the montage, your NFT earns part of the proceeds. Learn about the beta"
-//
-//    }()
+    let descriptionLabel: TTTAttributedLabel = {
+        let tLabel = TTTAttributedLabel(frame: .zero)
+        let linkStr = "Learn about the beta ->"
+        let nonLinkString = "Your Ethereum address is where we will send your earnings. Everytime a new NFT is added onto the montage, your NFT earns part of the proceeds."
+        let str = nonLinkString + " \(linkStr)"
+        let nsString: NSString = NSString(string: str)
+        tLabel.numberOfLines = 0
+        tLabel.textColor = .white
+        tLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        tLabel.text = str
+        tLabel.linkAttributes = [kCTForegroundColorAttributeName as AnyHashable: UIColor.white, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue]
+        let messageUsStringRange = nsString.range(of: linkStr)
+        let messageUsStringURL = URL(string: linkStr)
+        tLabel.addLink(to: messageUsStringURL, with: messageUsStringRange)
+        return tLabel
+    }()
+    
+    let submitButton: CustomButton = {
+        let button = CustomButton(title: "Next")
+        return button
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,7 +76,8 @@ class EthAdressView: UIView {
         addSubview(titleLabel)
         addSubview(addressTextField)
         addSubview(line)
-//        addSubview(descriptionLabel)
+        addSubview(descriptionLabel)
+        addSubview(submitButton)
         
         titleLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(10)
@@ -78,9 +96,15 @@ class EthAdressView: UIView {
             make.height.equalTo(1)
         }
         
-//        descriptionLabel.snp.makeConstraints { make in
-//            make.leading.trailing.equalTo(addressTextField)
-//            make.top.equalTo(addressTextField.snp.bottom)
-//        }
+        descriptionLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(addressTextField)
+            make.top.equalTo(addressTextField.snp.bottom).offset(10)
+        }
+        
+        submitButton.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(titleLabel)
+            make.bottom.equalTo(self.snp.bottomMargin).inset(20)
+            make.height.equalTo(53)
+        }
     }
 }

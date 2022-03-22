@@ -32,5 +32,4 @@ class SendEthViewController: UploadViewController {
 
         // Do any additional setup after loading the view.
     }
-
 }

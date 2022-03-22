@@ -26,22 +26,13 @@ class EthAddressViewController: UploadViewController {
     
     override func loadView() {
         super.loadView()
-        let ethUploadView = EthAdressView(frame: self.view.frame)
-        self.view = ethUploadView
-        ethUploadView.descriptionLabel.delegate = self
-        ethUploadView.submitButton.addTarget(self,
-                                             action: #selector(submitPressed),
-                                             for: .touchUpInside)
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+        if let ethAddressView = self.view as? EthAdressView {
+            ethAddressView.descriptionLabel.delegate = self
+        }
     }
     
-    @objc private func submitPressed() {
-        //segue to new VC
+    override func submit() {
+        
     }
 }
 

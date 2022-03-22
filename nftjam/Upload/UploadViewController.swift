@@ -8,7 +8,7 @@
 import UIKit
 
 class UploadViewController: UIViewController {
-    var submitButton: UIButton!
+    private var submitButton: UIButton!
     
     var uploadView: UploadView {
         return UploadView(frame: self.view.frame)

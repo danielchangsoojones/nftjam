@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UICheckbox
 
 class SendEthView: UploadView {
     let qrCodeImageView: UIImageView = {
@@ -34,12 +35,12 @@ class SendEthView: UploadView {
     let infoButton: UIButton = {
         let button = UIButton()
         let attributes: [NSAttributedString.Key: Any] = [
-              .font: UIFont.systemFont(ofSize: 12, weight: .light),
+              .font: UIFont.systemFont(ofSize: 14, weight: .light),
               .foregroundColor: UIColor.white,
               .underlineStyle: NSUnderlineStyle.single.rawValue
         ]
         let attributeString = NSMutableAttributedString(
-                string: "What happens when my NFT joins a montage",
+                string: "What happens when my NFT joins a montage?",
                 attributes: attributes
         )
         button.setAttributedTitle(attributeString, for: .normal)
@@ -48,6 +49,22 @@ class SendEthView: UploadView {
         return button
     }()
     
+    let checkBox: UICheckbox = {
+        let checkbox = UICheckbox()
+        checkbox.backgroundColor = .white
+        checkbox.layer.borderColor = UIColor.deepBlue.cgColor
+        checkbox.layer.borderWidth = 3
+        return checkbox
+    }()
+    
+    let checkBoxLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        label.text = "I’ve sent 0.2 ETH to the montage’s address"
+        label.numberOfLines = 2
+        label.textColor = .white
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,6 +82,8 @@ class SendEthView: UploadView {
         addSubview(ethAddress)
         addSubview(sendLabel)
         addSubview(infoButton)
+        addSubview(checkBox)
+        addSubview(checkBoxLabel)
         
         qrCodeImageView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
@@ -85,6 +104,18 @@ class SendEthView: UploadView {
         infoButton.snp.makeConstraints { make in
             make.leading.trailing.equalTo(sendLabel)
             make.top.equalTo(sendLabel.snp.bottom).offset(5)
+        }
+        
+        checkBox.snp.makeConstraints { make in
+            make.leading.equalTo(titleLabel)
+            make.bottom.equalTo(submitButton.snp.top).offset(-10)
+            make.height.width.equalTo(30)
+        }
+        
+        checkBoxLabel.snp.makeConstraints { make in
+            make.leading.equalTo(checkBox.snp.trailing).offset(5)
+            make.trailing.equalTo(titleLabel)
+            make.centerY.equalTo(checkBox)
         }
     }
 }

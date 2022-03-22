@@ -9,4 +9,5 @@ target 'nftjam' do
   pod 'SCLAlertView'
   pod 'youtube-ios-player-helper'
   pod 'TTTAttributedLabel'
+  pod 'UICheckbox'
 end

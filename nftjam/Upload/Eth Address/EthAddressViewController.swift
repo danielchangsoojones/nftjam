@@ -41,7 +41,6 @@ class EthAddressViewController: UploadViewController {
         } else {
             //TODO: put in a banner loader alert
         }
-        
     }
 }
 

@@ -16,6 +16,7 @@ PODS:
   - SnapKit (5.0.1)
   - TextFieldEffects (1.6.0)
   - TTTAttributedLabel (2.0.0)
+  - UICheckbox (0.0.2)
   - youtube-ios-player-helper (1.0.4)
 
 DEPENDENCIES:
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - SnapKit (~> 5.0.0)
   - TextFieldEffects
   - TTTAttributedLabel
+  - UICheckbox
   - youtube-ios-player-helper
 
 SPEC REPOS:
@@ -39,6 +41,7 @@ SPEC REPOS:
     - SnapKit
     - TextFieldEffects
     - TTTAttributedLabel
+    - UICheckbox
     - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
@@ -50,8 +53,9 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  UICheckbox: 54af9bc308c8c2b18404f4c360172115c0daea36
   youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: 8b23cced3e8f5661d055a8d65f49037f16b3d3df
+PODFILE CHECKSUM: 3bfdacf2c8fce9812b7b5734be9589b5e5c7e1b9
 
 COCOAPODS: 1.11.2

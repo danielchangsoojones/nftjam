@@ -11,6 +11,8 @@ import youtube_ios_player_helper
 class MontageViewController: UIViewController {
     private var ytPlayerView: YTPlayerView!
     private let videoIDs = ["yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY"]
+    private let dataStore = MontageDataStore()
+    private var thumbnailViews: [ThumbnailView] = []
     
 //    private let videoIDs = ["XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k"]
     
@@ -22,6 +24,7 @@ class MontageViewController: UIViewController {
         montageView.addButton.addTarget(self,
                                         action: #selector(addButtonPressed),
                                         for: .touchUpInside)
+        thumbnailViews = montageView.thumbnailViews
     }
     
     override func viewDidLoad() {
@@ -41,6 +44,27 @@ class MontageViewController: UIViewController {
                                                                  "start": startTimeSec
                                                                 ])
         startTimer()
+        loadMontage()
+    }
+    
+    private func loadMontage() {
+        dataStore.loadMontage(with: "KdQrmr0tBW") { result, error in
+            if let nftVideos = result as? [NFTVideoParse] {
+                self.loadThumbnails(from: nftVideos)
+            } else if let error = error {
+                BannerAlert.show(with: error)
+            } else {
+                BannerAlert.showUnknownError(functionName: "loadMontage")
+            }
+        }
+    }
+    
+    private func loadThumbnails(from nftVideos: [NFTVideoParse]) {
+        for (index, nft) in nftVideos.enumerated() {
+            if thumbnailViews.indices.contains(index) {
+                thumbnailViews[index].thumbnailImgView.loadFromFile(nft)
+            }
+        }
     }
     
     var timer: Timer?

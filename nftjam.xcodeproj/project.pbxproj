@@ -19,6 +19,11 @@
 		929D275527E40EC200455373 /* NFTTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D275427E40EC200455373 /* NFTTagView.swift */; };
 		929D275827E44F3A00455373 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D275727E44F3A00455373 /* ColorExtension.swift */; };
 		929D275A27E45ED000455373 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D275927E45ED000455373 /* CustomButton.swift */; };
+		92B6AEC627EC6771002F1B51 /* MontageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEC527EC6771002F1B51 /* MontageDataStore.swift */; };
+		92B6AEC827EC68B3002F1B51 /* SuperParseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEC727EC68B3002F1B51 /* SuperParseObject.swift */; };
+		92B6AECA27EC68BD002F1B51 /* NFTVideoParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEC927EC68BD002F1B51 /* NFTVideoParse.swift */; };
+		92B6AECC27EC68E0002F1B51 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AECB27EC68E0002F1B51 /* User.swift */; };
+		92B6AECE27EC6CFF002F1B51 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AECD27EC6CFF002F1B51 /* ImageViewExtension.swift */; };
 		92C64F4C27E850150007BA24 /* EthAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F4B27E850150007BA24 /* EthAddressViewController.swift */; };
 		92C64F4E27E850250007BA24 /* EthAdressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F4D27E850250007BA24 /* EthAdressView.swift */; };
 		92C64F5127E973BD0007BA24 /* SendEthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5027E973BD0007BA24 /* SendEthViewController.swift */; };
@@ -47,6 +52,11 @@
 		929D275427E40EC200455373 /* NFTTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTTagView.swift; sourceTree = "<group>"; };
 		929D275727E44F3A00455373 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		929D275927E45ED000455373 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		92B6AEC527EC6771002F1B51 /* MontageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontageDataStore.swift; sourceTree = "<group>"; };
+		92B6AEC727EC68B3002F1B51 /* SuperParseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperParseObject.swift; sourceTree = "<group>"; };
+		92B6AEC927EC68BD002F1B51 /* NFTVideoParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFTVideoParse.swift; sourceTree = "<group>"; };
+		92B6AECB27EC68E0002F1B51 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		92B6AECD27EC6CFF002F1B51 /* ImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		92C64F4B27E850150007BA24 /* EthAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAddressViewController.swift; sourceTree = "<group>"; };
 		92C64F4D27E850250007BA24 /* EthAdressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAdressView.swift; sourceTree = "<group>"; };
 		92C64F5027E973BD0007BA24 /* SendEthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEthViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +158,7 @@
 		929D274F27E40A5D00455373 /* Montage */ = {
 			isa = PBXGroup;
 			children = (
+				92B6AEC427EC64AF002F1B51 /* Data Store */,
 				929D273F27E3FCD700455373 /* MontageViewController.swift */,
 				929D275027E40D3A00455373 /* MontageView.swift */,
 				929D275227E40E8D00455373 /* ThumbnailView.swift */,
@@ -159,11 +170,20 @@
 		929D275627E44F0000455373 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				92B6AECD27EC6CFF002F1B51 /* ImageViewExtension.swift */,
 				929D275727E44F3A00455373 /* ColorExtension.swift */,
 				929D275927E45ED000455373 /* CustomButton.swift */,
 				92C64F5827E99ED00007BA24 /* BannerAlert.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		92B6AEC427EC64AF002F1B51 /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				92B6AEC527EC6771002F1B51 /* MontageDataStore.swift */,
+			);
+			path = "Data Store";
 			sourceTree = "<group>";
 		};
 		92C64F4A27E845790007BA24 /* Eth Address */ = {
@@ -196,6 +216,9 @@
 		92C64F5D27EA70460007BA24 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				92B6AECB27EC68E0002F1B51 /* User.swift */,
+				92B6AEC927EC68BD002F1B51 /* NFTVideoParse.swift */,
+				92B6AEC727EC68B3002F1B51 /* SuperParseObject.swift */,
 				92C64F5E27EA704A0007BA24 /* Database Setup */,
 			);
 			path = Models;
@@ -332,14 +355,19 @@
 				92C64F5727E974AB0007BA24 /* UploadView.swift in Sources */,
 				929D275827E44F3A00455373 /* ColorExtension.swift in Sources */,
 				929D275A27E45ED000455373 /* CustomButton.swift in Sources */,
+				92B6AECE27EC6CFF002F1B51 /* ImageViewExtension.swift in Sources */,
 				92C64F4E27E850250007BA24 /* EthAdressView.swift in Sources */,
+				92B6AECC27EC68E0002F1B51 /* User.swift in Sources */,
 				92C64F5927E99ED00007BA24 /* BannerAlert.swift in Sources */,
+				92B6AECA27EC68BD002F1B51 /* NFTVideoParse.swift in Sources */,
 				92C64F5327E973CD0007BA24 /* SendEthView.swift in Sources */,
 				92C64F5127E973BD0007BA24 /* SendEthViewController.swift in Sources */,
 				92C64F5C27E9ABE80007BA24 /* UploadDataStore.swift in Sources */,
 				92C64F6027EA70C10007BA24 /* Enviroment.swift in Sources */,
 				929D274027E3FCD700455373 /* MontageViewController.swift in Sources */,
+				92B6AEC627EC6771002F1B51 /* MontageDataStore.swift in Sources */,
 				929D273C27E3FCD700455373 /* AppDelegate.swift in Sources */,
+				92B6AEC827EC68B3002F1B51 /* SuperParseObject.swift in Sources */,
 				92C64F4C27E850150007BA24 /* EthAddressViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

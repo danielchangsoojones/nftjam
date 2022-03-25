@@ -1,22 +1,18 @@
 //
-//  CustomButton.swift
-//  nftjam
+//  SpinningButton.swift
+//  lookbook
 //
-//  Created by Daniel Jones on 3/17/22.
+//  Created by Daniel Jones on 2/23/22.
 //
 
 import UIKit
 
-class CustomButton: UIButton {
+class SpinningButton: UIButton {
     private let spinner = UIActivityIndicatorView()
     
-    init(title: String) {
-        super.init(frame: .zero)
-        self.setTitle(title, for: .normal)
-        setTitleColor(.white, for: .normal)
-        self.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .bold)
-        self.backgroundColor = .deepBlue
-        self.layer.cornerRadius = 18
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setSpinner()
         setTitle("", for: .disabled)
     }
     

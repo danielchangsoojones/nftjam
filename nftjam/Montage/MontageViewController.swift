@@ -14,6 +14,7 @@ class MontageViewController: UIViewController {
     private let videoIDs = ["yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY"]
     private let dataStore = MontageDataStore()
     private var thumbnailViews: [ThumbnailView] = []
+    private var thumbnailImgs: [UIImage?] = []
     
 //    private let videoIDs = ["XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k"]
     
@@ -88,7 +89,7 @@ class MontageViewController: UIViewController {
     var num = 1
     
     func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 15.0,
+        timer = Timer.scheduledTimer(timeInterval: 3.0,
                                      target: self,
                                      selector: #selector(eventWith(timer:)),
                                      userInfo: [ "foo" : "bar" ],
@@ -97,11 +98,35 @@ class MontageViewController: UIViewController {
     
     // Timer expects @objc selector
     @objc func eventWith(timer: Timer!) {
+        transitionThumbnails()
+//        let toImage = thumbnailViews[0].thumbnailImgView.image
+//        UIView.transition(with: thumbnailViews[1].thumbnailImgView,
+//                          duration: 0.5,
+//                          options: .transitionCrossDissolve,
+//                          animations: { self.thumbnailViews[1].thumbnailImgView.image = toImage },
+//                          completion: nil)
+        
         let videoID = videoIDs[num]
         num += 1
         //cueing is better because it doesn't need to reload the iframe
         ytPlayerView.cueVideo(byId: videoID, startSeconds: 0)
         ytPlayerView.playVideo()
+    }
+    
+    private func transitionThumbnails() {
+        thumbnailImgs = thumbnailViews.map { thumbnailView in
+            return thumbnailView.thumbnailImgView.image
+        }
+        for (index, _) in thumbnailViews.enumerated() {
+            if thumbnailViews.indices.contains(index + 1) {
+                let toImage = thumbnailImgs[index]
+                UIView.transition(with: thumbnailViews[index + 1].thumbnailImgView,
+                                  duration: 0.5,
+                                  options: .transitionCrossDissolve,
+                                  animations: { self.thumbnailViews[index + 1].thumbnailImgView.image = toImage },
+                                  completion: nil)
+            }
+        }
     }
     
     @objc private func addButtonPressed() {

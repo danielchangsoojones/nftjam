@@ -8,6 +8,7 @@
 import UIKit
 import youtube_ios_player_helper
 import Parse
+import DCAnimationKit
 
 class MontageViewController: UIViewController {
     private var ytPlayerView: YTPlayerView!
@@ -15,6 +16,7 @@ class MontageViewController: UIViewController {
     private let dataStore = MontageDataStore()
     private var thumbnailViews: [ThumbnailView] = []
     private var thumbnailImgs: [UIImage?] = []
+    private var nftVideos: [NFTVideoParse] = []
     
 //    private let videoIDs = ["XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k"]
     
@@ -62,6 +64,7 @@ class MontageViewController: UIViewController {
     }
     
     private func loadThumbnails(from nftVideos: [NFTVideoParse]) {
+        self.nftVideos = nftVideos
         for (index, nft) in nftVideos.enumerated() {
             if thumbnailViews.indices.contains(index) && index <= 3 && index > 0 {
                 var thumbIndex = 0
@@ -99,13 +102,6 @@ class MontageViewController: UIViewController {
     // Timer expects @objc selector
     @objc func eventWith(timer: Timer!) {
         transitionThumbnails()
-//        let toImage = thumbnailViews[0].thumbnailImgView.image
-//        UIView.transition(with: thumbnailViews[1].thumbnailImgView,
-//                          duration: 0.5,
-//                          options: .transitionCrossDissolve,
-//                          animations: { self.thumbnailViews[1].thumbnailImgView.image = toImage },
-//                          completion: nil)
-        
         let videoID = videoIDs[num]
         num += 1
         //cueing is better because it doesn't need to reload the iframe
@@ -117,7 +113,8 @@ class MontageViewController: UIViewController {
         thumbnailImgs = thumbnailViews.map { thumbnailView in
             return thumbnailView.thumbnailImgView.image
         }
-        for (index, _) in thumbnailViews.enumerated() {
+        
+        for (index, nftVideo) in nftVideos.enumerated() {
             if thumbnailViews.indices.contains(index + 1) {
                 let toImage = thumbnailImgs[index]
                 UIView.transition(with: thumbnailViews[index + 1].thumbnailImgView,
@@ -125,8 +122,34 @@ class MontageViewController: UIViewController {
                                   options: .transitionCrossDissolve,
                                   animations: { self.thumbnailViews[index + 1].thumbnailImgView.image = toImage },
                                   completion: nil)
+                
+                let remainingVideos = nftVideos.count - index
+                let indexToDrop = 3 - remainingVideos
+                let isLastVideo = index == nftVideos.count - 1
+                if indexToDrop >= 0 && isLastVideo {
+                    self.thumbnailViews[0].compress(intoView: {
+                        self.nftVideos.remove(at: 0)
+                        self.thumbnailViews.remove(at: 0)
+                        print("finished")
+                    })
+                        
+//                        .expand(into: self.view) {
+//
+//                    }
+                }
             }
         }
+        
+//        for (index, _) in thumbnailViews.enumerated() {
+//            if thumbnailViews.indices.contains(index + 1) {
+//                let toImage = thumbnailImgs[index]
+//                UIView.transition(with: thumbnailViews[index + 1].thumbnailImgView,
+//                                  duration: 0.5,
+//                                  options: .transitionCrossDissolve,
+//                                  animations: { self.thumbnailViews[index + 1].thumbnailImgView.image = toImage },
+//                                  completion: nil)
+//            }
+//        }
     }
     
     @objc private func addButtonPressed() {

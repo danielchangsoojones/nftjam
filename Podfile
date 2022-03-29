@@ -10,4 +10,5 @@ target 'nftjam' do
   pod 'youtube-ios-player-helper'
   pod 'TTTAttributedLabel'
   pod 'UICheckbox'
+  pod 'DCAnimationKit'
 end

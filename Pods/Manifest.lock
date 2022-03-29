@@ -1,6 +1,7 @@
 PODS:
   - Bolts/Tasks (1.9.1)
   - BRYXBanner (0.8.4)
+  - DCAnimationKit (0.0.6)
   - Parse (1.19.3):
     - Parse/Core (= 1.19.3)
   - Parse/Core (1.19.3):
@@ -21,6 +22,7 @@ PODS:
 
 DEPENDENCIES:
   - BRYXBanner
+  - DCAnimationKit
   - Parse
   - Parse/UI
   - Reusable
@@ -35,6 +37,7 @@ SPEC REPOS:
   trunk:
     - Bolts
     - BRYXBanner
+    - DCAnimationKit
     - Parse
     - Reusable
     - SCLAlertView
@@ -47,6 +50,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   BRYXBanner: 4fbd266f96ce000e4c6cc9a0558c446bd88d9801
+  DCAnimationKit: 7133bef877ce1aa113dcfeea1380ca67f91f7608
   Parse: 0abb63a0ff6fa34a3f64b81d595a294e2ece143a
   Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
@@ -56,6 +60,6 @@ SPEC CHECKSUMS:
   UICheckbox: 54af9bc308c8c2b18404f4c360172115c0daea36
   youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: 3bfdacf2c8fce9812b7b5734be9589b5e5c7e1b9
+PODFILE CHECKSUM: 9ed467f1e74a60870a049e5ccc52e08d3aa89934
 
 COCOAPODS: 1.11.2

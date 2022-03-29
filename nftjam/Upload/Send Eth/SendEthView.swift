@@ -14,7 +14,7 @@ class SendEthView: UploadView {
         imgView.contentMode = .scaleAspectFit
         
         //TODO: remove
-        let img = UIImage(named: "dua")
+        let img = UIImage(named: "")
         imgView.image = img
         
         return imgView

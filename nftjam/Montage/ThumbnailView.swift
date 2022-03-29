@@ -9,9 +9,8 @@ import UIKit
 
 class ThumbnailView: UIView {
     let thumbnailImgView: UIImageView = {
-        //TODO: remove img
-        let img = UIImage(named: "dua")
-        let imgView = UIImageView(image: img)
+        let imgView = UIImageView()
+        imgView.backgroundColor = .spaceGray
         imgView.contentMode = .scaleAspectFill
         return imgView
     }()

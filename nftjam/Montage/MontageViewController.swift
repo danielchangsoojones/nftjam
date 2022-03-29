@@ -62,7 +62,7 @@ class MontageViewController: UIViewController {
     private func loadThumbnails(from nftVideos: [NFTVideoParse]) {
         for (index, nft) in nftVideos.enumerated() {
             if thumbnailViews.indices.contains(index) {
-                thumbnailViews[index].thumbnailImgView.loadFromFile(nft)
+                thumbnailViews[index].thumbnailImgView.loadFromFile(nft.thumbnailImg)
             }
         }
     }

@@ -13,7 +13,7 @@ class MontageDataStore {
         let parameters: [String: Any] = [
             "montageID": montageID
         ]
-        PFCloud.callFunction(inBackground: "uploadNFT", withParameters: parameters) { (result, error) in
+        PFCloud.callFunction(inBackground: "loadMontage", withParameters: parameters) { (result, error) in
             completion(result, error)
         }
     }

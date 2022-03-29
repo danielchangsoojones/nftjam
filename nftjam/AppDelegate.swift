@@ -20,9 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setStartingVC() {
-        let vc = MontageViewController()
-        let navController = UINavigationController(rootViewController: vc)
-        set(startingVC: navController)
+        if User.current() != nil {
+            let vc = MontageViewController()
+            let navController = UINavigationController(rootViewController: vc)
+            set(startingVC: navController)
+        } else {
+            let welcomeVC = WelcomeViewController()
+            let navController = UINavigationController(rootViewController: welcomeVC)
+            set(startingVC: navController)
+        }
     }
     
     private func set(startingVC: UIViewController) {
@@ -37,6 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.server = Configuration.environment.serverURL
         }
         Parse.initialize(with: configuration)
+        
+        User.registerSubclass()
+        NFTVideoParse.registerSubclass()
     }
 }
 

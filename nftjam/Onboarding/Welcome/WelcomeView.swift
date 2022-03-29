@@ -16,7 +16,7 @@ class WelcomeView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addBackgroundImage()
+        self.backgroundColor = .white
         addLogInView()
         addButtons()
         addTitles()
@@ -25,18 +25,6 @@ class WelcomeView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    
-    private func addBackgroundImage() {
-        let imageView = UIImageView()
-        imageView.contentMode =  .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "welcome_bg")
-        addSubview(imageView)
-        imageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
     }
     
     private func addLogInView() {
@@ -86,11 +74,11 @@ class WelcomeView: UIView {
     
     private func addTitles() {
         let subtitleLabel = UILabel()
-        subtitleLabel.text = "Privately DM your favorite influencer 😍"
+        subtitleLabel.text = "Build Collaborative Youtube NFT's"
+        subtitleLabel.textColor = .black
         subtitleLabel.numberOfLines = 0
         subtitleLabel.font = .systemFont(ofSize: 20, weight: .light)
         subtitleLabel.textAlignment = .center
-        subtitleLabel.textColor = .white
         addSubview(subtitleLabel)
         subtitleLabel.snp.makeConstraints { (make) in
             make.leading.trailing.equalToSuperview().inset(5)
@@ -98,7 +86,7 @@ class WelcomeView: UIView {
         }
         
         let logoImageView = UIImageView()
-        if let logoImage = UIImage(named: "logo") {
+        if let logoImage = UIImage(named: "nft-logo") {
             logoImageView.image = logoImage
             logoImageView.contentMode = .scaleAspectFit
             addSubview(logoImageView)

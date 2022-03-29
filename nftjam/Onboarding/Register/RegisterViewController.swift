@@ -54,7 +54,7 @@ class RegisterViewController: UIViewController, OnboardingDataStoreDelegate {
 
 extension RegisterViewController {
     func validateEmail() -> Bool {
-        if let email = emailTextField?.text {
+        if let email = emailTextField?.text, !email.isEmail {
             BannerAlert.show(title: "Invalid Email",
                              subtitle: "You must input a proper email",
                              type: .error)

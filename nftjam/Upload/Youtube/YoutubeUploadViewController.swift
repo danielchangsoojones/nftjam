@@ -32,9 +32,19 @@ class YoutubeUploadViewController: UploadViewController {
     private var startTextField: UITextField!
     private var endTextField: UITextField!
     private var typedNums: [String] = []
+    private let montageID: String
     
     override var uploadView: UploadView {
         return YoutubeUploadView(frame: self.view.frame)
+    }
+    
+    init(montageID: String) {
+        self.montageID = montageID
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func loadView() {
@@ -74,7 +84,7 @@ class YoutubeUploadViewController: UploadViewController {
                                               endTimeSeconds: endTimeSeconds ,
                                               youtubeID: youtubeID ?? "",
                                               mediaLink: youtubeLink,
-                                              montageID: "")
+                                              montageID: montageID)
             let ethAddressVC = EthAddressViewController(youtubeUpload: youtubeUpload)
             self.navigationController?.pushViewController(ethAddressVC, animated: true)
         }

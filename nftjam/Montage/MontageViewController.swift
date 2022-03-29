@@ -7,6 +7,7 @@
 
 import UIKit
 import youtube_ios_player_helper
+import Parse
 
 class MontageViewController: UIViewController {
     private var ytPlayerView: YTPlayerView!
@@ -61,8 +62,24 @@ class MontageViewController: UIViewController {
     
     private func loadThumbnails(from nftVideos: [NFTVideoParse]) {
         for (index, nft) in nftVideos.enumerated() {
-            if thumbnailViews.indices.contains(index) {
-                thumbnailViews[index].thumbnailImgView.loadFromFile(nft.thumbnailImg)
+            if thumbnailViews.indices.contains(index) && index <= 3 && index > 0 {
+                var thumbIndex = 0
+                if index == 1 {
+                    thumbIndex = 2
+                } else if index == 2{
+                    thumbIndex = 1
+                }
+                
+                nft.thumbnailImg?.getDataInBackground(block: { (data, error) in
+                    if let data = data {
+                        let img = UIImage(data: data)
+                        self.thumbnailViews[thumbIndex].thumbnailImgView.image = img
+                    } else if (error != nil) {
+                        BannerAlert.show(with: error)
+                    } else {
+                        print("error")
+                    }
+                })
             }
         }
     }
@@ -88,7 +105,7 @@ class MontageViewController: UIViewController {
     }
     
     @objc private func addButtonPressed() {
-        let uploadVC = YoutubeUploadViewController()
+        let uploadVC = YoutubeUploadViewController(montageID: "KdQrmr0tBW")
         let navController = UINavigationController(rootViewController: uploadVC)
         present(navController, animated: true)
     }

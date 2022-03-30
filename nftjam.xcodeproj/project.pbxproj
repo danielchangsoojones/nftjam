@@ -38,6 +38,8 @@
 		92B6AEEB27F3EBB7002F1B51 /* MontageParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEEA27F3EBB7002F1B51 /* MontageParse.swift */; };
 		92B6AEEE27F3F479002F1B51 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEED27F3F479002F1B51 /* DiscoverViewController.swift */; };
 		92B6AEF027F42260002F1B51 /* DiscoverTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEEF27F42260002F1B51 /* DiscoverTableCell.swift */; };
+		92B6AEF327F430D5002F1B51 /* DiscoverDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEF227F430D5002F1B51 /* DiscoverDataStore.swift */; };
+		92B6AEF527F43188002F1B51 /* MontagePhotoParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEF427F43188002F1B51 /* MontagePhotoParse.swift */; };
 		92C64F4C27E850150007BA24 /* EthAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F4B27E850150007BA24 /* EthAddressViewController.swift */; };
 		92C64F4E27E850250007BA24 /* EthAdressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F4D27E850250007BA24 /* EthAdressView.swift */; };
 		92C64F5127E973BD0007BA24 /* SendEthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5027E973BD0007BA24 /* SendEthViewController.swift */; };
@@ -85,6 +87,8 @@
 		92B6AEEA27F3EBB7002F1B51 /* MontageParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontageParse.swift; sourceTree = "<group>"; };
 		92B6AEED27F3F479002F1B51 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		92B6AEEF27F42260002F1B51 /* DiscoverTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableCell.swift; sourceTree = "<group>"; };
+		92B6AEF227F430D5002F1B51 /* DiscoverDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverDataStore.swift; sourceTree = "<group>"; };
+		92B6AEF427F43188002F1B51 /* MontagePhotoParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontagePhotoParse.swift; sourceTree = "<group>"; };
 		92C64F4B27E850150007BA24 /* EthAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAddressViewController.swift; sourceTree = "<group>"; };
 		92C64F4D27E850250007BA24 /* EthAdressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAdressView.swift; sourceTree = "<group>"; };
 		92C64F5027E973BD0007BA24 /* SendEthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEthViewController.swift; sourceTree = "<group>"; };
@@ -269,10 +273,19 @@
 		92B6AEEC27F3F462002F1B51 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				92B6AEF127F430C2002F1B51 /* Data Store */,
 				92B6AEED27F3F479002F1B51 /* DiscoverViewController.swift */,
 				92B6AEEF27F42260002F1B51 /* DiscoverTableCell.swift */,
 			);
 			path = Discover;
+			sourceTree = "<group>";
+		};
+		92B6AEF127F430C2002F1B51 /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				92B6AEF227F430D5002F1B51 /* DiscoverDataStore.swift */,
+			);
+			path = "Data Store";
 			sourceTree = "<group>";
 		};
 		92C64F4A27E845790007BA24 /* Eth Address */ = {
@@ -310,6 +323,7 @@
 				92B6AEC727EC68B3002F1B51 /* SuperParseObject.swift */,
 				92B6AEEA27F3EBB7002F1B51 /* MontageParse.swift */,
 				92C64F5E27EA704A0007BA24 /* Database Setup */,
+				92B6AEF427F43188002F1B51 /* MontagePhotoParse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -444,6 +458,7 @@
 				920614AA27E5993200249682 /* YoutubeUploadViewController.swift in Sources */,
 				929D275127E40D3A00455373 /* MontageView.swift in Sources */,
 				929D275327E40E8D00455373 /* ThumbnailView.swift in Sources */,
+				92B6AEF527F43188002F1B51 /* MontagePhotoParse.swift in Sources */,
 				92B6AEE927ED640F002F1B51 /* StringExtension.swift in Sources */,
 				92B6AEEE27F3F479002F1B51 /* DiscoverViewController.swift in Sources */,
 				92C64F5727E974AB0007BA24 /* UploadView.swift in Sources */,
@@ -454,6 +469,7 @@
 				92B6AED927ED5BAD002F1B51 /* WelcomeView.swift in Sources */,
 				929D275827E44F3A00455373 /* ColorExtension.swift in Sources */,
 				929D275A27E45ED000455373 /* CustomButton.swift in Sources */,
+				92B6AEF327F430D5002F1B51 /* DiscoverDataStore.swift in Sources */,
 				92B6AECE27EC6CFF002F1B51 /* ImageViewExtension.swift in Sources */,
 				92C64F4E27E850250007BA24 /* EthAdressView.swift in Sources */,
 				92B6AECC27EC68E0002F1B51 /* User.swift in Sources */,

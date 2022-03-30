@@ -9,12 +9,14 @@ import UIKit
 
 class DiscoverViewController: UIViewController {
     private var tableView: UITableView!
-    private var montages: [MontageParse] = []
+    private var montageDatas: [MontageDatas] = []
+    private let dataStore = DiscoverDataStore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .deepBlue
         setTableView()
+        loadPhotos()
     }
     
     private func setTableView() {
@@ -24,19 +26,30 @@ class DiscoverViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(cellType: DiscoverTableCell.self)
         view.addSubview(tableView)
-        tableView.reloadData()
+        
+    }
+    
+    private func loadPhotos() {
+        dataStore.loadPhotos { datas in
+            self.montageDatas = datas
+            self.tableView.reloadData()
+        }
     }
 }
 
 extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return montages.count
-        return 2
+        return montageDatas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let montageData = montageDatas[indexPath.row]
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DiscoverTableCell.self)
-        
+        for (index, photo) in montageData.photos.enumerated() {
+            if cell.thumbnailImgViews.indices.contains(indexPath.row) {
+                cell.thumbnailImgViews[index].loadFromFile(photo.image)
+            }
+        }
         return cell
     }
     

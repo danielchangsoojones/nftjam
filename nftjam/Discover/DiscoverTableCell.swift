@@ -131,6 +131,7 @@ class DiscoverTableCell: UITableViewCell, Reusable {
     
     private func addImgView(color: UIColor, makeConstraints: @escaping (ConstraintMaker) -> Void) {
         let imgView = UIImageView()
+        imgView.contentMode = .scaleAspectFill
         imgView.backgroundColor = color
         self.containerView.addSubview(imgView)
         imgView.snp.makeConstraints(makeConstraints)

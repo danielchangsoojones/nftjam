@@ -22,7 +22,7 @@ class DiscoverDataStore {
     func loadPhotos(completion: @escaping ([MontageDatas]) -> Void) {
         let parameters: [String: Any] = [:]
         PFCloud.callFunction(inBackground: "loadDiscoverMontagePhotos", withParameters: parameters) { (results, error) in
-            if let montageDatas = results as? [MontageDatas] {
+            if let results = results {
                 completion(montageDatas)
             } else if let error = error {
                 BannerAlert.show(with: error)

@@ -13,7 +13,7 @@ class MontagePhotoParse: SuperParseObject, PFSubclassing {
     @NSManaged var montage: MontageParse
     
     class func parseClassName() -> String {
-        return "MontagePhotoParse"
+        return "MontagePhoto"
     }
 }
 

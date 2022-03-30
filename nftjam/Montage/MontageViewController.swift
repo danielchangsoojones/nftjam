@@ -12,13 +12,11 @@ import DCAnimationKit
 
 class MontageViewController: UIViewController {
     private var ytPlayerView: YTPlayerView!
-    private let videoIDs = ["yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY", "yzTuBuRdAyA", "TUVcZfQe-Kw", "vRXZj0DzXIA", "QYh6mYIJG2Y", "CTFtOOh47oo", "e2AeKIzfQus", "l0U7SxXHkPY"]
     private let dataStore = MontageDataStore()
     private var thumbnailViews: [ThumbnailView] = []
-    private var thumbnailImgs: [UIImage?] = []
-    private var nftVideos: [NFTVideoParse] = []
-    
-//    private let videoIDs = ["XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k", "XQOGbAVMeB4", "BzqybOt0Ics", "AKU2u1Aj96w", "EHPX2IYbH2k"]
+    private var nftVideos: [NFTVideoParse?] = []
+    private var shownNFTVideos: [NFTVideoParse?] = []
+    private var timer: Timer?
     
     override func loadView() {
         super.loadView()
@@ -36,24 +34,16 @@ class MontageViewController: UIViewController {
         let blue = UIColor(red: 68.0 / 255, green: 64.0 / 255, blue: 175.0 / 255, alpha: 1)
         self.view.backgroundColor = blue
         ytPlayerView.delegate = self
-        
-        //This parameter causes the player to begin playing the video at the given number of seconds from the start of the video. The parameter value is a positive integer
-        //parameter documentation https://developers.google.com/youtube/player_parameters
-        let startTimeSec = 100
-        ytPlayerView.load(withVideoId: videoIDs[0], playerVars: ["playsinline": "1",
-                                                                 "controls" : 0, //hides controls (play button, etc.)
-                                                                 "cc_load_policy": 0,
-                                                                 "disablekb": 1,
-                                                                 "iv_load_policy": 3,
-                                                                 "start": startTimeSec
-                                                                ])
-        startTimer()
         loadMontage()
     }
     
     private func loadMontage() {
         dataStore.loadMontage(with: "KdQrmr0tBW") { result, error in
             if let nftVideos = result as? [NFTVideoParse] {
+                if let firstNFTVid = nftVideos.first {
+                    self.startYoutubeVid(firstNFTVid: firstNFTVid)
+                    self.startTimer()
+                }
                 self.loadThumbnails(from: nftVideos)
             } else if let error = error {
                 BannerAlert.show(with: error)
@@ -63,36 +53,57 @@ class MontageViewController: UIViewController {
         }
     }
     
+    private func startYoutubeVid(firstNFTVid: NFTVideoParse) {
+        //This parameter causes the player to begin playing the video at the given number of seconds from the start of the video. The parameter value is a positive integer
+        //parameter documentation https://developers.google.com/youtube/player_parameters
+        ytPlayerView.load(withVideoId: firstNFTVid.youtubeID, playerVars: ["playsinline": "1",
+                                                                 "controls" : 0, //hides controls (play button, etc.)
+                                                                 "cc_load_policy": 0,
+                                                                 "disablekb": 1,
+                                                                 "iv_load_policy": 3,
+                                                                           "start": firstNFTVid.startTimeSeconds
+                                                                ])
+    }
+    
     private func loadThumbnails(from nftVideos: [NFTVideoParse]) {
         self.nftVideos = nftVideos
         for (index, nft) in nftVideos.enumerated() {
-            if thumbnailViews.indices.contains(index) && index <= 3 && index > 0 {
-                var thumbIndex = 0
-                if index == 1 {
-                    thumbIndex = 2
-                } else if index == 2{
-                    thumbIndex = 1
-                }
-                
-                nft.thumbnailImg?.getDataInBackground(block: { (data, error) in
-                    if let data = data {
-                        let img = UIImage(data: data)
-                        self.thumbnailViews[thumbIndex].thumbnailImgView.image = img
-                    } else if (error != nil) {
-                        BannerAlert.show(with: error)
-                    } else {
-                        print("error")
-                    }
-                })
+            if index < 4 {
+                shownNFTVideos.append(nft)
             }
+            
+            nft.thumbnailImg?.getDataInBackground(block: { (data, error) in
+                if let data = data {
+                    let img = UIImage(data: data)
+                    if self.thumbnailViews.indices.contains(index) && index <= 3 && index > 0 {
+                        var thumbIndex = 0
+                        if index == 1 {
+                            thumbIndex = 2
+                        } else if index == 2 {
+                            thumbIndex = 1
+                        }
+                        
+                        self.thumbnailViews[thumbIndex].thumbnailImgView.image = img
+                    }
+                    nftVideos[index].img = img
+                } else if (error != nil) {
+                    BannerAlert.show(with: error)
+                } else {
+                    print("error")
+                }
+            })
+        }
+        
+        shownNFTVideos.reverse()
+        if nftVideos.indices.contains(4) {
+            shownNFTVideos.insert(nftVideos[4], at: 0)
+        } else {
+            shownNFTVideos.insert(nil, at: 0)
         }
     }
     
-    var timer: Timer?
-    var num = 1
-    
     func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 3.0,
+        timer = Timer.scheduledTimer(timeInterval: 20.0,
                                      target: self,
                                      selector: #selector(eventWith(timer:)),
                                      userInfo: [ "foo" : "bar" ],
@@ -101,55 +112,77 @@ class MontageViewController: UIViewController {
     
     // Timer expects @objc selector
     @objc func eventWith(timer: Timer!) {
+        if shownNFTVideos.indices.contains(3) {
+            if let nft = shownNFTVideos[3] {
+                //cueing is better because it doesn't need to reload the iframe
+                ytPlayerView.cueVideo(byId: nft.youtubeID, startSeconds: Float(nft.startTimeSeconds))
+                ytPlayerView.playVideo()
+            }
+        }
         transitionThumbnails()
-        let videoID = videoIDs[num]
-        num += 1
-        //cueing is better because it doesn't need to reload the iframe
-        ytPlayerView.cueVideo(byId: videoID, startSeconds: 0)
-        ytPlayerView.playVideo()
     }
     
     private func transitionThumbnails() {
-        thumbnailImgs = thumbnailViews.map { thumbnailView in
-            return thumbnailView.thumbnailImgView.image
-        }
-        
-        for (index, nftVideo) in nftVideos.enumerated() {
-            if thumbnailViews.indices.contains(index + 1) {
-                let toImage = thumbnailImgs[index]
-                UIView.transition(with: thumbnailViews[index + 1].thumbnailImgView,
+        for (index, nftVideo) in shownNFTVideos.enumerated() {
+            let toImage = nftVideo?.img
+            if index == 0 {
+                UIView.transition(with: thumbnailViews[0].thumbnailImgView,
                                   duration: 0.5,
                                   options: .transitionCrossDissolve,
-                                  animations: { self.thumbnailViews[index + 1].thumbnailImgView.image = toImage },
+                                  animations: { self.thumbnailViews[0].thumbnailImgView.image = toImage },
                                   completion: nil)
-                
-                let remainingVideos = nftVideos.count - index
-                let indexToDrop = 3 - remainingVideos
-                let isLastVideo = index == nftVideos.count - 1
-                if indexToDrop >= 0 && isLastVideo {
-                    self.thumbnailViews[0].compress(intoView: {
-                        self.nftVideos.remove(at: 0)
-                        self.thumbnailViews.remove(at: 0)
-                        print("finished")
-                    })
-                        
-//                        .expand(into: self.view) {
-//
-//                    }
-                }
+            } else if index == 1 {
+                UIView.transition(with: thumbnailViews[1].thumbnailImgView,
+                                  duration: 0.5,
+                                  options: .transitionCrossDissolve,
+                                  animations: { self.thumbnailViews[1].thumbnailImgView.image = toImage },
+                                  completion: nil)
+            } else if index == 2 {
+                //goes to the video
+                UIView.transition(with: thumbnailViews[2].thumbnailImgView,
+                                  duration: 0.5,
+                                  options: .transitionCrossDissolve,
+                                  animations: { self.thumbnailViews[2].thumbnailImgView.image = toImage },
+                                  completion: nil)
+            } else if index == 3 {
+                //main video
+            } else if index == 4 {
+                UIView.transition(with: thumbnailViews[3].thumbnailImgView,
+                                  duration: 0.5,
+                                  options: .transitionCrossDissolve,
+                                  animations: { self.thumbnailViews[3].thumbnailImgView.image = toImage },
+                                  completion: nil)
+            } else if index == 5 {
+                UIView.transition(with: thumbnailViews[4].thumbnailImgView,
+                                  duration: 0.5,
+                                  options: .transitionCrossDissolve,
+                                  animations: { self.thumbnailViews[4].thumbnailImgView.image = toImage },
+                                  completion: nil)
+            } else if index == 6 {
+                UIView.transition(with: thumbnailViews[5].thumbnailImgView,
+                                  duration: 0.5,
+                                  options: .transitionCrossDissolve,
+                                  animations: { self.thumbnailViews[5].thumbnailImgView.image = toImage },
+                                  completion: nil)
+            } else if index == 7 {
+                shownNFTVideos.removeLast()
             }
         }
         
-//        for (index, _) in thumbnailViews.enumerated() {
-//            if thumbnailViews.indices.contains(index + 1) {
-//                let toImage = thumbnailImgs[index]
-//                UIView.transition(with: thumbnailViews[index + 1].thumbnailImgView,
-//                                  duration: 0.5,
-//                                  options: .transitionCrossDissolve,
-//                                  animations: { self.thumbnailViews[index + 1].thumbnailImgView.image = toImage },
-//                                  completion: nil)
-//            }
-//        }
+        let firstNFTVideo = shownNFTVideos.first
+        let lastShownIndex = nftVideos.firstIndex { nftVideo in
+            return firstNFTVideo??.objectId == nftVideo?.objectId
+        }
+        
+        if let lastShownIndex = lastShownIndex {
+            if nftVideos.indices.contains(lastShownIndex + 1) {
+                shownNFTVideos.insert(nftVideos[lastShownIndex + 1], at: 0)
+            } else {
+                shownNFTVideos.insert(nil, at: 0)
+            }
+        } else {
+            shownNFTVideos.insert(nil, at: 0)
+        }
     }
     
     @objc private func addButtonPressed() {

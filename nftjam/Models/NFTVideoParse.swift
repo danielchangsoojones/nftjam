@@ -10,6 +10,11 @@ import Parse
 
 class NFTVideoParse: SuperParseObject, PFSubclassing {
     @NSManaged var thumbnailImg: PFFileObject?
+    @NSManaged var youtubeID: String
+    @NSManaged var startTimeSeconds: Int
+    
+    var img: UIImage?
+    
     
     class func parseClassName() -> String {
         return "NFTVideo"

@@ -9,7 +9,7 @@ import UIKit
 
 class DiscoverViewController: UIViewController {
     private var tableView: UITableView!
-    private var montageDatas: [MontageDatas] = []
+    private var montageDatas: [MontageData] = []
     private let dataStore = DiscoverDataStore()
 
     override func viewDidLoad() {

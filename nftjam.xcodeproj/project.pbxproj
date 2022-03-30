@@ -36,6 +36,8 @@
 		92B6AEE727ED62FE002F1B51 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEE627ED62FE002F1B51 /* Timer.swift */; };
 		92B6AEE927ED640F002F1B51 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEE827ED640F002F1B51 /* StringExtension.swift */; };
 		92B6AEEB27F3EBB7002F1B51 /* MontageParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEEA27F3EBB7002F1B51 /* MontageParse.swift */; };
+		92B6AEEE27F3F479002F1B51 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEED27F3F479002F1B51 /* DiscoverViewController.swift */; };
+		92B6AEF027F42260002F1B51 /* DiscoverTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEEF27F42260002F1B51 /* DiscoverTableCell.swift */; };
 		92C64F4C27E850150007BA24 /* EthAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F4B27E850150007BA24 /* EthAddressViewController.swift */; };
 		92C64F4E27E850250007BA24 /* EthAdressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F4D27E850250007BA24 /* EthAdressView.swift */; };
 		92C64F5127E973BD0007BA24 /* SendEthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5027E973BD0007BA24 /* SendEthViewController.swift */; };
@@ -81,6 +83,8 @@
 		92B6AEE627ED62FE002F1B51 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		92B6AEE827ED640F002F1B51 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		92B6AEEA27F3EBB7002F1B51 /* MontageParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontageParse.swift; sourceTree = "<group>"; };
+		92B6AEED27F3F479002F1B51 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		92B6AEEF27F42260002F1B51 /* DiscoverTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableCell.swift; sourceTree = "<group>"; };
 		92C64F4B27E850150007BA24 /* EthAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAddressViewController.swift; sourceTree = "<group>"; };
 		92C64F4D27E850250007BA24 /* EthAdressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAdressView.swift; sourceTree = "<group>"; };
 		92C64F5027E973BD0007BA24 /* SendEthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEthViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 		929D273A27E3FCD700455373 /* nftjam */ = {
 			isa = PBXGroup;
 			children = (
+				92B6AEEC27F3F462002F1B51 /* Discover */,
 				92C64F5D27EA70460007BA24 /* Models */,
 				920614A827E5991800249682 /* Upload */,
 				929D275627E44F0000455373 /* Helpers */,
@@ -259,6 +264,15 @@
 				92B6AEDC27ED5BC0002F1B51 /* RegisterViewController.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		92B6AEEC27F3F462002F1B51 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				92B6AEED27F3F479002F1B51 /* DiscoverViewController.swift */,
+				92B6AEEF27F42260002F1B51 /* DiscoverTableCell.swift */,
+			);
+			path = Discover;
 			sourceTree = "<group>";
 		};
 		92C64F4A27E845790007BA24 /* Eth Address */ = {
@@ -431,6 +445,7 @@
 				929D275127E40D3A00455373 /* MontageView.swift in Sources */,
 				929D275327E40E8D00455373 /* ThumbnailView.swift in Sources */,
 				92B6AEE927ED640F002F1B51 /* StringExtension.swift in Sources */,
+				92B6AEEE27F3F479002F1B51 /* DiscoverViewController.swift in Sources */,
 				92C64F5727E974AB0007BA24 /* UploadView.swift in Sources */,
 				92B6AEE727ED62FE002F1B51 /* Timer.swift in Sources */,
 				92B6AEEB27F3EBB7002F1B51 /* MontageParse.swift in Sources */,
@@ -442,6 +457,7 @@
 				92B6AECE27EC6CFF002F1B51 /* ImageViewExtension.swift in Sources */,
 				92C64F4E27E850250007BA24 /* EthAdressView.swift in Sources */,
 				92B6AECC27EC68E0002F1B51 /* User.swift in Sources */,
+				92B6AEF027F42260002F1B51 /* DiscoverTableCell.swift in Sources */,
 				92C64F5927E99ED00007BA24 /* BannerAlert.swift in Sources */,
 				92B6AECA27EC68BD002F1B51 /* NFTVideoParse.swift in Sources */,
 				92C64F5327E973CD0007BA24 /* SendEthView.swift in Sources */,

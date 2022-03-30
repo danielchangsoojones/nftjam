@@ -20,7 +20,7 @@ class YoutubeUploadView: UploadView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.spaceGray
-        titleLabel.text = "Choose 20 seconds of a youtube clip"
+        titleLabel.text = "Choose \(YoutubeUpload.clipDurationStr) seconds of a youtube clip"
         setLinkTextField()
         setTimeStamps()
         youtubePlayerView.isHidden = true
@@ -84,7 +84,7 @@ class YoutubeUploadView: UploadView {
         
         setTimeStampContainer(title: "End:",
                               containerView: endStampContainer,
-                              placeholder: "00:20",
+                              placeholder: "00:\(YoutubeUpload.clipDurationStr)",
                               textField: endTextField,
                               shouldEnable: false)
     }

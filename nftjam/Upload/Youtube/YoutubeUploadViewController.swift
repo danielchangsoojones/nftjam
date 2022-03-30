@@ -9,6 +9,11 @@ import UIKit
 import youtube_ios_player_helper
 
 class YoutubeUpload {
+    static let clipDuration: Float = 15
+    static var clipDurationStr: String {
+        return String(Int(clipDuration))
+    }
+    
     let startTimeSeconds: Float
     let endTimeSeconds: Float
     let youtubeID: String
@@ -78,7 +83,7 @@ class YoutubeUploadViewController: UploadViewController {
     override func submit() {
         if let youtubeLink = linkTextField.text, let startTime = startTextField.text {
             let startTimeSeconds = convertTimeStrToSeconds(timeStr: startTime)
-            let endTimeSeconds = (startTimeSeconds ?? 0) + 20
+            let endTimeSeconds = (startTimeSeconds ?? 0) + YoutubeUpload.clipDuration
             let youtubeID = getIDFromYoutube(link: youtubeLink)
             let youtubeUpload = YoutubeUpload(startTimeSeconds: startTimeSeconds ?? 0,
                                               endTimeSeconds: endTimeSeconds ,

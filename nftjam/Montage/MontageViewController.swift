@@ -103,7 +103,7 @@ class MontageViewController: UIViewController {
     }
     
     func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 20.0,
+        timer = Timer.scheduledTimer(timeInterval: Double(YoutubeUpload.clipDuration),
                                      target: self,
                                      selector: #selector(eventWith(timer:)),
                                      userInfo: [ "foo" : "bar" ],

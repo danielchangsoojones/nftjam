@@ -187,7 +187,7 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
     }
     
     private func updateEndTimeStamp(totalSecondsFloat: Float) {
-        let additionalClipTime: Double = 20
+        let additionalClipTime: Double = Double(YoutubeUpload.clipDuration)
         let totalSeconds = Double(totalSecondsFloat) + additionalClipTime
         let minutes = Int(floor(totalSeconds / 60))
         let seconds = Int(totalSeconds.truncatingRemainder(dividingBy: 60))

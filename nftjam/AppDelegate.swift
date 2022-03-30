@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         User.registerSubclass()
         NFTVideoParse.registerSubclass()
+        MontageParse.registerSubclass()
     }
 }
 

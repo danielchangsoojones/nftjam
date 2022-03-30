@@ -35,6 +35,7 @@
 		92B6AEE527ED602E002F1B51 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEE427ED602E002F1B51 /* Structs.swift */; };
 		92B6AEE727ED62FE002F1B51 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEE627ED62FE002F1B51 /* Timer.swift */; };
 		92B6AEE927ED640F002F1B51 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEE827ED640F002F1B51 /* StringExtension.swift */; };
+		92B6AEEB27F3EBB7002F1B51 /* MontageParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEEA27F3EBB7002F1B51 /* MontageParse.swift */; };
 		92C64F4C27E850150007BA24 /* EthAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F4B27E850150007BA24 /* EthAddressViewController.swift */; };
 		92C64F4E27E850250007BA24 /* EthAdressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F4D27E850250007BA24 /* EthAdressView.swift */; };
 		92C64F5127E973BD0007BA24 /* SendEthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5027E973BD0007BA24 /* SendEthViewController.swift */; };
@@ -79,6 +80,7 @@
 		92B6AEE427ED602E002F1B51 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		92B6AEE627ED62FE002F1B51 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		92B6AEE827ED640F002F1B51 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		92B6AEEA27F3EBB7002F1B51 /* MontageParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontageParse.swift; sourceTree = "<group>"; };
 		92C64F4B27E850150007BA24 /* EthAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAddressViewController.swift; sourceTree = "<group>"; };
 		92C64F4D27E850250007BA24 /* EthAdressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAdressView.swift; sourceTree = "<group>"; };
 		92C64F5027E973BD0007BA24 /* SendEthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEthViewController.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				92B6AECB27EC68E0002F1B51 /* User.swift */,
 				92B6AEC927EC68BD002F1B51 /* NFTVideoParse.swift */,
 				92B6AEC727EC68B3002F1B51 /* SuperParseObject.swift */,
+				92B6AEEA27F3EBB7002F1B51 /* MontageParse.swift */,
 				92C64F5E27EA704A0007BA24 /* Database Setup */,
 			);
 			path = Models;
@@ -430,6 +433,7 @@
 				92B6AEE927ED640F002F1B51 /* StringExtension.swift in Sources */,
 				92C64F5727E974AB0007BA24 /* UploadView.swift in Sources */,
 				92B6AEE727ED62FE002F1B51 /* Timer.swift in Sources */,
+				92B6AEEB27F3EBB7002F1B51 /* MontageParse.swift in Sources */,
 				92B6AEE327ED5CEB002F1B51 /* SpinningButton.swift in Sources */,
 				92B6AEDF27ED5BC0002F1B51 /* RegisterView.swift in Sources */,
 				92B6AED927ED5BAD002F1B51 /* WelcomeView.swift in Sources */,

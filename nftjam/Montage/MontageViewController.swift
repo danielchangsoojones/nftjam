@@ -38,7 +38,7 @@ class MontageViewController: UIViewController {
     }
     
     private func loadMontage() {
-        dataStore.loadMontage(with: "KdQrmr0tBW") { result, error in
+        dataStore.loadMontage(with: "zcA1pkmoIZ") { result, error in
             if let nftVideos = result as? [NFTVideoParse] {
                 if let firstNFTVid = nftVideos.first {
                     self.startYoutubeVid(firstNFTVid: firstNFTVid)
@@ -186,9 +186,11 @@ class MontageViewController: UIViewController {
     }
     
     @objc private func addButtonPressed() {
-        let uploadVC = YoutubeUploadViewController(montageID: "KdQrmr0tBW")
-        let navController = UINavigationController(rootViewController: uploadVC)
-        present(navController, animated: true)
+        if let montage = nftVideos.first??.montage, let montageID = montage.objectId {
+            let uploadVC = YoutubeUploadViewController(montageID: montageID)
+            let navController = UINavigationController(rootViewController: uploadVC)
+            present(navController, animated: true)
+        }
     }
 }
 

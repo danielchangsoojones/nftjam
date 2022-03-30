@@ -133,6 +133,7 @@ class DiscoverTableCell: UITableViewCell, Reusable {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFill
         imgView.backgroundColor = color
+        imgView.clipsToBounds = true
         self.containerView.addSubview(imgView)
         imgView.snp.makeConstraints(makeConstraints)
         thumbnailImgViews.append(imgView)

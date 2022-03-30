@@ -11,4 +11,6 @@ target 'nftjam' do
   pod 'TTTAttributedLabel'
   pod 'UICheckbox'
   pod 'DCAnimationKit'
+  pod 'SwiftyJSON', '~> 4.0'
+  
 end

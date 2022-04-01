@@ -39,6 +39,9 @@ class YoutubeUploadViewController: UploadViewController {
     private var typedNums: [String] = []
     private let montageID: String
     
+    private var hasLoadedFirstYoutubeVid = false
+    private var timer: Timer?
+    
     override var uploadView: UploadView {
         return YoutubeUploadView(frame: self.view.frame)
     }
@@ -56,7 +59,6 @@ class YoutubeUploadViewController: UploadViewController {
         super.loadView()
         if let ytUploadView = self.view as? YoutubeUploadView {
             self.youtubePlayerView = ytUploadView.youtubePlayerView
-            youtubePlayerView.delegate = self
             linkTextField = ytUploadView.linkTextField
             linkTextField.delegate = self
             self.startTextField = ytUploadView.startTextField
@@ -71,13 +73,10 @@ class YoutubeUploadViewController: UploadViewController {
         }        
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //parameter documentation https://developers.google.com/youtube/player_parameters
-        youtubePlayerView.load(withPlayerParams: ["playsinline": "1",
-                                                  "cc_load_policy": 0,
-                                                  "disablekb": 1,
-                                                  "iv_load_policy": 3])
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+        self.timer = nil
     }
     
     override func submit() {
@@ -96,7 +95,7 @@ class YoutubeUploadViewController: UploadViewController {
     }
 }
 
-extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate {
+extension YoutubeUploadViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField.tag == 0 {
             handleMediaLinkTextField(replacementString: string)
@@ -122,11 +121,45 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
     private func handleMediaLinkTextField(replacementString string: String) {
         if !string.isEmpty {
             if let videoID = getIDFromYoutube(link: string) {
-                youtubePlayerView.cueVideo(byId: videoID, startSeconds: 0)
+                if hasLoadedFirstYoutubeVid {
+                    youtubePlayerView.cueVideo(byId: videoID, startSeconds: 0)
+                } else {
+                    youtubePlayerView.load(withVideoId: videoID, playerVars: ["playsinline": "1",
+//                                                                             "controls" : 0, //hides controls (play button, etc.)
+                                                                             "cc_load_policy": 0,
+                                                                             "disablekb": 1,
+                                                                             "iv_load_policy": 3,
+                                                                                       "start": 0
+                                                                            ])
+                    
+                    startTimer()
+                }
             }
             
             youtubePlayerView.isHidden = false
         }
+    }
+    
+    private func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1,
+                                         target: self,
+                                         selector: #selector(self.timerFinished),
+                                         userInfo: nil,
+                                         repeats: true)
+    }
+    
+    @objc private func timerFinished() {
+        if let startText = startTextField.text {
+            youtubePlayerView.currentTime { currentTime, error in
+                let startTimeSeconds = self.convertTimeStrToSeconds(timeStr: startText) ?? 0.0
+                let timeDifference = currentTime - startTimeSeconds
+                if timeDifference >= YoutubeUpload.clipDuration {
+                    self.youtubePlayerView.pauseVideo()
+                    self.youtubePlayerView.seek(toSeconds: startTimeSeconds, allowSeekAhead: true)
+                }
+            }
+        }
+        
     }
     
     private func getIDFromYoutube(link: String) -> String? {
@@ -167,6 +200,7 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
         if let totalSeconds = convertTimeStrToSeconds(timeStr: finalText) {
             youtubePlayerView.seek(toSeconds: totalSeconds, allowSeekAhead: true)
             updateEndTimeStamp(totalSecondsFloat: totalSeconds)
+            startTimer()
         }
     }
     

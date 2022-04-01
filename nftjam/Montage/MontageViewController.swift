@@ -127,6 +127,10 @@ class MontageViewController: UIViewController {
                 //cueing is better because it doesn't need to reload the iframe
                 ytPlayerView.cueVideo(byId: nft.youtubeID, startSeconds: Float(nft.startTimeSeconds))
                 ytPlayerView.playVideo()
+            } else {
+                //the end of the montage since there is no nft video left to show
+                self.timer?.invalidate()
+                
             }
         }
         transitionThumbnails()

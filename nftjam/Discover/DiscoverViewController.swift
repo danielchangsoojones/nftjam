@@ -50,6 +50,11 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.thumbnailImgViews[index].loadFromFile(photo.image)
             }
         }
+        
+        cell.montageTitleLabel.text = montageData.montage.title
+        cell.creatorLabel.text = "By: " + montageData.montage.creator.codeName
+        cell.ethValueLabel.text = String(montageData.montage.valueLocked)
+        
         return cell
     }
     

@@ -136,7 +136,7 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
                     startTimer()
                 } else {
                     youtubePlayerView.load(withVideoId: videoID, playerVars: ["playsinline": "1",
-                                                                             "controls" : 0, //hides controls (play button, etc.)
+//                                                                             "controls" : 0, //hides controls (play button, etc.)
                                                                              "cc_load_policy": 0,
                                                                              "disablekb": 1,
                                                                              "iv_load_policy": 3,
@@ -170,6 +170,7 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
                     self.youtubePlayerView.pauseVideo()
                     self.youtubePlayerView.seek(toSeconds: startTimeSeconds, allowSeekAhead: true)
                     self.timer?.invalidate()
+                    self.timer = nil
                 }
             }
         }
@@ -241,5 +242,16 @@ extension YoutubeUploadViewController: UITextFieldDelegate, YTPlayerViewDelegate
         let seconds = Int(totalSeconds.truncatingRemainder(dividingBy: 60))
         let str = "\(minutes):\(seconds)"
         endTextField.text = str
+    }
+    
+    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
+        switch state {
+        case .playing:
+            if timer == nil {
+                startTimer()
+            }
+        default:
+            print("hey")
+        }
     }
 }

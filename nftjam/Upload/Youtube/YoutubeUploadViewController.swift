@@ -73,16 +73,6 @@ class YoutubeUploadViewController: UploadViewController {
         }        
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //parameter documentation https://developers.google.com/youtube/player_parameters
-//        youtubePlayerView.load(withPlayerParams: ["playsinline": "1",
-//                                                  "cc_load_policy": 0,
-//                                                  "controls" : 0,
-//                                                  "disablekb": 1,
-//                                                  "iv_load_policy": 3])
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         timer?.invalidate()

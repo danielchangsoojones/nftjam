@@ -22,7 +22,6 @@ class SettingsViewController: BaseFormViewController<Any> {
         //gets too big and then it covers the logout button. It's a hacky fix
         //that works for now.
         tableView.contentInset.bottom = 100
-        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     private func contactUs() {

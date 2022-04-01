@@ -17,6 +17,8 @@ class DiscoverViewController: UIViewController {
         self.view.backgroundColor = .deepBlue
         setTableView()
         loadPhotos()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 32, weight: .bold), NSAttributedString.Key.foregroundColor: UIColor.white]
+        title = "NFTtube"
     }
     
     private func setTableView() {
@@ -24,9 +26,9 @@ class DiscoverViewController: UIViewController {
         tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.register(cellType: DiscoverTableCell.self)
         view.addSubview(tableView)
-        
     }
     
     private func loadPhotos() {

@@ -19,6 +19,7 @@ class MontageViewController: UIViewController {
     private var shownNFTVideos: [NFTVideoParse?] = []
     private var timer: Timer?
     private let montage: MontageParse
+    private var isMontageEnded = false
     
     init(montage: MontageParse) {
         self.montage = montage
@@ -129,7 +130,7 @@ class MontageViewController: UIViewController {
                 ytPlayerView.cueVideo(byId: nft.youtubeID, startSeconds: Float(nft.startTimeSeconds))
                 ytPlayerView.playVideo()
             } else {
-                montageEnded()
+                self.montageEnded()
             }
         }
         transitionThumbnails()
@@ -139,6 +140,7 @@ class MontageViewController: UIViewController {
         //the end of the montage since there is no nft video left to show
         self.timer?.invalidate()
         ytPlayerView.stopVideo()
+        isMontageEnded = true
         let alertView = SCLAlertView()
         alertView.addButton("Add NFT To Montage") {
             self.addButtonPressed()
@@ -228,7 +230,7 @@ extension MontageViewController: YTPlayerViewDelegate {
     }
     
     func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
-        if state == .cued {
+        if state == .cued && !isMontageEnded {
             ytPlayerView.playVideo()
         }
     }

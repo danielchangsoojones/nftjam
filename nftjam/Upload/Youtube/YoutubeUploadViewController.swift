@@ -84,6 +84,11 @@ class YoutubeUploadViewController: UploadViewController {
                                                   "iv_load_policy": 3])
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+    }
+    
     override func submit() {
         if let youtubeLink = linkTextField.text, let startTime = startTextField.text {
             let startTimeSeconds = convertTimeStrToSeconds(timeStr: startTime)

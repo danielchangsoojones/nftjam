@@ -56,7 +56,6 @@ class DiscoverTableCell: UITableViewCell, Reusable {
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
-        
         //photo 3
         addImgView() { make in
             make.leading.equalTo(self.thumbnailImgViews[1].snp.trailing)

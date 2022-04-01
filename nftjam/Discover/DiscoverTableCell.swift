@@ -42,91 +42,91 @@ class DiscoverTableCell: UITableViewCell, Reusable {
     
     private func addImgs() {
         //photo 1
-        addImgView(color: .yellow) { make in
+        addImgView() { make in
             make.leading.equalToSuperview()
             make.top.equalToSuperview()
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
         
-        addImgView(color: .blue) { make in
+        addImgView() { make in
             make.leading.equalTo(self.thumbnailImgViews[0].snp.trailing)
             make.top.equalToSuperview()
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
         
-        addImgView(color: .green) { make in
+        addImgView() { make in
             make.leading.equalTo(self.thumbnailImgViews[1].snp.trailing)
             make.top.equalToSuperview()
             make.height.equalTo(96)
             make.trailing.equalToSuperview()
         }
         
-        addImgView(color: .darkGray) { make in
+        addImgView() { make in
             make.leading.equalToSuperview()
             make.top.equalTo(self.thumbnailImgViews[0].snp.bottom)
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
         
-        addImgView(color: .black) { make in
+        addImgView() { make in
             make.leading.equalTo(self.thumbnailImgViews[3].snp.trailing)
             make.top.equalTo(self.thumbnailImgViews[1].snp.bottom)
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
         
-        addImgView(color: .yellow) { make in
+        addImgView() { make in
             make.leading.equalTo(self.thumbnailImgViews[4].snp.trailing)
             make.top.equalTo(self.thumbnailImgViews[2].snp.bottom)
             make.height.equalTo(96)
             make.trailing.equalToSuperview()
         }
         
-        addImgView(color: .yellow) { make in
+        addImgView() { make in
             make.leading.equalToSuperview()
             make.top.equalTo(self.thumbnailImgViews[3].snp.bottom)
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
         
-        addImgView(color: .blue) { make in
+        addImgView() { make in
             make.leading.equalTo(self.thumbnailImgViews[6].snp.trailing)
             make.top.equalTo(self.thumbnailImgViews[4].snp.bottom)
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
         
-        addImgView(color: .gray) { make in
+        addImgView() { make in
             make.leading.equalTo(self.thumbnailImgViews[7].snp.trailing)
             make.top.equalTo(self.thumbnailImgViews[5].snp.bottom)
             make.height.equalTo(96)
             make.trailing.equalToSuperview()
         }
         
-        addImgView(color: .gray) { make in
+        addImgView() { make in
             make.leading.equalToSuperview()
             make.top.equalTo(self.thumbnailImgViews[6].snp.bottom)
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
         
-        addImgView(color: .green) { make in
+        addImgView() { make in
             make.leading.equalToSuperview()
             make.top.equalTo(self.thumbnailImgViews[6].snp.bottom)
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
         
-        addImgView(color: .yellow) { make in
+        addImgView() { make in
             make.leading.equalTo(self.thumbnailImgViews[9].snp.trailing)
             make.top.equalTo(self.thumbnailImgViews[7].snp.bottom)
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
         
-        addImgView(color: .black) { make in
+        addImgView() { make in
             make.leading.equalTo(self.thumbnailImgViews[11].snp.trailing)
             make.top.equalTo(self.thumbnailImgViews[8].snp.bottom)
             make.height.equalTo(96)
@@ -134,10 +134,9 @@ class DiscoverTableCell: UITableViewCell, Reusable {
         }
     }
     
-    private func addImgView(color: UIColor, makeConstraints: @escaping (ConstraintMaker) -> Void) {
+    private func addImgView(makeConstraints: @escaping (ConstraintMaker) -> Void) {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFill
-        imgView.backgroundColor = color
         imgView.clipsToBounds = true
         self.containerView.addSubview(imgView)
         imgView.snp.makeConstraints(makeConstraints)

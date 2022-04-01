@@ -21,6 +21,19 @@ class DiscoverViewController: UIViewController {
         title = "NFTtube"
     }
     
+    private func setMenuNavItem() {
+        let img = UIImage(named: "settings")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: img,
+                        style: .plain,
+                        target: self,
+                        action: #selector(settingsPressed))
+    }
+    
+    @objc private func settingsPressed() {
+        let settingsVC = SettingsViewController()
+        self.navigationController?.pushViewController(settingsVC, animated: true)
+    }
+    
     private func setTableView() {
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         tableView.backgroundColor = .clear

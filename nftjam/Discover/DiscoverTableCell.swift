@@ -49,56 +49,57 @@ class DiscoverTableCell: UITableViewCell, Reusable {
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
-        
+        //photo 2
         addImgView() { make in
-            make.leading.equalTo(self.thumbnailImgViews[0].snp.trailing)
+            make.leading.equalTo(self.thumbnailImgViews[0].snp.trailing).offset(-10)
             make.top.equalToSuperview()
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
         
+        //photo 3
         addImgView() { make in
             make.leading.equalTo(self.thumbnailImgViews[1].snp.trailing)
             make.top.equalToSuperview()
             make.height.equalTo(96)
             make.trailing.equalToSuperview()
         }
-        
+        //photo 4
         addImgView() { make in
             make.leading.equalToSuperview()
             make.top.equalTo(self.thumbnailImgViews[0].snp.bottom)
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
-        
+        //photo 5
         addImgView() { make in
             make.leading.equalTo(self.thumbnailImgViews[3].snp.trailing)
             make.top.equalTo(self.thumbnailImgViews[1].snp.bottom)
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
-        
+        //photo 6
         addImgView() { make in
             make.leading.equalTo(self.thumbnailImgViews[4].snp.trailing)
             make.top.equalTo(self.thumbnailImgViews[2].snp.bottom)
             make.height.equalTo(96)
             make.trailing.equalToSuperview()
         }
-        
+        //photo 7
         addImgView() { make in
             make.leading.equalToSuperview()
             make.top.equalTo(self.thumbnailImgViews[3].snp.bottom)
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
-        
+        //photo 8
         addImgView() { make in
             make.leading.equalTo(self.thumbnailImgViews[6].snp.trailing)
             make.top.equalTo(self.thumbnailImgViews[4].snp.bottom)
             make.height.equalTo(96)
             make.width.equalTo(110)
         }
-        
+        //photo 9
         addImgView() { make in
             make.leading.equalTo(self.thumbnailImgViews[7].snp.trailing)
             make.top.equalTo(self.thumbnailImgViews[5].snp.bottom)

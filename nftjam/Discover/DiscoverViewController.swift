@@ -55,7 +55,7 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.montageTitleLabel.text = montageData.montage.title
         cell.creatorLabel.text = "By: " + montageData.montage.creator.codeName
-        cell.ethValueLabel.text = String(montageData.montage.valueLocked)
+        cell.ethValueLabel.text = String(montageData.montage.valueLocked) + "ETH"
         
         return cell
     }

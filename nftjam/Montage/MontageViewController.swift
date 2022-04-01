@@ -9,6 +9,7 @@ import UIKit
 import youtube_ios_player_helper
 import Parse
 import DCAnimationKit
+import SCLAlertView
 
 class MontageViewController: UIViewController {
     private var ytPlayerView: YTPlayerView!
@@ -128,12 +129,21 @@ class MontageViewController: UIViewController {
                 ytPlayerView.cueVideo(byId: nft.youtubeID, startSeconds: Float(nft.startTimeSeconds))
                 ytPlayerView.playVideo()
             } else {
-                //the end of the montage since there is no nft video left to show
-                self.timer?.invalidate()
-                
+                montageEnded()
             }
         }
         transitionThumbnails()
+    }
+    
+    private func montageEnded() {
+        //the end of the montage since there is no nft video left to show
+        self.timer?.invalidate()
+        ytPlayerView.stopVideo()
+        let alertView = SCLAlertView()
+        alertView.addButton("Add NFT To Montage") {
+            self.addButtonPressed()
+        }
+        alertView.showInfo("Montage Ended", subTitle: "The montage has ended. Add an NFT to the montage or return to the discover page to watch more NFT montages.")
     }
     
     private func transitionThumbnails() {

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setStartingVC() {
         if User.current() != nil {
-            let vc = DiscoverViewController()
+            let vc = YoutubeUploadViewController(montageID: "zcA1pkmoIZ")
             let navController = UINavigationController(rootViewController: vc)
             set(startingVC: navController)
             

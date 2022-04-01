@@ -47,7 +47,7 @@ class RegisterViewController: UIViewController, OnboardingDataStoreDelegate {
     }
     
     func segueIntoApp() {
-        let montageVC = MontageViewController()
+        let montageVC = DiscoverViewController()
         navigationController?.pushViewController(montageVC, animated: true)
     }
 }

@@ -67,4 +67,10 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 369
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let montage = montageDatas[indexPath.row].montage
+        let montageVC = MontageViewController(montage: montage)
+        self.navigationController?.pushViewController(montageVC, animated: true)
+    }
 }

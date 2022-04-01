@@ -45,7 +45,7 @@ class LogInViewController: RegisterViewController {
     }
     
     override func segueIntoApp() {
-        let vc = MontageViewController()
+        let vc = DiscoverViewController()
         let navController = UINavigationController(rootViewController: vc)
         self.present(navController, animated: true, completion: nil)
     }

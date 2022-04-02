@@ -50,7 +50,7 @@ class MontageViewController: UIViewController {
     }
     
     private func loadMontage() {
-        dataStore.loadMontage(with: "zcA1pkmoIZ") { result, error in
+        dataStore.loadMontage(with: montage.objectId ?? "") { result, error in
             if let nftVideos = result as? [NFTVideoParse] {
                 if let firstNFTVid = nftVideos.first {
                     self.startYoutubeVid(firstNFTVid: firstNFTVid)

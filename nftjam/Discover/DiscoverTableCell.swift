@@ -36,111 +36,40 @@ class DiscoverTableCell: UITableViewCell, Reusable {
         containerView.clipsToBounds = true
         contentView.addSubview(containerView)
         containerView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(32)
-            make.top.bottom.equalToSuperview().inset(10)
+            make.width.equalTo(290)
+            make.height.equalTo(340)
+            make.center.equalToSuperview()
         }
     }
     
-    private func addImgs() {
-        //photo 1
-        addImgView() { make in
-            make.leading.equalToSuperview()
-            make.top.equalToSuperview()
-            make.height.equalTo(96)
-            make.width.equalTo(110)
-        }
-        //photo 2
-        addImgView() { make in
-            make.leading.equalTo(self.thumbnailImgViews[0].snp.trailing).offset(-10)
-            make.top.equalToSuperview()
-            make.height.equalTo(96)
-            make.width.equalTo(110)
-        }
-        //photo 3
-        addImgView() { make in
-            make.leading.equalTo(self.thumbnailImgViews[1].snp.trailing)
-            make.top.equalToSuperview()
-            make.height.equalTo(96)
-            make.trailing.equalToSuperview()
-        }
-        //photo 4
-        addImgView() { make in
-            make.leading.equalToSuperview()
-            make.top.equalTo(self.thumbnailImgViews[0].snp.bottom)
-            make.height.equalTo(96)
-            make.width.equalTo(110)
-        }
-        //photo 5
-        addImgView() { make in
-            make.leading.equalTo(self.thumbnailImgViews[3].snp.trailing)
-            make.top.equalTo(self.thumbnailImgViews[1].snp.bottom)
-            make.height.equalTo(96)
-            make.width.equalTo(110)
-        }
-        //photo 6
-        addImgView() { make in
-            make.leading.equalTo(self.thumbnailImgViews[4].snp.trailing)
-            make.top.equalTo(self.thumbnailImgViews[2].snp.bottom)
-            make.height.equalTo(96)
-            make.trailing.equalToSuperview()
-        }
-        //photo 7
-        addImgView() { make in
-            make.leading.equalToSuperview()
-            make.top.equalTo(self.thumbnailImgViews[3].snp.bottom)
-            make.height.equalTo(96)
-            make.width.equalTo(110)
-        }
-        //photo 8
-        addImgView() { make in
-            make.leading.equalTo(self.thumbnailImgViews[6].snp.trailing)
-            make.top.equalTo(self.thumbnailImgViews[4].snp.bottom)
-            make.height.equalTo(96)
-            make.width.equalTo(110)
-        }
-        //photo 9
-        addImgView() { make in
-            make.leading.equalTo(self.thumbnailImgViews[7].snp.trailing)
-            make.top.equalTo(self.thumbnailImgViews[5].snp.bottom)
-            make.height.equalTo(96)
-            make.trailing.equalToSuperview()
-        }
+    private func addImgs() {        
+        addImgView(frame: CGRect(x: 15, y: 30, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 20, y: 30, width: 150, height: 200))
+        addImgView(frame: CGRect(x: 50, y: 50, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 100, y: 100, width: 60, height: 90))
         
-        addImgView() { make in
-            make.leading.equalToSuperview()
-            make.top.equalTo(self.thumbnailImgViews[6].snp.bottom)
-            make.height.equalTo(96)
-            make.width.equalTo(110)
-        }
-        
-        addImgView() { make in
-            make.leading.equalToSuperview()
-            make.top.equalTo(self.thumbnailImgViews[6].snp.bottom)
-            make.height.equalTo(96)
-            make.width.equalTo(110)
-        }
-        
-        addImgView() { make in
-            make.leading.equalTo(self.thumbnailImgViews[9].snp.trailing)
-            make.top.equalTo(self.thumbnailImgViews[7].snp.bottom)
-            make.height.equalTo(96)
-            make.width.equalTo(110)
-        }
-        
-        addImgView() { make in
-            make.leading.equalTo(self.thumbnailImgViews[11].snp.trailing)
-            make.top.equalTo(self.thumbnailImgViews[8].snp.bottom)
-            make.height.equalTo(96)
-            make.trailing.equalToSuperview()
-        }
+        containerView.bringSubviewToFront(thumbnailImgViews[1])
     }
     
-    private func addImgView(makeConstraints: @escaping (ConstraintMaker) -> Void) {
-        let imgView = UIImageView()
+    private func addImgView(frame: CGRect) {
+        let imgView = UIImageView(frame: frame)
         imgView.contentMode = .scaleAspectFill
         imgView.clipsToBounds = true
         self.containerView.addSubview(imgView)
-        imgView.snp.makeConstraints(makeConstraints)
         thumbnailImgViews.append(imgView)
     }
     

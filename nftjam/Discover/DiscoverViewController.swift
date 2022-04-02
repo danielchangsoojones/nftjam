@@ -48,7 +48,7 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
         let montageData = montageDatas[indexPath.row]
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: DiscoverTableCell.self)
         for (index, photo) in montageData.photos.enumerated() {
-            if cell.thumbnailImgViews.indices.contains(indexPath.row) {
+            if cell.thumbnailImgViews.indices.contains(index) {
                 cell.thumbnailImgViews[index].loadFromFile(photo.image)
             }
         }

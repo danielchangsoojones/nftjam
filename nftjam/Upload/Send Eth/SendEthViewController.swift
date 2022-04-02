@@ -56,12 +56,15 @@ class SendEthViewController: UploadViewController {
     //only adding a label for now cause adding the discover is difficult right now.
     private func addLabelToMontage() {
         let label = UILabel()
+        label.numberOfLines = 2
+        montageContainerView.backgroundColor = .clear
         montageContainerView.addSubview(label)
         label.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
         
-        label.text = youtubeUpload.montage.title
+        label.text = youtubeUpload.montage.title + "\nMontage"
+        label.textColor = .white
     }
     
 //    private func loadMontage() {

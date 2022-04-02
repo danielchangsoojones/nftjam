@@ -47,8 +47,9 @@ class RegisterViewController: UIViewController, OnboardingDataStoreDelegate {
     }
     
     func segueIntoApp() {
-        let montageVC = DiscoverViewController()
-        navigationController?.pushViewController(montageVC, animated: true)
+        let discoverVC = DiscoverViewController()
+        let navController = UINavigationController(rootViewController: discoverVC)
+        present(navController, animated: true)
     }
 }
 

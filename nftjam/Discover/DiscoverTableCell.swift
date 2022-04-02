@@ -49,7 +49,7 @@ class DiscoverTableCell: UITableViewCell, Reusable {
         addImgView(frame: CGRect(x: 0, y: 125, width: 110, height: 165))
         addImgView(frame: CGRect(x: 110, y: 130, width: 110, height: 165))
         addImgView(frame: CGRect(x: 210, y: 120, width: 90, height: 135))
-        addImgView(frame: CGRect(x: 0, y: 270, width: 60, height: 90))
+        addImgView(frame: CGRect(x: 0, y: 260, width: 60, height: 90))
         addImgView(frame: CGRect(x: 60, y: 290, width: 60, height: 90))
         addImgView(frame: CGRect(x: 120, y: 280, width: 60, height: 90))
         addImgView(frame: CGRect(x: 180, y: 245, width: 120, height: 180))

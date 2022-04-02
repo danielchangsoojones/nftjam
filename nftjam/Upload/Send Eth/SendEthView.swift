@@ -12,11 +12,6 @@ class SendEthView: UploadView {
     let qrCodeImageView: UIImageView = {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
-        
-        //TODO: remove
-        let img = UIImage(named: "")
-        imgView.image = img
-        
         return imgView
     }()
     

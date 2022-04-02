@@ -18,16 +18,16 @@ class YoutubeUpload {
     let endTimeSeconds: Float
     let youtubeID: String
     let mediaLink: String
-    let montageID: String
+    let montage: MontageParse
     var ethAddress: String = ""
     var priceToMint: Double = 0.0
     
-    init(startTimeSeconds: Float, endTimeSeconds: Float, youtubeID: String, mediaLink: String, montageID: String) {
+    init(startTimeSeconds: Float, endTimeSeconds: Float, youtubeID: String, mediaLink: String, montage: MontageParse) {
         self.startTimeSeconds = startTimeSeconds
         self.endTimeSeconds = endTimeSeconds
         self.youtubeID = youtubeID
         self.mediaLink = mediaLink
-        self.montageID = montageID
+        self.montage = montage
     }
 }
 
@@ -37,7 +37,7 @@ class YoutubeUploadViewController: UploadViewController {
     private var startTextField: UITextField!
     private var endTextField: UITextField!
     private var typedNums: [String] = []
-    private let montageID: String
+    private let montage: MontageParse
     
     private var hasLoadedFirstYoutubeVid = false
     private var timer: Timer?
@@ -46,8 +46,8 @@ class YoutubeUploadViewController: UploadViewController {
         return YoutubeUploadView(frame: self.view.frame)
     }
     
-    init(montageID: String) {
-        self.montageID = montageID
+    init(montage: MontageParse) {
+        self.montage = montage
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -88,7 +88,7 @@ class YoutubeUploadViewController: UploadViewController {
                                               endTimeSeconds: endTimeSeconds ,
                                               youtubeID: youtubeID ?? "",
                                               mediaLink: youtubeLink,
-                                              montageID: montageID)
+                                              montage: montage)
             let ethAddressVC = EthAddressViewController(youtubeUpload: youtubeUpload)
             self.navigationController?.pushViewController(ethAddressVC, animated: true)
         }

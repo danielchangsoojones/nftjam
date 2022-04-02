@@ -22,6 +22,11 @@ class SendEthViewController: UploadViewController {
     
     override func loadView() {
         super.loadView()
+        if let sendEthView = self.view as? SendEthView {
+            sendEthView.qrCodeImageView.loadFromFile(youtubeUpload.montage.ethAddressQR)
+            sendEthView.ethAddress.setTitle(youtubeUpload.montage.ethAddressStr,
+                                            for: .normal)
+        }
     }
     
     required init?(coder: NSCoder) {

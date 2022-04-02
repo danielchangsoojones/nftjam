@@ -212,8 +212,8 @@ class MontageViewController: UIViewController {
     }
     
     @objc private func addButtonPressed() {
-        if let montage = nftVideos.first??.montage, let montageID = montage.objectId {
-            let uploadVC = YoutubeUploadViewController(montageID: montageID)
+        if let montage = nftVideos.first??.montage {
+            let uploadVC = YoutubeUploadViewController(montage: montage)
             let navController = UINavigationController(rootViewController: uploadVC)
             present(navController, animated: true)
         }

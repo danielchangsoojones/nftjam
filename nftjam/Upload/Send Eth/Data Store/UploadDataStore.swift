@@ -16,7 +16,7 @@ class UploadDataStore {
                                          "mediaLink": youtubeUpload.mediaLink,
                                          "ethAddress": youtubeUpload.ethAddress,
                                          "priceToMint": youtubeUpload.priceToMint,
-                                         "montageID": youtubeUpload.montageID
+                                         "montageID": youtubeUpload.montage.objectId ?? ""
         ]
         PFCloud.callFunction(inBackground: "uploadNFT", withParameters: parameters) { (result, error) in
             let isSuccess = result != nil

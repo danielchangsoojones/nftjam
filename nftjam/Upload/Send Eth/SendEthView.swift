@@ -158,6 +158,7 @@ class SendEthView: UploadView {
             make.top.equalTo(infoButton.snp.bottom).offset(5)
             make.leading.equalTo(titleLabel)
             make.width.equalTo(width)
+            make.height.equalTo(width)
         }
         
         let horizontalDistance: CGFloat = 10

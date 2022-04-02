@@ -58,7 +58,7 @@ class YoutubeUploadView: UploadView {
         youtubePlayerView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(titleLabel)
             make.top.equalTo(startStampContainer.snp.bottom).offset(10)
-            make.height.equalTo(300)
+            make.height.equalTo(280)
         }
     }
     

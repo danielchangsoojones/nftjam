@@ -14,11 +14,26 @@ class DiscoverViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         self.view.backgroundColor = .deepBlue
+        setMenuNavItem()
         setTableView()
         loadPhotos()
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold), NSAttributedString.Key.foregroundColor: UIColor.white]
         title = "NFTtube"
+    }
+    
+    private func setMenuNavItem() {
+        let img = UIImage(named: "settings")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: img,
+                        style: .plain,
+                        target: self,
+                        action: #selector(settingsPressed))
+    }
+    
+    @objc private func settingsPressed() {
+        let settingsVC = SettingsViewController()
+        self.navigationController?.pushViewController(settingsVC, animated: true)
     }
     
     private func setTableView() {

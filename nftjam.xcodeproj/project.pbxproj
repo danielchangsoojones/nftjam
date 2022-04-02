@@ -40,6 +40,8 @@
 		92B6AEF027F42260002F1B51 /* DiscoverTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEEF27F42260002F1B51 /* DiscoverTableCell.swift */; };
 		92B6AEF327F430D5002F1B51 /* DiscoverDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEF227F430D5002F1B51 /* DiscoverDataStore.swift */; };
 		92B6AEF527F43188002F1B51 /* MontagePhotoParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEF427F43188002F1B51 /* MontagePhotoParse.swift */; };
+		92B6AEF827F6DF00002F1B51 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEF727F6DF00002F1B51 /* SettingsViewController.swift */; };
+		92B6AEFA27F6DF21002F1B51 /* BaseFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B6AEF927F6DF21002F1B51 /* BaseFormViewController.swift */; };
 		92C64F4C27E850150007BA24 /* EthAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F4B27E850150007BA24 /* EthAddressViewController.swift */; };
 		92C64F4E27E850250007BA24 /* EthAdressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F4D27E850250007BA24 /* EthAdressView.swift */; };
 		92C64F5127E973BD0007BA24 /* SendEthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5027E973BD0007BA24 /* SendEthViewController.swift */; };
@@ -89,6 +91,8 @@
 		92B6AEEF27F42260002F1B51 /* DiscoverTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableCell.swift; sourceTree = "<group>"; };
 		92B6AEF227F430D5002F1B51 /* DiscoverDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverDataStore.swift; sourceTree = "<group>"; };
 		92B6AEF427F43188002F1B51 /* MontagePhotoParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontagePhotoParse.swift; sourceTree = "<group>"; };
+		92B6AEF727F6DF00002F1B51 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		92B6AEF927F6DF21002F1B51 /* BaseFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFormViewController.swift; sourceTree = "<group>"; };
 		92C64F4B27E850150007BA24 /* EthAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAddressViewController.swift; sourceTree = "<group>"; };
 		92C64F4D27E850250007BA24 /* EthAdressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthAdressView.swift; sourceTree = "<group>"; };
 		92C64F5027E973BD0007BA24 /* SendEthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEthViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 		929D273A27E3FCD700455373 /* nftjam */ = {
 			isa = PBXGroup;
 			children = (
+				92B6AEF627F6DE77002F1B51 /* Settings */,
 				92B6AEEC27F3F462002F1B51 /* Discover */,
 				92C64F5D27EA70460007BA24 /* Models */,
 				920614A827E5991800249682 /* Upload */,
@@ -286,6 +291,15 @@
 				92B6AEF227F430D5002F1B51 /* DiscoverDataStore.swift */,
 			);
 			path = "Data Store";
+			sourceTree = "<group>";
+		};
+		92B6AEF627F6DE77002F1B51 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				92B6AEF927F6DF21002F1B51 /* BaseFormViewController.swift */,
+				92B6AEF727F6DF00002F1B51 /* SettingsViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		92C64F4A27E845790007BA24 /* Eth Address */ = {
@@ -454,6 +468,7 @@
 				92B6AEDA27ED5BAD002F1B51 /* WelcomeViewController.swift in Sources */,
 				920614AC27E5995500249682 /* YoutubeUploadView.swift in Sources */,
 				92C64F5527E974950007BA24 /* UploadViewController.swift in Sources */,
+				92B6AEF827F6DF00002F1B51 /* SettingsViewController.swift in Sources */,
 				929D275527E40EC200455373 /* NFTTagView.swift in Sources */,
 				920614AA27E5993200249682 /* YoutubeUploadViewController.swift in Sources */,
 				929D275127E40D3A00455373 /* MontageView.swift in Sources */,
@@ -486,6 +501,7 @@
 				929D273C27E3FCD700455373 /* AppDelegate.swift in Sources */,
 				92B6AEDE27ED5BC0002F1B51 /* RegisterViewController.swift in Sources */,
 				92B6AEC827EC68B3002F1B51 /* SuperParseObject.swift in Sources */,
+				92B6AEFA27F6DF21002F1B51 /* BaseFormViewController.swift in Sources */,
 				92B6AED227ED5B7C002F1B51 /* OnboardingDataStore.swift in Sources */,
 				92B6AED527ED5B9C002F1B51 /* LogInViewController.swift in Sources */,
 				92C64F4C27E850150007BA24 /* EthAddressViewController.swift in Sources */,

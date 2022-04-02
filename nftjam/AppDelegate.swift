@@ -24,10 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let vc = DiscoverViewController()
             let navController = UINavigationController(rootViewController: vc)
             set(startingVC: navController)
-            
-//            let vc = MontageViewController()
-//            let navController = UINavigationController(rootViewController: vc)
-//            set(startingVC: navController)
         } else {
             let welcomeVC = WelcomeViewController()
             let navController = UINavigationController(rootViewController: welcomeVC)

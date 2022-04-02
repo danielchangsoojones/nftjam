@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class SendEthViewController: UploadViewController {
     private let youtubeUpload: YoutubeUpload
@@ -33,6 +34,9 @@ class SendEthViewController: UploadViewController {
                                                action: #selector(copyEthAddress),
                                                for: .touchUpInside)
             sendEthView.sendLabel.text = "Send \(youtubeUpload.montage.mintPrice) ETH to the montage’s ETH address to add a NFT to the montage"
+            sendEthView.infoButton.addTarget(self,
+                                             action: #selector(infoPressed),
+                                             for: .touchUpInside)
         }
     }
     
@@ -55,5 +59,11 @@ class SendEthViewController: UploadViewController {
     
     @objc private func copyEthAddress() {
         print("hi")
+    }
+    
+    @objc private func infoPressed() {
+        let alertView = SCLAlertView()
+        let subtitle = "when you add an NFT you make money"
+        alertView.showInfo("Adding An NFT", subTitle: subtitle)
     }
 }

@@ -38,7 +38,7 @@ class UploadView: UIView {
         
         submitButton.snp.makeConstraints { make in
             make.leading.trailing.equalTo(titleLabel)
-            make.bottom.equalTo(self.snp.bottomMargin)
+            make.bottom.equalTo(self.snp.bottomMargin).offset(-10)
             make.height.equalTo(53)
         }
     }

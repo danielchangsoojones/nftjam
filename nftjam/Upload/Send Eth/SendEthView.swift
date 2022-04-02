@@ -27,10 +27,6 @@ class SendEthView: UploadView {
     
     let sendLabel: UILabel = {
         let label = UILabel()
-        
-        //TODO: remove
-        label.text = "Send 0.2 ETH to the montage’s ETH address to add a NFT to the montage"
-        
         label.font = UIFont.systemFont(ofSize: 16, weight: .light)
         label.numberOfLines = 2
         label.textColor = .white

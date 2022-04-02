@@ -14,6 +14,7 @@ class MontageParse: SuperParseObject, PFSubclassing {
     @NSManaged var valueLocked: Double
     @NSManaged var ethAddressQR: PFFileObject
     @NSManaged var ethAddressStr: String
+    @NSManaged var mintPrice: Double
     
     class func parseClassName() -> String {
         return "Montage"

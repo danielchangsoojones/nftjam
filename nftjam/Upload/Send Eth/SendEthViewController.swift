@@ -32,6 +32,7 @@ class SendEthViewController: UploadViewController {
             sendEthView.copyPasteBtn.addTarget(self,
                                                action: #selector(copyEthAddress),
                                                for: .touchUpInside)
+            sendEthView.sendLabel.text = "Send \(youtubeUpload.montage.mintPrice) ETH to the montage’s ETH address to add a NFT to the montage"
         }
     }
     

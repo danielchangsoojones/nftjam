@@ -7,6 +7,7 @@
 
 import UIKit
 import youtube_ios_player_helper
+import Parse
 
 class YoutubeUpload {
     static let clipDuration: Float = 15
@@ -21,13 +22,15 @@ class YoutubeUpload {
     let montage: MontageParse
     var ethAddress: String = ""
     var priceToMint: Double = 0.0
+    var thumbnailFile: PFFileObject
     
-    init(startTimeSeconds: Float, endTimeSeconds: Float, youtubeID: String, mediaLink: String, montage: MontageParse) {
+    init(startTimeSeconds: Float, endTimeSeconds: Float, youtubeID: String, mediaLink: String, montage: MontageParse, thumbnailFile: PFFileObject) {
         self.startTimeSeconds = startTimeSeconds
         self.endTimeSeconds = endTimeSeconds
         self.youtubeID = youtubeID
         self.mediaLink = mediaLink
         self.montage = montage
+        self.thumbnailFile = thumbnailFile
     }
 }
 
@@ -81,16 +84,27 @@ class YoutubeUploadViewController: UploadViewController {
     
     override func submit() {
         if let youtubeLink = linkTextField.text, let startTime = startTextField.text {
-            let startTimeSeconds = convertTimeStrToSeconds(timeStr: startTime)
-            let endTimeSeconds = (startTimeSeconds ?? 0) + YoutubeUpload.clipDuration
-            let youtubeID = getIDFromYoutube(link: youtubeLink)
-            let youtubeUpload = YoutubeUpload(startTimeSeconds: startTimeSeconds ?? 0,
-                                              endTimeSeconds: endTimeSeconds ,
-                                              youtubeID: youtubeID ?? "",
-                                              mediaLink: youtubeLink,
-                                              montage: montage)
-            let ethAddressVC = EthAddressViewController(youtubeUpload: youtubeUpload)
-            self.navigationController?.pushViewController(ethAddressVC, animated: true)
+            let youtubeID = getIDFromYoutube(link: youtubeLink) ?? ""
+            let dataStore = UploadDataStore()
+            dataStore.getYoutubeThumbnail(for: youtubeID) { thumbnailParse, error in
+                if let thumbnailParse = thumbnailParse {
+                    let startTimeSeconds = self.convertTimeStrToSeconds(timeStr: startTime)
+                    let endTimeSeconds = (startTimeSeconds ?? 0) + YoutubeUpload.clipDuration
+                    
+                    let youtubeUpload = YoutubeUpload(startTimeSeconds: startTimeSeconds ?? 0,
+                                                      endTimeSeconds: endTimeSeconds ,
+                                                      youtubeID: youtubeID,
+                                                      mediaLink: youtubeLink,
+                                                      montage: self.montage,
+                                                      thumbnailFile: thumbnailParse.img)
+                    let ethAddressVC = EthAddressViewController(youtubeUpload: youtubeUpload)
+                    self.navigationController?.pushViewController(ethAddressVC, animated: true)
+                } else if let error = error {
+                    BannerAlert.show(with: error)
+                } else {
+                    BannerAlert.showUnknownError(functionName: "getThumbnailImage")
+                }
+            }
         }
     }
 }

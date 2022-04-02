@@ -51,6 +51,7 @@
 		92C64F5927E99ED00007BA24 /* BannerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5827E99ED00007BA24 /* BannerAlert.swift */; };
 		92C64F5C27E9ABE80007BA24 /* UploadDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5B27E9ABE80007BA24 /* UploadDataStore.swift */; };
 		92C64F6027EA70C10007BA24 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C64F5F27EA70C10007BA24 /* Enviroment.swift */; };
+		92CD75D427F7EA910058B62C /* ThumbnailImgParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD75D327F7EA910058B62C /* ThumbnailImgParse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		92C64F5827E99ED00007BA24 /* BannerAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAlert.swift; sourceTree = "<group>"; };
 		92C64F5B27E9ABE80007BA24 /* UploadDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataStore.swift; sourceTree = "<group>"; };
 		92C64F5F27EA70C10007BA24 /* Enviroment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
+		92CD75D327F7EA910058B62C /* ThumbnailImgParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailImgParse.swift; sourceTree = "<group>"; };
 		CDCF9A762EBEFE73D2E0468A /* Pods-nftjam.debug(development).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nftjam.debug(development).xcconfig"; path = "Target Support Files/Pods-nftjam/Pods-nftjam.debug(development).xcconfig"; sourceTree = "<group>"; };
 		E1FDE74F2C073C141CBABB67 /* Pods_nftjam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nftjam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -338,6 +340,7 @@
 				92B6AEEA27F3EBB7002F1B51 /* MontageParse.swift */,
 				92C64F5E27EA704A0007BA24 /* Database Setup */,
 				92B6AEF427F43188002F1B51 /* MontagePhotoParse.swift */,
+				92CD75D327F7EA910058B62C /* ThumbnailImgParse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				92B6AED927ED5BAD002F1B51 /* WelcomeView.swift in Sources */,
 				929D275827E44F3A00455373 /* ColorExtension.swift in Sources */,
 				929D275A27E45ED000455373 /* CustomButton.swift in Sources */,
+				92CD75D427F7EA910058B62C /* ThumbnailImgParse.swift in Sources */,
 				92B6AEF327F430D5002F1B51 /* DiscoverDataStore.swift in Sources */,
 				92B6AECE27EC6CFF002F1B51 /* ImageViewExtension.swift in Sources */,
 				92C64F4E27E850250007BA24 /* EthAdressView.swift in Sources */,

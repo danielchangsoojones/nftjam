@@ -37,6 +37,7 @@ class SendEthViewController: UploadViewController {
             sendEthView.infoButton.addTarget(self,
                                              action: #selector(infoPressed),
                                              for: .touchUpInside)
+            sendEthView.nftImgView.loadFromFile(youtubeUpload.thumbnailFile)
         }
     }
     

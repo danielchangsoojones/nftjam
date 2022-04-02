@@ -23,4 +23,15 @@ class UploadDataStore {
             completion(isSuccess, error)
         }
     }
+    
+    func getYoutubeThumbnail(for youtubeID: String, completion: @escaping (ThumbnailImgParse?, Error?) -> Void) {
+        let parameters: [String: Any] = ["youtubeID": youtubeID]
+        PFCloud.callFunction(inBackground: "getThumbnailImage", withParameters: parameters) { (result, error) in
+            if let thumbnail = result as? ThumbnailImgParse {
+                completion(thumbnail, nil)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
 }

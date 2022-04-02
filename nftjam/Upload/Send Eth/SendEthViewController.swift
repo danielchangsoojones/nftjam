@@ -26,6 +26,12 @@ class SendEthViewController: UploadViewController {
             sendEthView.qrCodeImageView.loadFromFile(youtubeUpload.montage.ethAddressQR)
             sendEthView.ethAddress.setTitle(youtubeUpload.montage.ethAddressStr,
                                             for: .normal)
+            sendEthView.ethAddress.addTarget(self,
+                                               action: #selector(copyEthAddress),
+                                               for: .touchUpInside)
+            sendEthView.copyPasteBtn.addTarget(self,
+                                               action: #selector(copyEthAddress),
+                                               for: .touchUpInside)
         }
     }
     
@@ -44,5 +50,9 @@ class SendEthViewController: UploadViewController {
                 BannerAlert.showUnknownError(functionName: "uploadNFT")
             }
         }
+    }
+    
+    @objc private func copyEthAddress() {
+        print("hi")
     }
 }

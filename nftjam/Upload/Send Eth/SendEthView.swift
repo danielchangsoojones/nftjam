@@ -17,11 +17,11 @@ class SendEthView: UploadView {
     
     let ethAddress: UIButton = {
         let button = UIButton()
-        button.setTitle("0x71C7656EC7ab88b098defB751B7401B5f6d8976F", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.numberOfLines = 2
         button.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         button.titleLabel?.textAlignment = .center
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
         return button
     }()
     
@@ -95,6 +95,13 @@ class SendEthView: UploadView {
         return view
     }()
     
+    let copyPasteBtn: UIButton = {
+        let btn = UIButton()
+        let img = UIImage(named: "copy-paste")
+        btn.setImage(img, for: .normal)
+        return btn
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         titleLabel.text = "Montage Ethereum Address"
@@ -115,6 +122,7 @@ class SendEthView: UploadView {
         addSubview(nftImgView)
         addSubview(arrow)
         addSubview(montageView)
+        addSubview(copyPasteBtn)
         
         qrCodeImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -123,7 +131,7 @@ class SendEthView: UploadView {
         }
         
         ethAddress.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(titleLabel)
+            make.leading.trailing.equalToSuperview().inset(15)
             make.top.equalTo(qrCodeImageView.snp.bottom).offset(10)
         }
         
@@ -169,6 +177,11 @@ class SendEthView: UploadView {
             make.leading.equalTo(arrow.snp.trailing).offset(horizontalDistance)
             make.width.equalTo(width)
             make.height.equalTo(width)
+        }
+        
+        copyPasteBtn.snp.makeConstraints { make in
+            make.centerY.equalTo(ethAddress)
+            make.leading.equalTo(ethAddress.snp.trailing)
         }
     }
 }

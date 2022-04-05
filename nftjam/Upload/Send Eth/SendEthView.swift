@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import UICheckbox
+import SimpleCheckbox
 
 class SendEthView: UploadView {
     let qrCodeImageView: UIImageView = {
@@ -50,11 +50,11 @@ class SendEthView: UploadView {
         return button
     }()
     
-    let checkBox: UICheckbox = {
-        let checkbox = UICheckbox()
+    let checkBox: Checkbox = {
+        let checkbox = Checkbox()
+        checkbox.checkmarkStyle = .tick
         checkbox.backgroundColor = .white
-        checkbox.layer.borderColor = UIColor.deepBlue.cgColor
-        checkbox.layer.borderWidth = 3
+        checkbox.useHapticFeedback = true
         return checkbox
     }()
     

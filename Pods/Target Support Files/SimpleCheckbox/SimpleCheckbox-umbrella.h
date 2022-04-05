@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "UICheckbox.h"
 
-FOUNDATION_EXPORT double UICheckboxVersionNumber;
-FOUNDATION_EXPORT const unsigned char UICheckboxVersionString[];
+FOUNDATION_EXPORT double SimpleCheckboxVersionNumber;
+FOUNDATION_EXPORT const unsigned char SimpleCheckboxVersionString[];
 

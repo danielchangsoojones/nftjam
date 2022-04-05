@@ -183,11 +183,11 @@ if [[ "$CONFIGURATION" == "Debug(Development)" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Parse/Parse.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SimpleCheckbox/SimpleCheckbox.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/UICheckbox/UICheckbox.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework"
 fi
 if [[ "$CONFIGURATION" == "Debug(Production)" ]]; then
@@ -198,11 +198,11 @@ if [[ "$CONFIGURATION" == "Debug(Production)" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Parse/Parse.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SimpleCheckbox/SimpleCheckbox.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/UICheckbox/UICheckbox.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -213,11 +213,11 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Parse/Parse.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SimpleCheckbox/SimpleCheckbox.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/UICheckbox/UICheckbox.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

@@ -15,11 +15,11 @@ PODS:
   - Reusable/Storyboard (4.1.2)
   - Reusable/View (4.1.2)
   - SCLAlertView (0.8)
+  - SimpleCheckbox (2.1.0)
   - SnapKit (5.0.1)
   - SwiftyJSON (4.3.0)
   - TextFieldEffects (1.6.0)
   - TTTAttributedLabel (2.0.0)
-  - UICheckbox (0.0.2)
   - youtube-ios-player-helper (1.0.4)
 
 DEPENDENCIES:
@@ -30,11 +30,11 @@ DEPENDENCIES:
   - Parse/UI
   - Reusable
   - SCLAlertView
+  - SimpleCheckbox
   - SnapKit (~> 5.0.0)
   - SwiftyJSON (~> 4.0)
   - TextFieldEffects
   - TTTAttributedLabel
-  - UICheckbox
   - youtube-ios-player-helper
 
 SPEC REPOS:
@@ -46,11 +46,11 @@ SPEC REPOS:
     - Parse
     - Reusable
     - SCLAlertView
+    - SimpleCheckbox
     - SnapKit
     - SwiftyJSON
     - TextFieldEffects
     - TTTAttributedLabel
-    - UICheckbox
     - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
@@ -61,13 +61,13 @@ SPEC CHECKSUMS:
   Parse: 0abb63a0ff6fa34a3f64b81d595a294e2ece143a
   Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  SimpleCheckbox: ddcd433ab8c3a8f57300bebda13151a8f302c7f9
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
-  UICheckbox: 54af9bc308c8c2b18404f4c360172115c0daea36
   youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: 058640160491ad8da4a3065abaec4d9c4a7ba16d
+PODFILE CHECKSUM: 5a80b617f667c676c3a5afb2a14bda883cb33ed3
 
 COCOAPODS: 1.11.2

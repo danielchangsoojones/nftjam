@@ -115,7 +115,7 @@ class SendEthViewController: UploadViewController {
     
     @objc private func infoPressed() {
         let alertView = SCLAlertView()
-        let subtitle = "when you add an NFT you make money"
+        let subtitle = "The amount paid to mint a new token is divided equally amongst all previous token holders, so each artist is rewarded by each subsequent artist. Therefore, you will begin earning rewards when any artist joins after you."
         alertView.showInfo("Adding An NFT", subTitle: subtitle)
     }
 }

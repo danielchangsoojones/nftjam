@@ -107,7 +107,10 @@ class SendEthViewController: UploadViewController {
     }
     
     @objc private func copyEthAddress() {
-        print("hi")
+        // write to clipboard
+        UIPasteboard.general.string = youtubeUpload.montage.ethAddressStr
+        let alertView = SCLAlertView()
+        alertView.showInfo("Copied Eth Address", subTitle: "The ETH address\n\(youtubeUpload.montage.ethAddressStr)\nhas been copied to your clipboard")
     }
     
     @objc private func infoPressed() {

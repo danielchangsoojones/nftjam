@@ -21,19 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setStartingVC() {
         if User.current() != nil {
-            let query = MontageParse.query() as! PFQuery<MontageParse>
-            query.getFirstObjectInBackground { montage, error in
-                if let montage = montage {
-                    let youtubeUpload = YoutubeUpload(startTimeSeconds: 10, endTimeSeconds: 30, youtubeID: "zPG1n1B0Ydw", mediaLink: "https://www.youtube.com/watch?v=zPG1n1B0Ydw", montage: montage, thumbnailFile: montage.ethAddressQR)
-                    let vc = SendEthViewController(youtubeUpload: youtubeUpload)
-                    let navController = UINavigationController(rootViewController: vc)
-                    self.set(startingVC: navController)
-                } else if let error = error {
-                    BannerAlert.show(with: error)
-                } else {
-                    BannerAlert.showUnknownError(functionName: "error")
-                }
-            }
+            let vc = DiscoverViewController()
+            let navController = UINavigationController(rootViewController: vc)
+            set(startingVC: navController)
         } else {
             let welcomeVC = WelcomeViewController()
             let navController = UINavigationController(rootViewController: welcomeVC)

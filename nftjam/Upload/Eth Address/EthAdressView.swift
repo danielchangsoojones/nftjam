@@ -66,6 +66,12 @@ class EthAdressView: UploadView {
         addSubview(line)
         addSubview(descriptionLabel)
         
+        submitButton.snp.remakeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.height.equalTo(53)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         addressTextField.snp.makeConstraints { make in
             make.leading.trailing.equalTo(titleLabel)
             make.top.equalTo(titleLabel.snp.bottom).offset(10)

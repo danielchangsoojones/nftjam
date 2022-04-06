@@ -38,8 +38,8 @@ class LogInViewController: RegisterViewController {
     }
     
     @objc private func resetBtnPressed() {
-        let msg = "please help me reset my password for ohana"
-        messageHelper?.text("7074755694", body: msg)
+        let msg = "please help me reset my password for nft jam"
+        messageHelper?.text("3176905323", body: msg)
 //        let resetPasswordVC = ResetPasswordViewController()
 //        pushVC(resetPasswordVC)
     }
@@ -47,6 +47,7 @@ class LogInViewController: RegisterViewController {
     override func segueIntoApp() {
         let vc = DiscoverViewController()
         let navController = UINavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = .fullScreen
         self.present(navController, animated: true, completion: nil)
     }
 }

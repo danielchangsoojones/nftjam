@@ -49,6 +49,7 @@ class RegisterViewController: UIViewController, OnboardingDataStoreDelegate {
     func segueIntoApp() {
         let discoverVC = DiscoverViewController()
         let navController = UINavigationController(rootViewController: discoverVC)
+        navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true)
     }
 }

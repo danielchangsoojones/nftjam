@@ -61,7 +61,8 @@ class SettingsViewController: BaseFormViewController<Any> {
     
     private func segueToWelcomeVC() {
         let welcomeVC = WelcomeViewController()
-        welcomeVC.modalPresentationStyle = .fullScreen
-        present(welcomeVC, animated: true)
+        let navController = UINavigationController(rootViewController: welcomeVC)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true)
     }
 }

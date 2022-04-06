@@ -162,7 +162,7 @@ class MontageView: UIView {
         bottomView.addSubview(addButton)
         addButton.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(10)
-            make.bottom.equalToSuperview().inset(10)
+            make.bottom.equalTo(self.snp.bottomMargin)
             make.height.equalTo(40)
         }
     }

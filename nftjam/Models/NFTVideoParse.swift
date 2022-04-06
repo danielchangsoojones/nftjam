@@ -12,6 +12,7 @@ class NFTVideoParse: SuperParseObject, PFSubclassing {
     @NSManaged var thumbnailImg: PFFileObject?
     @NSManaged var youtubeID: String
     @NSManaged var startTimeSeconds: Int
+    @NSManaged var endTimeSeconds: Int
     @NSManaged var montage: MontageParse
     
     var img: UIImage?

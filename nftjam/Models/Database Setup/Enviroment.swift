@@ -16,7 +16,7 @@ public enum Environment: String {
         case .development:
             return "nftjamdevelopment206093030"
         case .production:
-            return ""
+            return "nftjamproduction28495830503"
         }
     }
     
@@ -25,7 +25,7 @@ public enum Environment: String {
         case .development:
             return "https://nft-jam-development.herokuapp.com/parse"
         case .production:
-            return ""
+            return "https://nft-jam-production.herokuapp.com/parse"
         }
     }
 }

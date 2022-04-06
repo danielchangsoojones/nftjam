@@ -129,17 +129,23 @@ class MontageViewController: UIViewController {
                 ytPlayerView.currentTime { currentTime, error in
                     let endTimeSeconds = Float(currentShowingNFT.endTimeSeconds)
                     if currentTime >= endTimeSeconds {
-                        var startTime = Float(nextNFT.startTimeSeconds)
-                        var youtubeID = nextNFT.youtubeID
                         self.timer?.invalidate()
                         //cueing is better because it doesn't need to reload the iframe
-                        self.ytPlayerView.cueVideo(byId: youtubeID, startSeconds: startTime)
+                        self.ytPlayerView.cueVideo(byId: nextNFT.youtubeID,
+                                                   startSeconds: Float(nextNFT.startTimeSeconds))
                         self.ytPlayerView.playVideo()
                         self.transitionThumbnails()
                     }
                 }
-            } else {
-                self.montageEnded()
+            } else if shownNFTVideos[3] == nil {
+                //when the last video of the montage is playing.
+                ytPlayerView.currentTime { currentTime, error in
+                    let endTimeSeconds = Float(self.shownNFTVideos[4]?.endTimeSeconds ?? 0)
+                    if currentTime >= endTimeSeconds {
+                        self.timer?.invalidate()
+                        self.montageEnded()
+                    }
+                }
             }
         }
     }

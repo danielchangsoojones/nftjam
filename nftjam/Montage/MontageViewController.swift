@@ -115,7 +115,7 @@ class MontageViewController: UIViewController {
     }
     
     func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: Double(YoutubeUpload.clipDuration),
+        timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
                                      selector: #selector(eventWith(timer:)),
                                      userInfo: [ "foo" : "bar" ],
@@ -124,16 +124,24 @@ class MontageViewController: UIViewController {
     
     // Timer expects @objc selector
     @objc func eventWith(timer: Timer!) {
-        if shownNFTVideos.indices.contains(3) {
-            if let nft = shownNFTVideos[3] {
-                //cueing is better because it doesn't need to reload the iframe
-                ytPlayerView.cueVideo(byId: nft.youtubeID, startSeconds: Float(nft.startTimeSeconds))
-                ytPlayerView.playVideo()
+        if shownNFTVideos.indices.contains(4) {
+            if let nextNFT = shownNFTVideos[3], let currentShowingNFT = shownNFTVideos[4] {
+                ytPlayerView.currentTime { currentTime, error in
+                    let endTimeSeconds = Float(currentShowingNFT.endTimeSeconds)
+                    if currentTime >= endTimeSeconds {
+                        var startTime = Float(nextNFT.startTimeSeconds)
+                        var youtubeID = nextNFT.youtubeID
+                        self.timer?.invalidate()
+                        //cueing is better because it doesn't need to reload the iframe
+                        self.ytPlayerView.cueVideo(byId: youtubeID, startSeconds: startTime)
+                        self.ytPlayerView.playVideo()
+                        self.transitionThumbnails()
+                    }
+                }
             } else {
                 self.montageEnded()
             }
         }
-        transitionThumbnails()
     }
     
     private func montageEnded() {
@@ -209,6 +217,8 @@ class MontageViewController: UIViewController {
         } else {
             shownNFTVideos.insert(nil, at: 0)
         }
+        
+        startTimer()
     }
     
     @objc private func addButtonPressed() {

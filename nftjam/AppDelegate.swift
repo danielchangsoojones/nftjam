@@ -28,9 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setStartingVC() {
         if User.current() != nil {
-            let vc = ApplePurchaseViewController()
-            let navController = UINavigationController(rootViewController: vc)
-            set(startingVC: navController)
+            let query = MontageParse.query() as! PFQuery<MontageParse>
+            query.getFirstObjectInBackground { montageParse, error in
+                if let montageParse = montageParse {
+                    let youtubeUpload = YoutubeUpload(startTimeSeconds: 0, endTimeSeconds: 0, youtubeID: "hi", mediaLink: "hi", montage: montageParse, thumbnailFile: montageParse.ethAddressQR)
+                    let vc = PaymentOptionViewController(youtubeUpload: youtubeUpload)
+                    let navController = UINavigationController(rootViewController: vc)
+                    self.set(startingVC: navController)
+                }
+            }
 //            let vc = DiscoverViewController()
 //            let navController = UINavigationController(rootViewController: vc)
 //            set(startingVC: navController)

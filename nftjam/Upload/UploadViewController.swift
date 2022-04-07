@@ -10,6 +10,7 @@ import UIKit
 class UploadViewController: UIViewController {
     var submitButton: UIButton!
     private var messageHelper: MessageHelper?
+    var titlelLabel: UILabel!
     
     var uploadView: UploadView {
         return UploadView(frame: self.view.frame)
@@ -19,9 +20,11 @@ class UploadViewController: UIViewController {
         super.loadView()
         let uploadView = self.uploadView
         self.view = uploadView
-        uploadView.submitButton.addTarget(self,
-                                          action: #selector(submit),
-                                          for: .touchUpInside)
+        self.titlelLabel = uploadView.titleLabel
+        self.submitButton = uploadView.submitButton
+        submitButton.addTarget(self,
+                               action: #selector(submit),
+                               for: .touchUpInside)
     }
     
     override func viewDidLoad() {

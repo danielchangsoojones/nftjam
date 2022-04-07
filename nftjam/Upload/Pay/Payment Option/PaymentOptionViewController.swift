@@ -25,7 +25,7 @@ class PaymentOptionViewController: UploadViewController {
         super.viewDidLoad()
         submitButton.setTitle("Mint With Apple Pay", for: .normal)
         
-        let verticalSpacing: CGFloat = 25
+        let verticalSpacing: CGFloat = -25
         self.view.addSubview(ethButton)
         ethButton.snp.makeConstraints { make in
             make.leading.trailing.equalTo(submitButton)
@@ -42,6 +42,8 @@ class PaymentOptionViewController: UploadViewController {
             make.bottom.equalTo(ethButton.snp.top).offset(verticalSpacing)
             make.height.equalTo(submitButton)
         }
+        
+        titlelLabel.text = "How would you like to buy your NFT?"
     }
     
     @objc private func ethBtnPressed() {

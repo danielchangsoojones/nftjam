@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             query.getFirstObjectInBackground { montageParse, error in
                 if let montageParse = montageParse {
                     let youtubeUpload = YoutubeUpload(startTimeSeconds: 0, endTimeSeconds: 0, youtubeID: "hi", mediaLink: "hi", montage: montageParse, thumbnailFile: montageParse.ethAddressQR)
-                    let vc = PaymentOptionViewController(youtubeUpload: youtubeUpload)
+                    let vc = ApplePurchaseViewController(youtubeUpload: youtubeUpload)
                     let navController = UINavigationController(rootViewController: vc)
                     self.set(startingVC: navController)
                 }

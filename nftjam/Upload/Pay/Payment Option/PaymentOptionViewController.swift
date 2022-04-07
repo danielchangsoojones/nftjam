@@ -52,7 +52,8 @@ class PaymentOptionViewController: UploadViewController {
     }
     
     override func submit() {
-        //this is the apple pay view controller
+        let vc = ApplePurchaseViewController(youtubeUpload: youtubeUpload)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func promoBtnPressed() {

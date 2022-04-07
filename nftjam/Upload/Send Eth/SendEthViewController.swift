@@ -7,11 +7,19 @@
 
 import UIKit
 import SCLAlertView
+import SimpleCheckbox
 
 class SendEthViewController: UploadViewController {
-    private let youtubeUpload: YoutubeUpload
+    let youtubeUpload: YoutubeUpload
     private let dataStore = UploadDataStore()
     private var montageContainerView: UIView!
+    var ethAddress: UIButton!
+    var ethAddressQR: UIImageView!
+    var copyPasteBtn: UIButton!
+    var sendInfoLabel: UILabel!
+    var checkBox: Checkbox!
+    var checkBoxLabel: UILabel!
+    var infoButton: UIButton!
     
     override var uploadView: UploadView {
         return SendEthView(frame: self.view.frame)
@@ -31,6 +39,13 @@ class SendEthViewController: UploadViewController {
         if let sendEthView = self.view as? SendEthView {
             sendEthView.qrCodeImageView.loadFromFile(youtubeUpload.montage.ethAddressQR)
             self.montageContainerView = sendEthView.montageView
+            self.ethAddress = sendEthView.ethAddress
+            self.ethAddressQR = sendEthView.qrCodeImageView
+            self.checkBox = sendEthView.checkBox
+            self.sendInfoLabel = sendEthView.sendLabel
+            self.checkBoxLabel = sendEthView.checkBoxLabel
+            self.copyPasteBtn = sendEthView.copyPasteBtn
+            self.infoButton = sendEthView.infoButton
             sendEthView.ethAddress.setTitle(youtubeUpload.montage.ethAddressStr,
                                             for: .normal)
             sendEthView.ethAddress.addTarget(self,

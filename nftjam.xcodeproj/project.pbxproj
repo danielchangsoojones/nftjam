@@ -54,6 +54,8 @@
 		92CD75D427F7EA910058B62C /* ThumbnailImgParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD75D327F7EA910058B62C /* ThumbnailImgParse.swift */; };
 		92FB9FC527FF72C300EAF603 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FB9FC427FF72C300EAF603 /* StoreKit.framework */; };
 		92FB9FC827FF732300EAF603 /* ApplePurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB9FC727FF732300EAF603 /* ApplePurchaseViewController.swift */; };
+		92FB9FCA27FF73F000EAF603 /* NFTJamProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB9FC927FF73F000EAF603 /* NFTJamProducts.swift */; };
+		92FB9FCC27FF761200EAF603 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB9FCB27FF761200EAF603 /* IAPHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +110,8 @@
 		92CD75D327F7EA910058B62C /* ThumbnailImgParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailImgParse.swift; sourceTree = "<group>"; };
 		92FB9FC427FF72C300EAF603 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		92FB9FC727FF732300EAF603 /* ApplePurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePurchaseViewController.swift; sourceTree = "<group>"; };
+		92FB9FC927FF73F000EAF603 /* NFTJamProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTJamProducts.swift; sourceTree = "<group>"; };
+		92FB9FCB27FF761200EAF603 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		CDCF9A762EBEFE73D2E0468A /* Pods-nftjam.debug(development).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nftjam.debug(development).xcconfig"; path = "Target Support Files/Pods-nftjam/Pods-nftjam.debug(development).xcconfig"; sourceTree = "<group>"; };
 		E1FDE74F2C073C141CBABB67 /* Pods_nftjam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nftjam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -364,6 +368,8 @@
 			isa = PBXGroup;
 			children = (
 				92FB9FC727FF732300EAF603 /* ApplePurchaseViewController.swift */,
+				92FB9FC927FF73F000EAF603 /* NFTJamProducts.swift */,
+				92FB9FCB27FF761200EAF603 /* IAPHelper.swift */,
 			);
 			path = Pay;
 			sourceTree = "<group>";
@@ -483,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92B6AEE527ED602E002F1B51 /* Structs.swift in Sources */,
+				92FB9FCA27FF73F000EAF603 /* NFTJamProducts.swift in Sources */,
 				92B6AEDA27ED5BAD002F1B51 /* WelcomeViewController.swift in Sources */,
 				920614AC27E5995500249682 /* YoutubeUploadView.swift in Sources */,
 				92C64F5527E974950007BA24 /* UploadViewController.swift in Sources */,
@@ -494,6 +501,7 @@
 				929D275327E40E8D00455373 /* ThumbnailView.swift in Sources */,
 				92B6AEF527F43188002F1B51 /* MontagePhotoParse.swift in Sources */,
 				92B6AEE927ED640F002F1B51 /* StringExtension.swift in Sources */,
+				92FB9FCC27FF761200EAF603 /* IAPHelper.swift in Sources */,
 				92B6AEEE27F3F479002F1B51 /* DiscoverViewController.swift in Sources */,
 				92C64F5727E974AB0007BA24 /* UploadView.swift in Sources */,
 				92B6AEE727ED62FE002F1B51 /* Timer.swift in Sources */,

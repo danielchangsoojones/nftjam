@@ -47,7 +47,9 @@ extension IAPHelper {
   }
   
   public func restorePurchases() {
-      print("hi")
+      BannerAlert.show(title: "error",
+                       subtitle: "trying to restore a purchase when it should be one-time consumable",
+                       type: .error)
   }
 }
 

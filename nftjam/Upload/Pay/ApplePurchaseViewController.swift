@@ -38,7 +38,6 @@ class ApplePurchaseViewController: SendEthViewController {
         print("successfully purchased")
     }
     
-    
     private func updateUI() {
         titlelLabel.text = "Add NFT to Montage"
         ethAddressQR.isHidden = true

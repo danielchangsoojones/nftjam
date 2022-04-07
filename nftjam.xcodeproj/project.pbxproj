@@ -56,6 +56,7 @@
 		92FB9FC827FF732300EAF603 /* ApplePurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB9FC727FF732300EAF603 /* ApplePurchaseViewController.swift */; };
 		92FB9FCA27FF73F000EAF603 /* NFTJamProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB9FC927FF73F000EAF603 /* NFTJamProducts.swift */; };
 		92FB9FCC27FF761200EAF603 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB9FCB27FF761200EAF603 /* IAPHelper.swift */; };
+		92FB9FCF27FFA26000EAF603 /* PaymentOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB9FCE27FFA26000EAF603 /* PaymentOptionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		92FB9FC727FF732300EAF603 /* ApplePurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePurchaseViewController.swift; sourceTree = "<group>"; };
 		92FB9FC927FF73F000EAF603 /* NFTJamProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTJamProducts.swift; sourceTree = "<group>"; };
 		92FB9FCB27FF761200EAF603 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
+		92FB9FCE27FFA26000EAF603 /* PaymentOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOptionViewController.swift; sourceTree = "<group>"; };
 		CDCF9A762EBEFE73D2E0468A /* Pods-nftjam.debug(development).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nftjam.debug(development).xcconfig"; path = "Target Support Files/Pods-nftjam/Pods-nftjam.debug(development).xcconfig"; sourceTree = "<group>"; };
 		E1FDE74F2C073C141CBABB67 /* Pods_nftjam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nftjam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -367,11 +369,20 @@
 		92FB9FC627FF72FF00EAF603 /* Pay */ = {
 			isa = PBXGroup;
 			children = (
+				92FB9FCD27FFA24E00EAF603 /* Payment Option */,
 				92FB9FC727FF732300EAF603 /* ApplePurchaseViewController.swift */,
 				92FB9FC927FF73F000EAF603 /* NFTJamProducts.swift */,
 				92FB9FCB27FF761200EAF603 /* IAPHelper.swift */,
 			);
 			path = Pay;
+			sourceTree = "<group>";
+		};
+		92FB9FCD27FFA24E00EAF603 /* Payment Option */ = {
+			isa = PBXGroup;
+			children = (
+				92FB9FCE27FFA26000EAF603 /* PaymentOptionViewController.swift */,
+			);
+			path = "Payment Option";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -516,6 +527,7 @@
 				92B6AECE27EC6CFF002F1B51 /* ImageViewExtension.swift in Sources */,
 				92C64F4E27E850250007BA24 /* EthAdressView.swift in Sources */,
 				92B6AECC27EC68E0002F1B51 /* User.swift in Sources */,
+				92FB9FCF27FFA26000EAF603 /* PaymentOptionViewController.swift in Sources */,
 				92B6AEF027F42260002F1B51 /* DiscoverTableCell.swift in Sources */,
 				92C64F5927E99ED00007BA24 /* BannerAlert.swift in Sources */,
 				92B6AECA27EC68BD002F1B51 /* NFTVideoParse.swift in Sources */,

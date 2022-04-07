@@ -28,9 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setStartingVC() {
         if User.current() != nil {
-            let vc = DiscoverViewController()
+            let vc = ApplePurchaseViewController()
             let navController = UINavigationController(rootViewController: vc)
             set(startingVC: navController)
+//            let vc = DiscoverViewController()
+//            let navController = UINavigationController(rootViewController: vc)
+//            set(startingVC: navController)
         } else {
             let welcomeVC = WelcomeViewController()
             let navController = UINavigationController(rootViewController: welcomeVC)

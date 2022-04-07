@@ -44,6 +44,7 @@ open class IAPHelper: NSObject  {
     public init(productIds: Set<ProductIdentifier>) {
         self.productIdentifiers = productIds
         super.init()
+        SKPaymentQueue.default().add(self)
   }
 }
 
@@ -74,6 +75,7 @@ extension IAPHelper {
   }
   
   public func restorePurchases() {
+      print("hi")
   }
 }
 

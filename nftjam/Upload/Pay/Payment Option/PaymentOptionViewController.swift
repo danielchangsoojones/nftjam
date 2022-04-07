@@ -57,6 +57,6 @@ class PaymentOptionViewController: UploadViewController {
     }
     
     @objc private func promoBtnPressed() {
-        
+        //TODO: deal with this later after apple review
     }
 }

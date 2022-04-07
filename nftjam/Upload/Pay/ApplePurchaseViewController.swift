@@ -37,7 +37,7 @@ class ApplePurchaseViewController: SendEthViewController {
             make.leading.trailing.equalToSuperview().inset(10)
         }
         
-        checkBoxLabel.text = "After purchase, we will mint your NFT and send it to your Ethereum wallet. Then, it will be added to the montage\n\nPrice:$20"
+        checkBoxLabel.text = "After purchase, we will mint your NFT and send it to your Ethereum wallet. Then, it will be added to the montage\n\nPrice:$19.99"
         checkBoxLabel.numberOfLines = 0
         checkBoxLabel.textAlignment = .center
         checkBoxLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
@@ -46,9 +46,6 @@ class ApplePurchaseViewController: SendEthViewController {
             make.bottom.equalTo(submitButton.snp.top).offset(-10)
         }
         
-        
-        
-        
         label.text = "hi"
         label.backgroundColor = .blue
         view.addSubview(label)
@@ -56,12 +53,6 @@ class ApplePurchaseViewController: SendEthViewController {
         priceLabel.text = "priceLabel"
         priceLabel.backgroundColor = .red
         view.addSubview(priceLabel)
-        
-        buyButton.backgroundColor = .green
-        buyButton.addTarget(self,
-                            action: #selector(buy),
-                            for: .touchUpInside)
-        view.addSubview(buyButton)
 
         NFTJamProducts.store.requestProducts{ [weak self] success, products in
           guard let self = self else { return }
@@ -79,7 +70,7 @@ class ApplePurchaseViewController: SendEthViewController {
         }
     }
     
-    @objc private func buy() {
+    override func submit() {
         print("buying product")
         if let product = products.first {
             NFTJamProducts.store.buyProduct(product)
@@ -88,7 +79,6 @@ class ApplePurchaseViewController: SendEthViewController {
                              subtitle: "Couldn't find the correct SKProduct",
                              type: .error)
         }
-        
     }
     
     let priceFormatter: NumberFormatter = {
@@ -99,5 +89,4 @@ class ApplePurchaseViewController: SendEthViewController {
       
       return formatter
     }()
-
 }

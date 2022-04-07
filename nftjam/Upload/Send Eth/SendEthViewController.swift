@@ -11,7 +11,7 @@ import SimpleCheckbox
 
 class SendEthViewController: UploadViewController {
     let youtubeUpload: YoutubeUpload
-    private let dataStore = UploadDataStore()
+    let dataStore = UploadDataStore()
     private var montageContainerView: UIView!
     var ethAddress: UIButton!
     var ethAddressQR: UIImageView!
@@ -109,7 +109,8 @@ class SendEthViewController: UploadViewController {
 //    }
     
     override func submit() {
-        youtubeUpload.priceToMint = 0.2
+        youtubeUpload.purchaseMedium = "eth"
+        youtubeUpload.priceToMint = 0.0062
         dataStore.uploadNFTLink(youtubeUpload: youtubeUpload) { isSuccess, error in
             if isSuccess {
                 self.dismiss(animated: true)

@@ -23,6 +23,7 @@ class YoutubeUpload {
     var ethAddress: String = ""
     var priceToMint: Double = 0.0
     var thumbnailFile: PFFileObject
+    var purchaseMedium: String = ""
     
     init(startTimeSeconds: Float, endTimeSeconds: Float, youtubeID: String, mediaLink: String, montage: MontageParse, thumbnailFile: PFFileObject) {
         self.startTimeSeconds = startTimeSeconds

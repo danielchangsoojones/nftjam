@@ -35,7 +35,14 @@ class ApplePurchaseViewController: SendEthViewController {
     }
     
     @objc private func completedPurchase(notification: Notification) {
-        print("successfully purchased")
+        youtubeUpload.purchaseMedium = "apple"
+        dataStore.uploadNFTLink(youtubeUpload: youtubeUpload) { success, error in
+            if success {
+                self.dismiss(animated: true)
+            } else {
+                BannerAlert.show(with: error)
+            }
+        }
     }
     
     private func updateUI() {

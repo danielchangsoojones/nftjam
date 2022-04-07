@@ -9,9 +9,9 @@ import Foundation
 
 public struct NFTJamProducts {
   
-  public static let nftvideo1999 = "danielchangsoojones.nftjam.nftvideo"
+  public static let nftvideo1999v2 = "danielchangsoojones.nftjam.nftvideo1999v2"
   
-  private static let productIdentifiers: Set<ProductIdentifier> = [NFTJamProducts.nftvideo1999]
+  private static let productIdentifiers: Set<ProductIdentifier> = [NFTJamProducts.nftvideo1999v2]
 
   public static let store = IAPHelper(productIds: NFTJamProducts.productIdentifiers)
 }

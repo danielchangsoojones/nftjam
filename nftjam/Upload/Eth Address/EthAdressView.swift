@@ -18,12 +18,10 @@ class EthAdressView: UploadView {
         textField.autocapitalizationType = .none
         textField.spellCheckingType = .no
         textField.clearButtonMode = .whileEditing
-        if User.current()?.email != "testerapple@gmail.com" {
-            textField.attributedPlaceholder = NSAttributedString(
-                string: "i.e. 0x71C7656EC7ab88b098defB751B7401B5f6d8976F",
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)]
-            )
-        }
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "i.e. 0x71C7656EC7ab88b098defB751B7401B5f6d8976F",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.4)]
+        )
         return textField
     }()
     

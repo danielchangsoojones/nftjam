@@ -34,12 +34,15 @@ class EthAddressViewController: UploadViewController {
     }
     
     override func submit() {
-        if User.current()?.email == "testerapple@gmail.com" {
-            self.dismiss(animated: true)
-        } else if let text = addressTextField.text, !text.isEmpty {
+        if let text = addressTextField.text, !text.isEmpty {
             youtubeUpload.ethAddress = text
-            let sendEthVC = SendEthViewController(youtubeUpload: youtubeUpload)
-            navigationController?.pushViewController(sendEthVC, animated: true)
+            if User.current()?.email == "testerapple@gmail.com" {
+                let applePurchaseVC = ApplePurchaseViewController(youtubeUpload: youtubeUpload)
+                navigationController?.pushViewController(applePurchaseVC, animated: true)
+            } else {
+                let paymentOptionVC = PaymentOptionViewController(youtubeUpload: youtubeUpload)
+                navigationController?.pushViewController(paymentOptionVC, animated: true)
+            }
         } else {
             BannerAlert.show(title: "Empty Address",
                              subtitle: "please input your ethereum address to continue",

@@ -53,9 +53,13 @@ class ApplePurchaseViewController: SendEthViewController {
         sendInfoLabel.isHidden = true
         checkBox.isHidden = true
         
-        infoButton.snp.remakeConstraints { make in
-            make.top.equalTo(titlelLabel.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(10)
+        if User.current()?.email == "testerapple@gmail.com" {
+            infoButton.isHidden = true
+        } else {
+            infoButton.snp.remakeConstraints { make in
+                make.top.equalTo(titlelLabel.snp.bottom).offset(10)
+                make.leading.trailing.equalToSuperview().inset(10)
+            }
         }
         
         checkBoxLabel.text = "After purchase, we will mint your NFT and send it to your Ethereum wallet. Then, it will be added to the montage\n\nPrice:$19.99"

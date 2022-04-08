@@ -10,6 +10,7 @@ import StoreKit
 
 class ApplePurchaseViewController: SendEthViewController {
     private var products: [SKProduct] = []
+    private var spinningView: UIView?
     
     override init(youtubeUpload: YoutubeUpload) {
         super.init(youtubeUpload: youtubeUpload)
@@ -37,6 +38,7 @@ class ApplePurchaseViewController: SendEthViewController {
     @objc private func completedPurchase(notification: Notification) {
         youtubeUpload.purchaseMedium = "apple"
         dataStore.uploadNFTLink(youtubeUpload: youtubeUpload) { success, error in
+            self.spinningView?.removeFromSuperview()
             if success {
                 self.dismiss(animated: true)
             } else {
@@ -92,6 +94,7 @@ class ApplePurchaseViewController: SendEthViewController {
     }
     
     override func submit() {
+        self.spinningView = Helpers.showActivityIndicatory(in: self.view)
         print("buying product")
         if let product = products.first {
             NFTJamProducts.store.buyProduct(product)

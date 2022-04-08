@@ -63,6 +63,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         User.registerSubclass()
         NFTVideoParse.registerSubclass()
         MontageParse.registerSubclass()
+        MyConfigurationParse.registerSubclass()
+        loadConfig()
+    }
+    
+    private func loadConfig() {
+        let query = MyConfigurationParse.query() as! PFQuery<MyConfigurationParse>
+        query.getFirstObjectInBackground { config, error in
+            MyConfigurationParse.shared = config
+        }
     }
 }
 

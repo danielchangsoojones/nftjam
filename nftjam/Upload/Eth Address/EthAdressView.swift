@@ -34,7 +34,7 @@ class EthAdressView: UploadView {
     let descriptionLabel: TTTAttributedLabel = {
         let tLabel = TTTAttributedLabel(frame: .zero)
         
-        if User.current()?.email != "testerapple@gmail.com" {
+        if !(MyConfigurationParse.shared?.isHiding ?? false) {
             let linkStr = "Learn about the beta ->"
             let nonLinkString = "Your Ethereum address is where we will send your earnings. Everytime a new NFT is added onto the montage, your NFT earns part of the proceeds."
             let str = nonLinkString + " \(linkStr)"
@@ -55,9 +55,6 @@ class EthAdressView: UploadView {
         super.init(frame: frame)
         backgroundColor = .spaceGray
         titleLabel.text = "Enter your Ethereum Address"
-        if User.current()?.email == "testerapple@gmail.com" {
-            titleLabel.text = "Enter your name"
-        }
         submitButton.setTitle("Next", for: .normal)
         setConstraints()
     }

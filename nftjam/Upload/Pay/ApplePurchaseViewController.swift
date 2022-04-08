@@ -53,7 +53,9 @@ class ApplePurchaseViewController: SendEthViewController {
         sendInfoLabel.isHidden = true
         checkBox.isHidden = true
         
-        if User.current()?.email == "testerapple@gmail.com" {
+        
+        
+        if (MyConfigurationParse.shared?.isHiding ?? false) {
             infoButton.isHidden = true
         } else {
             infoButton.snp.remakeConstraints { make in

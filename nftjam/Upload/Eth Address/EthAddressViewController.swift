@@ -36,7 +36,7 @@ class EthAddressViewController: UploadViewController {
     override func submit() {
         if let text = addressTextField.text, !text.isEmpty {
             youtubeUpload.ethAddress = text
-            if User.current()?.email == "testerapple@gmail.com" {
+            if (MyConfigurationParse.shared?.isHiding ?? false) {
                 let applePurchaseVC = ApplePurchaseViewController(youtubeUpload: youtubeUpload)
                 navigationController?.pushViewController(applePurchaseVC, animated: true)
             } else {

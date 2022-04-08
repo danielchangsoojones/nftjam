@@ -57,14 +57,16 @@ class ApplePurchaseViewController: SendEthViewController {
         
         if (MyConfigurationParse.shared?.isHiding ?? false) {
             infoButton.isHidden = true
+            checkBoxLabel.text = "Price:$19.99"
         } else {
+            checkBoxLabel.text = "After purchase, we will mint your NFT and send it to your Ethereum wallet. Then, it will be added to the montage\n\nPrice:$19.99"
             infoButton.snp.remakeConstraints { make in
                 make.top.equalTo(titlelLabel.snp.bottom).offset(10)
                 make.leading.trailing.equalToSuperview().inset(10)
             }
         }
         
-        checkBoxLabel.text = "After purchase, we will mint your NFT and send it to your Ethereum wallet. Then, it will be added to the montage\n\nPrice:$19.99"
+        
         checkBoxLabel.numberOfLines = 0
         checkBoxLabel.textAlignment = .center
         checkBoxLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)

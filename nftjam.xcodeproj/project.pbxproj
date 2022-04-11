@@ -692,7 +692,7 @@
 				DEVELOPMENT_TEAM = WGU25444T9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nftjam/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = NFTtube;
+				INFOPLIST_KEY_CFBundleDisplayName = "Nomad NFT";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We access your location to provide better discovery suggestions!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -726,7 +726,7 @@
 				DEVELOPMENT_TEAM = WGU25444T9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nftjam/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = NFTtube;
+				INFOPLIST_KEY_CFBundleDisplayName = "Nomad NFT";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We access your location to provide better discovery suggestions!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -813,7 +813,7 @@
 				DEVELOPMENT_TEAM = WGU25444T9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nftjam/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = NFTtube;
+				INFOPLIST_KEY_CFBundleDisplayName = "Nomad NFT";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We access your location to provide better discovery suggestions!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

@@ -20,7 +20,7 @@ class DiscoverViewController: UIViewController {
         setTableView()
         loadPhotos()
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold), NSAttributedString.Key.foregroundColor: UIColor.white]
-        title = "NFTtube"
+        title = "Nomad NFT"
     }
     
     private func setMenuNavItem() {
